@@ -1,13 +1,13 @@
 <div class="cDSA chat-card" data-actor-id="{{actorId}}" data-hide={{hideData}}>
-    {{> systems/cDSA/templates/chat/roll/test-card.html}}
+	{{> systems/cDSA/templates/chat/roll/test-card.html}}
 
-    <div class="card-content">
-        <b>{{localize "damage"}}</b>: {{{diceThingsUp testData.damageeffect}}}
-    </div>
-    <div class="card-content">
-        <b>{{localize "duration"}}</b>: {{testData.duration}}
-    </div>
-    <div class="card-content">
-        <b>{{localize "incubation"}}</b>: {{testData.preData.source.data.incubation.value}}
-    </div>
+	<div class="card-content">
+		<b>{{localize "damage"}}</b>: {{{diceThingsUp testData.damageeffect}}}
+	</div>
+	<div class="card-content">
+		<b>{{localize "duration"}}</b>: {{testData.duration}}
+	</div>
+	<div class="card-content">
+		<b>{{localize "incubation"}}</b>: {{testData.preData.source.data.incubation.value}}
+	</div>
 </div>

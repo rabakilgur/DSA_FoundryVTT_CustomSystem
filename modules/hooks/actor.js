@@ -1,64 +1,64 @@
 import cDSA from "../system/config-cDSA.js"
 
 export default function() {
-    Hooks.on("preCreateActor", (createData) => {
+	Hooks.on("preCreateActor", (createData) => {
 
-        if (!createData.token)
-            mergeObject(createData, {
-                "token.bar1": { "attribute": "status.wounds" },
-                "token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-                "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-                "token.disposition": CONST.TOKEN_DISPOSITIONS.NEUTRAL,
-                "token.name": createData.name
-            })
+		if (!createData.token)
+			mergeObject(createData, {
+				"token.bar1": { "attribute": "status.wounds" },
+				"token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+				"token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+				"token.disposition": CONST.TOKEN_DISPOSITIONS.NEUTRAL,
+				"token.name": createData.name
+			})
 
-        if (!createData.img)
-            createData.img = "systems/cDSA/tokens/unknown.webp"
+		if (!createData.img)
+			createData.img = "systems/cDSA/tokens/unknown.webp"
 
-        if (createData.type == "character") {
-            createData.token.vision = true;
-            createData.token.brightSight = game.settings.get('cDSA', 'defaultBrightVision');
-            createData.token.dimSight = game.settings.get('cDSA', 'defaultDimVision');
-            createData.token.actorLink = true;
-        }
+		if (createData.type == "character") {
+			createData.token.vision = true;
+			createData.token.brightSight = game.settings.get('cDSA', 'defaultBrightVision');
+			createData.token.dimSight = game.settings.get('cDSA', 'defaultDimVision');
+			createData.token.actorLink = true;
+		}
 
-    })
+	})
 
-    Hooks.on("preUpdateActor", (actor, updatedData) => {
+	Hooks.on("preUpdateActor", (actor, updatedData) => {
 
-        if (actor.data.isMage) {
-            mergeObject(updatedData, {
-                "token.bar2": { "attribute": "status.astralenergy" }
-            });
-        } else if (actor.data.isPriest) {
-            mergeObject(updatedData, {
-                "token.bar2": { "attribute": "status.karmaenergy" }
-            });
-        } else {
-            mergeObject(updatedData, {
-                "token.bar2": {}
-            });
-        }
-    })
+		if (actor.data.isMage) {
+			mergeObject(updatedData, {
+				"token.bar2": { "attribute": "status.astralenergy" }
+			});
+		} else if (actor.data.isPriest) {
+			mergeObject(updatedData, {
+				"token.bar2": { "attribute": "status.karmaenergy" }
+			});
+		} else {
+			mergeObject(updatedData, {
+				"token.bar2": {}
+			});
+		}
+	})
 
-    Hooks.on('preCreateToken', (scene, data, options, userId) => {
-        const actor = game.actors.get(data.actorId);
-        if (!actor || data.actorLink)
-            return;
+	Hooks.on('preCreateToken', (scene, data, options, userId) => {
+		const actor = game.actors.get(data.actorId);
+		if (!actor || data.actorLink)
+			return;
 
-        if (actor.data.type == "creature") {
-            let tokenSize = cDSA.tokenSizeCategories[actor.data.data.status.size.value]
-            if (tokenSize) {
-                if (tokenSize < 1) {
-                    data.scale = tokenSize;
-                    data.width = data.height = 1;
-                } else {
-                    const int = Math.floor(tokenSize);
-                    data.width = data.height = int;
-                    data.scale = tokenSize / int;
-                    data.scale = Math.max(data.scale, 0.25);
-                }
-            }
-        }
-    })
+		if (actor.data.type == "creature") {
+			let tokenSize = cDSA.tokenSizeCategories[actor.data.data.status.size.value]
+			if (tokenSize) {
+				if (tokenSize < 1) {
+					data.scale = tokenSize;
+					data.width = data.height = 1;
+				} else {
+					const int = Math.floor(tokenSize);
+					data.width = data.height = int;
+					data.scale = tokenSize / int;
+					data.scale = Math.max(data.scale, 0.25);
+				}
+			}
+		}
+	})
 }

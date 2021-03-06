@@ -1,305 +1,305 @@
 {{> systems/cDSA/templates/actors/parts/characteristics-large.html}}
 
 <div class="main-row">
-    <div class="column1">
-        <div class="groupbox">
-            <div class="advantages row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "advantages"}}</b>
-                </div>
-            </div>
-            <div class="row-section wrap cards">
-                {{#each actor.advantages as |item i|}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+	<div class="column1">
+		<div class="groupbox">
+			<div class="advantages row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "advantages"}}</b>
+				</div>
+			</div>
+			<div class="row-section wrap cards">
+				{{#each actor.advantages as |item i|}}
+				<div class="item" data-item-id="{{item._id}}">
+					<a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 
-        <div class="groupbox">
-            <div class="disadvantages row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "disadvantages"}}</b>
-                </div>
-            </div>
-            <div class="row-section wrap cards">
-                {{#each actor.disadvantages as |item i|}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+		<div class="groupbox">
+			<div class="disadvantages row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "disadvantages"}}</b>
+				</div>
+			</div>
+			<div class="row-section wrap cards">
+				{{#each actor.disadvantages as |item i|}}
+				<div class="item" data-item-id="{{item._id}}">
+					<a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 
-        <div class="groupbox">
-            <div class="generalSpecialAbilities row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "generalSpecialAbilities"}}</b>
-                </div>
-            </div>
-            <div class="row-section wrap cards">
-                {{#each actor.specAbs.general as |item i|}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <a class="item-edit">{{item.name}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+		<div class="groupbox">
+			<div class="generalSpecialAbilities row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "generalSpecialAbilities"}}</b>
+				</div>
+			</div>
+			<div class="row-section wrap cards">
+				{{#each actor.specAbs.general as |item i|}}
+				<div class="item" data-item-id="{{item._id}}">
+					<a class="item-edit">{{item.name}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 
-        <div class="groupbox">
-            <div class="generalSpecialAbilities row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "language"}}</b> <span title="{{localize 'freeLanguagePoint'}}">{{actor.languagePoints.used}} / {{actor.languagePoints.available}}</span>
-                </div>
-            </div>
-            <div class="row-section wrap cards">
-                {{#each actor.specAbs.language as |item i|}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+		<div class="groupbox">
+			<div class="generalSpecialAbilities row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "language"}}</b> <span title="{{localize 'freeLanguagePoint'}}">{{actor.languagePoints.used}} / {{actor.languagePoints.available}}</span>
+				</div>
+			</div>
+			<div class="row-section wrap cards">
+				{{#each actor.specAbs.language as |item i|}}
+				<div class="item" data-item-id="{{item._id}}">
+					<a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 
-        <div class="groupbox">
-            <div class="fatePointsAbilities row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "fatePointsAbilities"}}</b>
-                </div>
-            </div>
-            <div class="row-section wrap cards">
-                {{#each actor.specAbs.fatePoints as |item i|}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
+		<div class="groupbox">
+			<div class="fatePointsAbilities row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "fatePointsAbilities"}}</b>
+				</div>
+			</div>
+			<div class="row-section wrap cards">
+				{{#each actor.specAbs.fatePoints as |item i|}}
+				<div class="item" data-item-id="{{item._id}}">
+					<a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 
-    <div class="column2">
-        <div class="groupbox">
-            <div class="derivedAttrs row-section">
-                <div class="col two">
-                </div>
-                <div class="col eight very-small center" title="{{localize 'value'}}">
-                    {{localize "ABBR.value"}}
-                </div>
-                <div class="col eight very-small center" title="{{localize 'Modifiers'}}">
-                    {{localize "ABBR.modifiers"}}
-                </div>
-                <div class="col eight very-small center" title="{{localize 'Advances'}}">
-                    {{localize "ABBR.advances"}}
-                </div>
-                <div class="col eight very-small center" title="{{localize 'max'}}">
-                    {{localize "ABBR.max"}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "wounds"}}
-                    <a data-attr="wounds" class="advance refund-points"><i title="{{data.status.wounds.refund}}" class="fas fa-minus"></i></a>
-                    <a data-attr="wounds" class="advance advance-points"><i title="{{data.status.wounds.cost}}" class="fas fa-plus"></i></a>
-                    <span class="buttons">
-                        <a data-char="regenerate" class="ch-regenerate item" data-mod="regenerate" title="{{localize 'regenerate'}}">&nbsp;<i class="fas fa-moon-o"></i></a>
-                    </span>
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.wounds.current}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.wounds.modifier" type="text" value="{{data.status.wounds.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.wounds.advances" type="text" value="{{data.status.wounds.advances}}" data-dtype="Number" />
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.wounds.max}}
-                </div>
-            </div>
-            {{#if actor.magic.hasSpells}}
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "astralenergy"}}
-                    <a data-attr="astralenergy" class="advance refund-points"><i title="{{data.status.astralenergy.refund}}" class="fas fa-minus"></i></a>
-                    <a data-attr="astralenergy" class="advance advance-points"><i title="{{data.status.astralenergy.cost}}" class="fas fa-plus"></i></a>
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.astralenergy.current}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.astralenergy.modifier" type="text" value="{{data.status.astralenergy.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.astralenergy.advances" type="text" value="{{data.status.astralenergy.advances}}" data-dtype="Number" />
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.astralenergy.max}}
+	<div class="column2">
+		<div class="groupbox">
+			<div class="derivedAttrs row-section">
+				<div class="col two">
+				</div>
+				<div class="col eight very-small center" title="{{localize 'value'}}">
+					{{localize "ABBR.value"}}
+				</div>
+				<div class="col eight very-small center" title="{{localize 'Modifiers'}}">
+					{{localize "ABBR.modifiers"}}
+				</div>
+				<div class="col eight very-small center" title="{{localize 'Advances'}}">
+					{{localize "ABBR.advances"}}
+				</div>
+				<div class="col eight very-small center" title="{{localize 'max'}}">
+					{{localize "ABBR.max"}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "wounds"}}
+					<a data-attr="wounds" class="advance refund-points"><i title="{{data.status.wounds.refund}}" class="fas fa-minus"></i></a>
+					<a data-attr="wounds" class="advance advance-points"><i title="{{data.status.wounds.cost}}" class="fas fa-plus"></i></a>
+					<span class="buttons">
+						<a data-char="regenerate" class="ch-regenerate item" data-mod="regenerate" title="{{localize 'regenerate'}}">&nbsp;<i class="fas fa-moon-o"></i></a>
+					</span>
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.wounds.current}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.wounds.modifier" type="text" value="{{data.status.wounds.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight center">
+					<input name="data.status.wounds.advances" type="text" value="{{data.status.wounds.advances}}" data-dtype="Number" />
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.wounds.max}}
+				</div>
+			</div>
+			{{#if actor.magic.hasSpells}}
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "astralenergy"}}
+					<a data-attr="astralenergy" class="advance refund-points"><i title="{{data.status.astralenergy.refund}}" class="fas fa-minus"></i></a>
+					<a data-attr="astralenergy" class="advance advance-points"><i title="{{data.status.astralenergy.cost}}" class="fas fa-plus"></i></a>
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.astralenergy.current}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.astralenergy.modifier" type="text" value="{{data.status.astralenergy.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight center">
+					<input name="data.status.astralenergy.advances" type="text" value="{{data.status.astralenergy.advances}}" data-dtype="Number" />
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.astralenergy.max}}
 
-                </div>
-            </div>
-            {{/if}} {{#if actor.magic.hasPrayers}}
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "karmaenergy"}}
-                    <a data-attr="karmaenergy" class="advance refund-points"><i title="{{data.status.karmaenergy.refund}}"
-                        class="fas fa-minus"></i></a>
-                    <a data-attr="karmaenergy" class="advance advance-points"><i title="{{data.status.karmaenergy.cost}}"
-                            class="fas fa-plus"></i></a>
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.karmaenergy.current}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.karmaenergy.modifier" type="text" value="{{data.status.karmaenergy.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.karmaenergy.advances" type="text" value="{{data.status.karmaenergy.advances}}" data-dtype="Number" />
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.karmaenergy.max}}
-                </div>
-            </div>
-            {{/if}}
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "soulpower"}}
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.soulpower.value}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.soulpower.modifier" type="text" value="{{data.status.soulpower.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+			</div>
+			{{/if}} {{#if actor.magic.hasPrayers}}
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "karmaenergy"}}
+					<a data-attr="karmaenergy" class="advance refund-points"><i title="{{data.status.karmaenergy.refund}}"
+						class="fas fa-minus"></i></a>
+					<a data-attr="karmaenergy" class="advance advance-points"><i title="{{data.status.karmaenergy.cost}}"
+							class="fas fa-plus"></i></a>
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.karmaenergy.current}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.karmaenergy.modifier" type="text" value="{{data.status.karmaenergy.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight center">
+					<input name="data.status.karmaenergy.advances" type="text" value="{{data.status.karmaenergy.advances}}" data-dtype="Number" />
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.karmaenergy.max}}
+				</div>
+			</div>
+			{{/if}}
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "soulpower"}}
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.soulpower.value}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.soulpower.modifier" type="text" value="{{data.status.soulpower.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.soulpower.max}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "toughness"}}
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.toughness.value}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.toughness.modifier" type="text" value="{{data.status.toughness.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.soulpower.max}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "toughness"}}
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.toughness.value}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.toughness.modifier" type="text" value="{{data.status.toughness.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.toughness.max}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "dodge"}}
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.dodge.value}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.dodge.modifier" type="text" value="{{data.status.dodge.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.toughness.max}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "dodge"}}
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.dodge.value}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.dodge.modifier" type="text" value="{{data.status.dodge.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.dodge.max}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "speed"}}
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.speed.initial}}
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.speed.modifier" type="text" value="{{data.status.speed.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.dodge.max}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "speed"}}
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.speed.initial}}
+				</div>
+				<div class="col eight center">
+					<input name="data.status.speed.modifier" type="text" value="{{data.status.speed.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.speed.max}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "initiative"}}
-                </div>
-                <div class="col eight lineheight center">
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.initiative.modifier" type="text" value="{{data.status.initiative.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.speed.max}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "initiative"}}
+				</div>
+				<div class="col eight lineheight center">
+				</div>
+				<div class="col eight center">
+					<input name="data.status.initiative.modifier" type="text" value="{{data.status.initiative.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{floor data.status.initiative.value}}
-                </div>
-            </div>
-            <div class="derivedAttrs row-section">
-                <div class="col two lineheight">
-                    {{localize "fatePoints"}}
-                </div>
-                <div class="col eight lineheight center">
-                    <input name="data.status.fatePoints.current" type="text" value="{{data.status.fatePoints.current}}" data-dtype="Number" />
-                </div>
-                <div class="col eight center">
-                    <input name="data.status.fatePoints.modifier" type="text" value="{{data.status.fatePoints.modifier}}" data-dtype="Number" />
-                </div>
-                <div class="col eight">
+				</div>
+				<div class="col eight lineheight center">
+					{{floor data.status.initiative.value}}
+				</div>
+			</div>
+			<div class="derivedAttrs row-section">
+				<div class="col two lineheight">
+					{{localize "fatePoints"}}
+				</div>
+				<div class="col eight lineheight center">
+					<input name="data.status.fatePoints.current" type="text" value="{{data.status.fatePoints.current}}" data-dtype="Number" />
+				</div>
+				<div class="col eight center">
+					<input name="data.status.fatePoints.modifier" type="text" value="{{data.status.fatePoints.modifier}}" data-dtype="Number" />
+				</div>
+				<div class="col eight">
 
-                </div>
-                <div class="col eight lineheight center">
-                    {{data.status.fatePoints.max}}
-                </div>
-            </div>
-        </div>
+				</div>
+				<div class="col eight lineheight center">
+					{{data.status.fatePoints.max}}
+				</div>
+			</div>
+		</div>
 
-        <div class="groupbox">
-            <div class="experience row-section">
-                <div class="col header-label lineheight">
-                    <b>{{localize "Experience"}}</b>
-                </div>
-            </div>
-            <div class="experience row-section">
-                <div class="col center">
-                    {{localize data.details.experience.description}}
-                </div>
-            </div>
-            <div class="experience row-section">
-                <div class="col three header-label">
-                    {{localize "Current"}}
-                </div>
-                <div class="col three header-label">
-                    {{localize "Spent"}}
-                </div>
-                <div class="col three header-label">
-                    {{localize "Total"}}
-                </div>
-            </div>
-            <div class="experience row-section">
-                <div class="col three lineheight center">
-                    {{data.details.experience.current}}
-                </div>
-                <div class="col three center">
-                    <input name="data.details.experience.spent" type="text" value="{{data.details.experience.spent}}" data-dtype="Number" />
-                </div>
-                <div class="col three center">
-                    <input name="data.details.experience.total" type="text" value="{{data.details.experience.total}}" data-dtype="Number" />
-                </div>
+		<div class="groupbox">
+			<div class="experience row-section">
+				<div class="col header-label lineheight">
+					<b>{{localize "Experience"}}</b>
+				</div>
+			</div>
+			<div class="experience row-section">
+				<div class="col center">
+					{{localize data.details.experience.description}}
+				</div>
+			</div>
+			<div class="experience row-section">
+				<div class="col three header-label">
+					{{localize "Current"}}
+				</div>
+				<div class="col three header-label">
+					{{localize "Spent"}}
+				</div>
+				<div class="col three header-label">
+					{{localize "Total"}}
+				</div>
+			</div>
+			<div class="experience row-section">
+				<div class="col three lineheight center">
+					{{data.details.experience.current}}
+				</div>
+				<div class="col three center">
+					<input name="data.details.experience.spent" type="text" value="{{data.details.experience.spent}}" data-dtype="Number" />
+				</div>
+				<div class="col three center">
+					<input name="data.details.experience.total" type="text" value="{{data.details.experience.total}}" data-dtype="Number" />
+				</div>
 
-            </div>
-        </div>
+			</div>
+		</div>
 
-    </div>
+	</div>
 </div>

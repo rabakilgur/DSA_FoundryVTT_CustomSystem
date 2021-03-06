@@ -1228,7 +1228,7 @@ export default class ActorcDSA extends Actor {
 
 			return this.data.effects.find(i => getProperty(i, "flags.core.statusId") == conditionKey)
 				//return this.data.effects.find(i => {
-				//    return i.flags && i.flags.core && i.flags.core.statusId == conditionKey
+				//	return i.flags && i.flags.core && i.flags.core.statusId == conditionKey
 				//})
 
 		}

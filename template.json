@@ -1,982 +1,982 @@
 {
-    "Actor": {
-        "types": [
-            "character",
-            "creature",
-            "npc"
-        ],
-        "templates": {
-            "characteristics": {
-                "characteristics": {
-                    "mu": {
-                        "label": "CHAR.MU",
-                        "abrev": "CHARAbbrev.MU",
-                        "color": "#b3241a",
-                        "initial": 8,
-                        "species": 0,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "kl": {
-                        "label": "CHAR.KL",
-                        "abrev": "CHARAbbrev.KL",
-                        "color": "#8259a3",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "in": {
-                        "label": "CHAR.IN",
-                        "abrev": "CHARAbbrev.IN",
-                        "color": "#388834",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "ch": {
-                        "label": "CHAR.CH",
-                        "abrev": "CHARAbbrev.CH",
-                        "color": "#0d0d0d",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "ff": {
-                        "label": "CHAR.FF",
-                        "abrev": "CHARAbbrev.FF",
-                        "color": "#d5b467",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "ge": {
-                        "label": "CHAR.GE",
-                        "abrev": "CHARAbbrev.GE",
-                        "color": "#688ec4",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "ko": {
-                        "label": "CHAR.KO",
-                        "abrev": "CHARAbbrev.KO",
-                        "color": "#fbf5ea",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    },
-                    "kk": {
-                        "label": "CHAR.KK",
-                        "abrev": "CHARAbbrev.KK",
-                        "color": "#d6a878",
-                        "species": 0,
-                        "initial": 8,
-                        "modifier": 0,
-                        "advances": 0
-                    }
-                }
-            },
-            "status": {
-                "status": {
-                    "wounds": {
-                        "initial": 0,
-                        "value": 0,
-                        "advances": 0,
-                        "modifier": 0,
-                        "current": 8
-                    },
-                    "astralenergy": {
-                        "initial": 0,
-                        "value": 0,
-                        "advances": 0,
-                        "modifier": 0,
-                        "current": 0
-                    },
-                    "karmaenergy": {
-                        "initial": 0,
-                        "value": 0,
-                        "advances": 0,
-                        "modifier": 0,
-                        "current": 0
-                    },
-                    "soulpower": {
-                        "initial": 0,
-                        "value": 0,
-                        "modifier": 0
-                    },
-                    "toughness": {
-                        "initial": 0,
-                        "value": 0,
-                        "modifier": 0
-                    },
-                    "dodge": {
-                        "value": 0,
-                        "modifier": 0
-                    },
-                    "fatePoints": {
-                        "value": 3,
-                        "modifier": 0,
-                        "current": 3
-                    },
-                    "speed": {
-                        "initial": 0,
-                        "modifier": 0,
-                        "value": 0
-                    },
-                    "initiative": {
-                        "value": 0,
-                        "modifier": 0,
-                        "current": 0
-                    },
-                    "size": {
-                        "value": "average"
-                    }
-                }
-            },
-            "magic": {
-                "guidevalue": {
-                    "magical": "-",
-                    "clerical": "-"
-                },
-                "tradition": {
-                    "magical": "",
-                    "clerical": ""
-                },
-                "feature": {
-                    "magical": "",
-                    "clerical": ""
-                },
-                "happyTalents": {
-                    "value": ""
-                }
-            },
-            "details": {
-                "details": {
-                    "species": {
-                        "value": ""
-                    },
-                    "gender": {
-                        "value": ""
-                    },
-                    "culture": {
-                        "value": ""
-                    },
-                    "career": {
-                        "value": ""
-                    },
-                    "socialstate": {
-                        "value": ""
-                    },
-                    "home": {
-                        "value": ""
-                    },
-                    "family": {
-                        "value": ""
-                    },
-                    "age": {
-                        "value": ""
-                    },
-                    "haircolor": {
-                        "value": ""
-                    },
-                    "eyecolor": {
-                        "value": ""
-                    },
-                    "height": {
-                        "value": ""
-                    },
-                    "weight": {
-                        "value": ""
-                    },
-                    "distinguishingmark": {
-                        "value": ""
-                    },
-                    "biography": {
-                        "value": ""
-                    },
-                    "notes": {
-                        "value": "",
-                        "gmdescription": ""
-                    }
-                }
-            }
-        },
-        "character": {
-            "templates": [
-                "characteristics",
-                "status",
-                "details",
-                "magic"
-            ],
-            "details": {
-                "experience": {
-                    "total": 0,
-                    "spent": 0
-                }
-            },
-            "freeLanguagePoints": {
-                "value": 0,
-                "used": 0
-            },
-            "sheetLocked": {
-                "value": false
-            }
-        },
-        "npc": {
-            "templates": [
-                "characteristics",
-                "status",
-                "details",
-                "magic"
-            ],
-            "sheetLocked": {
-                "value": false
-            }
-        },
-        "creature": {
-            "templates": [
-                "characteristics",
-                "status",
-                "magic"
-            ],
-            "details": {
-                "experience": {
-                    "total": 0,
-                    "spent": 0
-                }
-            },
-            "actionCount": {
-                "value": 1
-            },
-            "count": {
-                "value": "1",
-                "label": "count"
-            },
-            "creatureClass": {
-                "value": ""
-            },
-            "behaviour": {
-                "value": ""
-            },
-            "flight": {
-                "value": ""
-            },
-            "specialRules": {
-                "value": ""
-            },
-            "conjuringDifficulty": {
-                "value": 0
-            },
-            "description": {
-                "value": ""
-            },
-            "sheetLocked": {
-                "value": false
-            }
-        }
-    },
-    "Item": {
-        "types": [
-            "equipment",
-            "armor",
-            "ammunition",
-            "rangeweapon",
-            "meleeweapon",
-            "skill",
-            "combatskill",
-            "specialability",
-            "advantage",
-            "disadvantage",
-            "trait",
-            "money",
-            "species",
-            "career",
-            "culture",
-            "spell",
-            "liturgy",
-            "blessing",
-            "magictrick",
-            "ceremony",
-            "ritual",
-            "aggregatedTest",
-            "poison",
-            "disease",
-            "consumable",
-            "spellextension"
-        ],
-        "templates": {
-            "skill": {
-                "StF": {
-                    "value": "A"
-                }
-            },
-            "equipment": {
-                "price": {
-                    "value": 0
-                },
-                "quantity": {
-                    "value": 1
-                },
-                "weight": {
-                    "value": 0
-                },
-                "effect": {
-                    "value": ""
-                }
-            },
-            "encumbrance": {
-                "encumbrance": {
-                    "value": 0
-                }
-            },
-            "requirements": {
-                "requirements": {
-                    "value": ""
-                }
-            },
-            "APValue": {
-                "APValue": {
-                    "value": "0"
-                }
-            },
-            "max": {
-                "max": {
-                    "value": 0
-                }
-            },
-            "basicSpell": {
-                "range": {
-                    "value": ""
-                },
-                "duration": {
-                    "value": ""
-                },
-                "targetCategory": {
-                    "value": ""
-                }
-            },
-            "spell": {
-                "characteristic1": {
-                    "value": "mu"
-                },
-                "characteristic2": {
-                    "value": "mu"
-                },
-                "characteristic3": {
-                    "value": "mu"
-                },
-                "effect": {
-                    "value": ""
-                },
-                "castingTime": {
-                    "value": "1"
-                },
-                "AsPCost": {
-                    "value": 0
-                },
-                "AsPCostDetail": {
-                    "value": "0"
-                },
-                "maintainCost": {
-                    "value": ""
-                },
-                "distribution": {
-                    "value": ""
-                },
-                "StF": {
-                    "value": "A"
-                },
-                "resistanceModifier": {
-                    "value": "-"
-                },
-                "canChangeCastingTime": {
-                    "value": "true"
-                },
-                "canChangeCost": {
-                    "value": "true"
-                },
-                "canChangeRange": {
-                    "value": "true"
-                },
-                "variableBaseCost": "false",
-                "effectFormula": {
-                    "value": ""
-                }
-            },
-            "description": {
-                "description": {
-                    "value": ""
-                },
-                "gmdescription": {
-                    "value": ""
-                }
-            },
-            "location": {
-                "location": {
-                    "value": 0
-                }
-            }
-        },
-        "money": {
-            "templates": [
-                "description",
-                "equipment"
-            ]
-        },
-        "spellextension": {
-            "templates": [
-                "description",
-                "APValue"
-            ],
-            "talentValue": 0,
-            "effect": "",
-            "source": "",
-            "category": "spell"
-        },
-        "culture": {
-            "templates": [
-                "description",
-                "APValue"
-            ],
-            "language": {
-                "value": ""
-            },
-            "writing": {
-                "value": ""
-            },
-            "localKnowledge": {
-                "value": ""
-            },
-            "suitableProfessions": {
-                "value": ""
-            },
-            "recommendedAdvantages": {
-                "value": ""
-            },
-            "recommendedDisadvantages": {
-                "value": ""
-            },
-            "recommendedTalents": {
-                "value": ""
-            },
-            "notsuitableAdvantages": {
-                "value": ""
-            },
-            "notsuitableTalents": {
-                "value": ""
-            },
-            "notsuitableDisadvantages": {
-                "value": ""
-            },
-            "socialstate": {
-                "value": ""
-            },
-            "skills": {
-                "value": ""
-            }
-        },
-        "spell": {
-            "templates": [
-                "description",
-                "spell",
-                "basicSpell"
-            ],
-            "talentValue": {
-                "value": 0
-            },
-            "feature": ""
-        },
-        "trait": {
-            "templates": [
-                "description",
-                "APValue"
-            ],
-            "traitType": {
-                "value": "meleeAttack"
-            },
-            "at": {
-                "value": ""
-            },
-            "reach": {
-                "value": ""
-            },
-            "damage": {
-                "value": "1d6"
-            },
-            "reloadTime": {
-                "value": "1"
-            },
-            "AsPCost": {
-                "value": 0
-            },
-            "duration": {
-                "value": ""
-            },
-            "aspect": {
-                "value": ""
-            },
-            "effect": {
-                "value": ""
-            }
-        },
-        "ritual": {
-            "templates": [
-                "description",
-                "spell",
-                "basicSpell"
-            ],
-            "talentValue": {
-                "value": 0
-            },
-            "permanentCost": {
-                "value": 0
-            },
-            "feature": ""
-        },
-        "liturgy": {
-            "templates": [
-                "description",
-                "spell",
-                "basicSpell"
-            ],
-            "talentValue": {
-                "value": 0
-            }
-        },
-        "ceremony": {
-            "templates": [
-                "description",
-                "spell",
-                "basicSpell"
-            ],
-            "talentValue": {
-                "value": 0
-            },
-            "permanentCost": {
-                "value": 0
-            }
-        },
-        "blessing": {
-            "templates": [
-                "description",
-                "basicSpell"
-            ],
-            "feature": {
-                "value": ""
-            }
-        },
-        "magictrick": {
-            "templates": [
-                "description",
-                "basicSpell"
-            ],
-            "feature": {
-                "value": ""
-            }
-        },
-        "ammunition": {
-            "templates": [
-                "description",
-                "equipment"
-            ],
-            "ammunitiongroup": {
-                "value": ""
-            }
-        },
-        "consumable": {
-            "templates": [
-                "description",
-                "equipment"
-            ],
-            "equipmentType": {
-                "value": "misc"
-            },
-            "QLList": "",
-            "QL": 1,
-            "charges": 1,
-            "maxCharges": 1
-        },
-        "rangeweapon": {
-            "templates:": [
-                "equipment",
-                "description"
-            ],
-            "damage": {
-                "value": "1d6"
-            },
-            "reloadTime": {
-                "value": 1
-            },
-            "reach": {
-                "value": "5/25/40"
-            },
-            "ammunitiongroup": {
-                "value": "-"
-            },
-            "currentAmmo": {
-                "value": ""
-            },
-            "combatskill": {
-                "value": "crossbows"
-            },
-            "worn": {
-                "value": false
-            },
-            "structure": {
-                "max": 0,
-                "value": 0
-            }
-        },
-        "meleeweapon": {
-            "templates": [
-                "equipment",
-                "description"
-            ],
-            "damage": {
-                "value": "1d6"
-            },
-            "atmod": {
-                "value": 0,
-                "offhandMod": 0
-            },
-            "pamod": {
-                "value": 0,
-                "offhandMod": 0
-            },
-            "reach": {
-                "value": "medium",
-                "shieldSize": "average"
-            },
-            "damageThreshold": {
-                "value": 0
-            },
-            "guidevalue": {
-                "value": "-"
-            },
-            "combatskill": {
-                "value": "daggers"
-            },
-            "worn": {
-                "value": false,
-                "offhand": false
-            },
-            "structure": {
-                "max": 0,
-                "value": 0
-            }
-        },
-        "armor": {
-            "templates": [
-                "equipment",
-                "description",
-                "encumbrance"
-            ],
-            "protection": {
-                "value": 0
-            },
-            "worn": {
-                "value": false
-            },
-            "structure": {
-                "max": 0,
-                "value": 0
-            }
-        },
-        "career": {
-            "templates": [
-                "description",
-                "APValue",
-                "requirements"
-            ],
-            "languagePoints": {
-                "value": 0
-            },
-            "spelltrickCount": {
-                "value": 0
-            },
-            "recommendedAdvantages": {
-                "value": ""
-            },
-            "recommendedDisadvantages": {
-                "value": ""
-            },
-            "notsuitableAdvantages": {
-                "value": ""
-            },
-            "notsuitableDisadvantages": {
-                "value": ""
-            },
-            "mageLevel": {
-                "value": "mundane"
-            },
-            "skills": {
-                "value": ""
-            },
-            "guidevalue": {
-                "value": "-"
-            },
-            "tradition": {
-                "value": ""
-            },
-            "feature": {
-                "value": ""
-            },
-            "happyTalents": {
-                "value": ""
-            },
-            "spells": {
-                "value": ""
-            },
-            "spelltricks": {
-                "value": ""
-            },
-            "liturgies": {
-                "value": ""
-            },
-            "blessings": {
-                "value": ""
-            },
-            "specialAbilities": {
-                "value": ""
-            },
-            "combatSkills": {
-                "value": ""
-            },
-            "clothing": {
-                "value": ""
-            }
-        },
-        "specialability": {
-            "templates": [
-                "description",
-                "APValue",
-                "requirements"
-            ],
-            "rule": {
-                "value": ""
-            },
-            "maxRank": {
-                "value": 0
-            },
-            "step": {
-                "value": 1
-            },
-            "category": {
-                "value": "general"
-            },
-            "list": {
-                "value": ""
-            },
-            "effect": {
-                "value": ""
-            }
-        },
-        "equipment": {
-            "templates": [
-                "equipment",
-                "description"
-            ],
-            "equipmentType": {
-                "value": "misc"
-            },
-            "structure": {
-                "max": 0,
-                "value": 0
-            }
-        },
-        "advantage": {
-            "templates": [
-                "description",
-                "APValue",
-                "max",
-                "requirements"
-            ],
-            "step": {
-                "value": 1
-            },
-            "effect": {
-                "value": ""
-            }
-        },
-        "disadvantage": {
-            "templates": [
-                "description",
-                "APValue",
-                "max",
-                "requirements"
-            ],
-            "step": {
-                "value": 1
-            },
-            "effect": {
-                "value": ""
-            }
-        },
-        "species": {
-            "templates": [
-                "APValue",
-                "description"
-            ],
-            "requirements": {
-                "value": ""
-            },
-            "recommendedAdvantages": {
-                "value": ""
-            },
-            "recommendedDisadvantages": {
-                "value": ""
-            },
-            "notsuitableAdvantages": {
-                "value": ""
-            },
-            "notsuitableDisadvantages": {
-                "value": ""
-            },
-            "recommendedCultures": {
-                "value": ""
-            },
-            "attributeChange": {
-                "value": ""
-            },
-            "baseValues": {
-                "wounds": {
-                    "value": 0
-                },
-                "soulpower": {
-                    "value": 0
-                },
-                "toughness": {
-                    "value": 0
-                },
-                "speed": {
-                    "value": 0
-                }
-            }
-        },
-        "combatskill": {
-            "templates": [
-                "skill"
-            ],
-            "guidevalue": {
-                "value": "ff"
-            },
-            "parry": {
-                "value": 0
-            },
-            "attack": {
-                "value": 0
-            },
-            "talentValue": {
-                "value": 6
-            },
-            "weapontype": {
-                "value": "melee"
-            }
-        },
-        "aggregatedTest": {
-            "templates": [
-                "description"
-            ],
-            "interval": {
-                "value": ""
-            },
-            "allowedTestCount": {
-                "value": 7
-            },
-            "usedTestCount": {
-                "value": 0
-            },
-            "previousFailedTests": {
-                "value": 0
-            },
-            "talent": {
-                "value": ""
-            },
-            "cummulatedQS": {
-                "value": 0
-            }
-        },
-        "skill": {
-            "group": {
-                "value": ""
-            },
-            "talentValue": {
-                "value": 0
-            },
-            "characteristic1": {
-                "value": "mu"
-            },
-            "characteristic2": {
-                "value": "mu"
-            },
-            "characteristic3": {
-                "value": "mu"
-            },
-            "RPr": {
-                "value": "no"
-            },
-            "burden": {
-                "value": "no"
-            }
-        },
-        "poison": {
-            "templates": [
-                "description",
-                "equipment"
-            ],
-            "step": {
-                "value": 1
-            },
-            "poisonType": {
-                "value": ""
-            },
-            "resistance": {
-                "value": "ZK"
-            },
-            "effect": {
-                "value": ""
-            },
-            "start": {
-                "value": ""
-            },
-            "duration": {
-                "value": ""
-            }
-        },
-        "disease": {
-            "templates": [
-                "description"
-            ],
-            "step": {
-                "value": 1
-            },
-            "resistance": {
-                "value": "ZK"
-            },
-            "incubation": {
-                "value": ""
-            },
-            "damage": {
-                "value": ""
-            },
-            "duration": {
-                "value": ""
-            },
-            "source": {
-                "value": ""
-            },
-            "treatment": {
-                "value": ""
-            },
-            "antidot": {
-                "value": ""
-            }
-        }
-    }
+	"Actor": {
+		"types": [
+			"character",
+			"creature",
+			"npc"
+		],
+		"templates": {
+			"characteristics": {
+				"characteristics": {
+					"mu": {
+						"label": "CHAR.MU",
+						"abrev": "CHARAbbrev.MU",
+						"color": "#b3241a",
+						"initial": 8,
+						"species": 0,
+						"modifier": 0,
+						"advances": 0
+					},
+					"kl": {
+						"label": "CHAR.KL",
+						"abrev": "CHARAbbrev.KL",
+						"color": "#8259a3",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"in": {
+						"label": "CHAR.IN",
+						"abrev": "CHARAbbrev.IN",
+						"color": "#388834",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"ch": {
+						"label": "CHAR.CH",
+						"abrev": "CHARAbbrev.CH",
+						"color": "#0d0d0d",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"ff": {
+						"label": "CHAR.FF",
+						"abrev": "CHARAbbrev.FF",
+						"color": "#d5b467",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"ge": {
+						"label": "CHAR.GE",
+						"abrev": "CHARAbbrev.GE",
+						"color": "#688ec4",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"ko": {
+						"label": "CHAR.KO",
+						"abrev": "CHARAbbrev.KO",
+						"color": "#fbf5ea",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					},
+					"kk": {
+						"label": "CHAR.KK",
+						"abrev": "CHARAbbrev.KK",
+						"color": "#d6a878",
+						"species": 0,
+						"initial": 8,
+						"modifier": 0,
+						"advances": 0
+					}
+				}
+			},
+			"status": {
+				"status": {
+					"wounds": {
+						"initial": 0,
+						"value": 0,
+						"advances": 0,
+						"modifier": 0,
+						"current": 8
+					},
+					"astralenergy": {
+						"initial": 0,
+						"value": 0,
+						"advances": 0,
+						"modifier": 0,
+						"current": 0
+					},
+					"karmaenergy": {
+						"initial": 0,
+						"value": 0,
+						"advances": 0,
+						"modifier": 0,
+						"current": 0
+					},
+					"soulpower": {
+						"initial": 0,
+						"value": 0,
+						"modifier": 0
+					},
+					"toughness": {
+						"initial": 0,
+						"value": 0,
+						"modifier": 0
+					},
+					"dodge": {
+						"value": 0,
+						"modifier": 0
+					},
+					"fatePoints": {
+						"value": 3,
+						"modifier": 0,
+						"current": 3
+					},
+					"speed": {
+						"initial": 0,
+						"modifier": 0,
+						"value": 0
+					},
+					"initiative": {
+						"value": 0,
+						"modifier": 0,
+						"current": 0
+					},
+					"size": {
+						"value": "average"
+					}
+				}
+			},
+			"magic": {
+				"guidevalue": {
+					"magical": "-",
+					"clerical": "-"
+				},
+				"tradition": {
+					"magical": "",
+					"clerical": ""
+				},
+				"feature": {
+					"magical": "",
+					"clerical": ""
+				},
+				"happyTalents": {
+					"value": ""
+				}
+			},
+			"details": {
+				"details": {
+					"species": {
+						"value": ""
+					},
+					"gender": {
+						"value": ""
+					},
+					"culture": {
+						"value": ""
+					},
+					"career": {
+						"value": ""
+					},
+					"socialstate": {
+						"value": ""
+					},
+					"home": {
+						"value": ""
+					},
+					"family": {
+						"value": ""
+					},
+					"age": {
+						"value": ""
+					},
+					"haircolor": {
+						"value": ""
+					},
+					"eyecolor": {
+						"value": ""
+					},
+					"height": {
+						"value": ""
+					},
+					"weight": {
+						"value": ""
+					},
+					"distinguishingmark": {
+						"value": ""
+					},
+					"biography": {
+						"value": ""
+					},
+					"notes": {
+						"value": "",
+						"gmdescription": ""
+					}
+				}
+			}
+		},
+		"character": {
+			"templates": [
+				"characteristics",
+				"status",
+				"details",
+				"magic"
+			],
+			"details": {
+				"experience": {
+					"total": 0,
+					"spent": 0
+				}
+			},
+			"freeLanguagePoints": {
+				"value": 0,
+				"used": 0
+			},
+			"sheetLocked": {
+				"value": false
+			}
+		},
+		"npc": {
+			"templates": [
+				"characteristics",
+				"status",
+				"details",
+				"magic"
+			],
+			"sheetLocked": {
+				"value": false
+			}
+		},
+		"creature": {
+			"templates": [
+				"characteristics",
+				"status",
+				"magic"
+			],
+			"details": {
+				"experience": {
+					"total": 0,
+					"spent": 0
+				}
+			},
+			"actionCount": {
+				"value": 1
+			},
+			"count": {
+				"value": "1",
+				"label": "count"
+			},
+			"creatureClass": {
+				"value": ""
+			},
+			"behaviour": {
+				"value": ""
+			},
+			"flight": {
+				"value": ""
+			},
+			"specialRules": {
+				"value": ""
+			},
+			"conjuringDifficulty": {
+				"value": 0
+			},
+			"description": {
+				"value": ""
+			},
+			"sheetLocked": {
+				"value": false
+			}
+		}
+	},
+	"Item": {
+		"types": [
+			"equipment",
+			"armor",
+			"ammunition",
+			"rangeweapon",
+			"meleeweapon",
+			"skill",
+			"combatskill",
+			"specialability",
+			"advantage",
+			"disadvantage",
+			"trait",
+			"money",
+			"species",
+			"career",
+			"culture",
+			"spell",
+			"liturgy",
+			"blessing",
+			"magictrick",
+			"ceremony",
+			"ritual",
+			"aggregatedTest",
+			"poison",
+			"disease",
+			"consumable",
+			"spellextension"
+		],
+		"templates": {
+			"skill": {
+				"StF": {
+					"value": "A"
+				}
+			},
+			"equipment": {
+				"price": {
+					"value": 0
+				},
+				"quantity": {
+					"value": 1
+				},
+				"weight": {
+					"value": 0
+				},
+				"effect": {
+					"value": ""
+				}
+			},
+			"encumbrance": {
+				"encumbrance": {
+					"value": 0
+				}
+			},
+			"requirements": {
+				"requirements": {
+					"value": ""
+				}
+			},
+			"APValue": {
+				"APValue": {
+					"value": "0"
+				}
+			},
+			"max": {
+				"max": {
+					"value": 0
+				}
+			},
+			"basicSpell": {
+				"range": {
+					"value": ""
+				},
+				"duration": {
+					"value": ""
+				},
+				"targetCategory": {
+					"value": ""
+				}
+			},
+			"spell": {
+				"characteristic1": {
+					"value": "mu"
+				},
+				"characteristic2": {
+					"value": "mu"
+				},
+				"characteristic3": {
+					"value": "mu"
+				},
+				"effect": {
+					"value": ""
+				},
+				"castingTime": {
+					"value": "1"
+				},
+				"AsPCost": {
+					"value": 0
+				},
+				"AsPCostDetail": {
+					"value": "0"
+				},
+				"maintainCost": {
+					"value": ""
+				},
+				"distribution": {
+					"value": ""
+				},
+				"StF": {
+					"value": "A"
+				},
+				"resistanceModifier": {
+					"value": "-"
+				},
+				"canChangeCastingTime": {
+					"value": "true"
+				},
+				"canChangeCost": {
+					"value": "true"
+				},
+				"canChangeRange": {
+					"value": "true"
+				},
+				"variableBaseCost": "false",
+				"effectFormula": {
+					"value": ""
+				}
+			},
+			"description": {
+				"description": {
+					"value": ""
+				},
+				"gmdescription": {
+					"value": ""
+				}
+			},
+			"location": {
+				"location": {
+					"value": 0
+				}
+			}
+		},
+		"money": {
+			"templates": [
+				"description",
+				"equipment"
+			]
+		},
+		"spellextension": {
+			"templates": [
+				"description",
+				"APValue"
+			],
+			"talentValue": 0,
+			"effect": "",
+			"source": "",
+			"category": "spell"
+		},
+		"culture": {
+			"templates": [
+				"description",
+				"APValue"
+			],
+			"language": {
+				"value": ""
+			},
+			"writing": {
+				"value": ""
+			},
+			"localKnowledge": {
+				"value": ""
+			},
+			"suitableProfessions": {
+				"value": ""
+			},
+			"recommendedAdvantages": {
+				"value": ""
+			},
+			"recommendedDisadvantages": {
+				"value": ""
+			},
+			"recommendedTalents": {
+				"value": ""
+			},
+			"notsuitableAdvantages": {
+				"value": ""
+			},
+			"notsuitableTalents": {
+				"value": ""
+			},
+			"notsuitableDisadvantages": {
+				"value": ""
+			},
+			"socialstate": {
+				"value": ""
+			},
+			"skills": {
+				"value": ""
+			}
+		},
+		"spell": {
+			"templates": [
+				"description",
+				"spell",
+				"basicSpell"
+			],
+			"talentValue": {
+				"value": 0
+			},
+			"feature": ""
+		},
+		"trait": {
+			"templates": [
+				"description",
+				"APValue"
+			],
+			"traitType": {
+				"value": "meleeAttack"
+			},
+			"at": {
+				"value": ""
+			},
+			"reach": {
+				"value": ""
+			},
+			"damage": {
+				"value": "1d6"
+			},
+			"reloadTime": {
+				"value": "1"
+			},
+			"AsPCost": {
+				"value": 0
+			},
+			"duration": {
+				"value": ""
+			},
+			"aspect": {
+				"value": ""
+			},
+			"effect": {
+				"value": ""
+			}
+		},
+		"ritual": {
+			"templates": [
+				"description",
+				"spell",
+				"basicSpell"
+			],
+			"talentValue": {
+				"value": 0
+			},
+			"permanentCost": {
+				"value": 0
+			},
+			"feature": ""
+		},
+		"liturgy": {
+			"templates": [
+				"description",
+				"spell",
+				"basicSpell"
+			],
+			"talentValue": {
+				"value": 0
+			}
+		},
+		"ceremony": {
+			"templates": [
+				"description",
+				"spell",
+				"basicSpell"
+			],
+			"talentValue": {
+				"value": 0
+			},
+			"permanentCost": {
+				"value": 0
+			}
+		},
+		"blessing": {
+			"templates": [
+				"description",
+				"basicSpell"
+			],
+			"feature": {
+				"value": ""
+			}
+		},
+		"magictrick": {
+			"templates": [
+				"description",
+				"basicSpell"
+			],
+			"feature": {
+				"value": ""
+			}
+		},
+		"ammunition": {
+			"templates": [
+				"description",
+				"equipment"
+			],
+			"ammunitiongroup": {
+				"value": ""
+			}
+		},
+		"consumable": {
+			"templates": [
+				"description",
+				"equipment"
+			],
+			"equipmentType": {
+				"value": "misc"
+			},
+			"QLList": "",
+			"QL": 1,
+			"charges": 1,
+			"maxCharges": 1
+		},
+		"rangeweapon": {
+			"templates:": [
+				"equipment",
+				"description"
+			],
+			"damage": {
+				"value": "1d6"
+			},
+			"reloadTime": {
+				"value": 1
+			},
+			"reach": {
+				"value": "5/25/40"
+			},
+			"ammunitiongroup": {
+				"value": "-"
+			},
+			"currentAmmo": {
+				"value": ""
+			},
+			"combatskill": {
+				"value": "crossbows"
+			},
+			"worn": {
+				"value": false
+			},
+			"structure": {
+				"max": 0,
+				"value": 0
+			}
+		},
+		"meleeweapon": {
+			"templates": [
+				"equipment",
+				"description"
+			],
+			"damage": {
+				"value": "1d6"
+			},
+			"atmod": {
+				"value": 0,
+				"offhandMod": 0
+			},
+			"pamod": {
+				"value": 0,
+				"offhandMod": 0
+			},
+			"reach": {
+				"value": "medium",
+				"shieldSize": "average"
+			},
+			"damageThreshold": {
+				"value": 0
+			},
+			"guidevalue": {
+				"value": "-"
+			},
+			"combatskill": {
+				"value": "daggers"
+			},
+			"worn": {
+				"value": false,
+				"offhand": false
+			},
+			"structure": {
+				"max": 0,
+				"value": 0
+			}
+		},
+		"armor": {
+			"templates": [
+				"equipment",
+				"description",
+				"encumbrance"
+			],
+			"protection": {
+				"value": 0
+			},
+			"worn": {
+				"value": false
+			},
+			"structure": {
+				"max": 0,
+				"value": 0
+			}
+		},
+		"career": {
+			"templates": [
+				"description",
+				"APValue",
+				"requirements"
+			],
+			"languagePoints": {
+				"value": 0
+			},
+			"spelltrickCount": {
+				"value": 0
+			},
+			"recommendedAdvantages": {
+				"value": ""
+			},
+			"recommendedDisadvantages": {
+				"value": ""
+			},
+			"notsuitableAdvantages": {
+				"value": ""
+			},
+			"notsuitableDisadvantages": {
+				"value": ""
+			},
+			"mageLevel": {
+				"value": "mundane"
+			},
+			"skills": {
+				"value": ""
+			},
+			"guidevalue": {
+				"value": "-"
+			},
+			"tradition": {
+				"value": ""
+			},
+			"feature": {
+				"value": ""
+			},
+			"happyTalents": {
+				"value": ""
+			},
+			"spells": {
+				"value": ""
+			},
+			"spelltricks": {
+				"value": ""
+			},
+			"liturgies": {
+				"value": ""
+			},
+			"blessings": {
+				"value": ""
+			},
+			"specialAbilities": {
+				"value": ""
+			},
+			"combatSkills": {
+				"value": ""
+			},
+			"clothing": {
+				"value": ""
+			}
+		},
+		"specialability": {
+			"templates": [
+				"description",
+				"APValue",
+				"requirements"
+			],
+			"rule": {
+				"value": ""
+			},
+			"maxRank": {
+				"value": 0
+			},
+			"step": {
+				"value": 1
+			},
+			"category": {
+				"value": "general"
+			},
+			"list": {
+				"value": ""
+			},
+			"effect": {
+				"value": ""
+			}
+		},
+		"equipment": {
+			"templates": [
+				"equipment",
+				"description"
+			],
+			"equipmentType": {
+				"value": "misc"
+			},
+			"structure": {
+				"max": 0,
+				"value": 0
+			}
+		},
+		"advantage": {
+			"templates": [
+				"description",
+				"APValue",
+				"max",
+				"requirements"
+			],
+			"step": {
+				"value": 1
+			},
+			"effect": {
+				"value": ""
+			}
+		},
+		"disadvantage": {
+			"templates": [
+				"description",
+				"APValue",
+				"max",
+				"requirements"
+			],
+			"step": {
+				"value": 1
+			},
+			"effect": {
+				"value": ""
+			}
+		},
+		"species": {
+			"templates": [
+				"APValue",
+				"description"
+			],
+			"requirements": {
+				"value": ""
+			},
+			"recommendedAdvantages": {
+				"value": ""
+			},
+			"recommendedDisadvantages": {
+				"value": ""
+			},
+			"notsuitableAdvantages": {
+				"value": ""
+			},
+			"notsuitableDisadvantages": {
+				"value": ""
+			},
+			"recommendedCultures": {
+				"value": ""
+			},
+			"attributeChange": {
+				"value": ""
+			},
+			"baseValues": {
+				"wounds": {
+					"value": 0
+				},
+				"soulpower": {
+					"value": 0
+				},
+				"toughness": {
+					"value": 0
+				},
+				"speed": {
+					"value": 0
+				}
+			}
+		},
+		"combatskill": {
+			"templates": [
+				"skill"
+			],
+			"guidevalue": {
+				"value": "ff"
+			},
+			"parry": {
+				"value": 0
+			},
+			"attack": {
+				"value": 0
+			},
+			"talentValue": {
+				"value": 6
+			},
+			"weapontype": {
+				"value": "melee"
+			}
+		},
+		"aggregatedTest": {
+			"templates": [
+				"description"
+			],
+			"interval": {
+				"value": ""
+			},
+			"allowedTestCount": {
+				"value": 7
+			},
+			"usedTestCount": {
+				"value": 0
+			},
+			"previousFailedTests": {
+				"value": 0
+			},
+			"talent": {
+				"value": ""
+			},
+			"cummulatedQS": {
+				"value": 0
+			}
+		},
+		"skill": {
+			"group": {
+				"value": ""
+			},
+			"talentValue": {
+				"value": 0
+			},
+			"characteristic1": {
+				"value": "mu"
+			},
+			"characteristic2": {
+				"value": "mu"
+			},
+			"characteristic3": {
+				"value": "mu"
+			},
+			"RPr": {
+				"value": "no"
+			},
+			"burden": {
+				"value": "no"
+			}
+		},
+		"poison": {
+			"templates": [
+				"description",
+				"equipment"
+			],
+			"step": {
+				"value": 1
+			},
+			"poisonType": {
+				"value": ""
+			},
+			"resistance": {
+				"value": "ZK"
+			},
+			"effect": {
+				"value": ""
+			},
+			"start": {
+				"value": ""
+			},
+			"duration": {
+				"value": ""
+			}
+		},
+		"disease": {
+			"templates": [
+				"description"
+			],
+			"step": {
+				"value": 1
+			},
+			"resistance": {
+				"value": "ZK"
+			},
+			"incubation": {
+				"value": ""
+			},
+			"damage": {
+				"value": ""
+			},
+			"duration": {
+				"value": ""
+			},
+			"source": {
+				"value": ""
+			},
+			"treatment": {
+				"value": ""
+			},
+			"antidot": {
+				"value": ""
+			}
+		}
+	}
 }
