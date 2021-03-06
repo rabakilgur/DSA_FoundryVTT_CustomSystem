@@ -1,0 +1,156 @@
+<form class="dsa5 item-sheet {{cssClass}}" autocomplete="off" ondragstart="return false;" ondrop="return false;">
+    <header class="item-header">
+        <h1>
+            <input name="name" class="item-header item-name" type="text" value="{{item.name}}" placeholder="{{localize 'Name'}}" />
+        </h1>
+    </header>
+
+    <div class="row-section ">
+
+        <div class="col item-main noequipment" style="margin-bottom: 10px;">
+            <div class="row-section">
+                <div class="col fourty">
+                    <label class="label-text table-title">{{localize "Category"}}</label>
+                </div>
+                <div class="col sixty">
+                    <label>{{localize item.type}}</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <nav class="sheet-tabs tabs" data-tab-container="primary">
+        <a class="item active" data-tab="description">{{localize "Description"}}</a>
+        <a class="item" data-tab="details">{{localize "Details"}}</a>
+    </nav>
+
+
+    <section class="content career">
+
+        <div class="tab description active" data-tab="description">
+            <div class="row-section">
+                <div class="col two">
+                    {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+                </div>
+                <div class="col two">
+                    <img src="{{item.img}}" style="max-width:100%; max-height: 100%;float: left;" data-edit="img" /> {{editor content=data.clothing.value target="data.clothing.value" button=true owner=owner editable=editable}}
+                </div>
+            </div>
+        </div>
+
+        <div class="tab details" data-tab="details">
+
+            <div class="form-group">
+                <label class="label-text">{{localize "APValue"}}:</label>
+                <input class="input-text" type="text" name="data.APValue.value" value="{{data.APValue.value}}" data-dtype="Number" />
+            </div>
+
+            <div class="form-group">
+                <label class="label-text">{{localize "languagePoints"}}:</label>
+                <input class="input-text" type="text" name="data.languagePoints.value" value="{{data.languagePoints.value}}" data-dtype="Number" />
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.commaSeparated'}}">
+                <label class="label-text">{{localize "requirements"}}:</label>
+                <textarea class="input-text" type="text" name="data.requirements.value" data-dtype="String">{{data.requirements.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.commaSeparated'}}">
+                <label class="label-text">{{localize "recommendedAdvantages"}}:</label>
+                <textarea class="input-text" type="text" name="data.recommendedAdvantages.value" data-dtype="String">{{data.recommendedAdvantages.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.commaSeparated'}}">
+                <label class="label-text">{{localize "recommendedDisadvantages"}}:</label>
+                <textarea class="input-text" type="text" name="data.recommendedDisadvantages.value" data-dtype="String">{{data.recommendedDisadvantages.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.commaSeparated'}}">
+                <label class="label-text">{{localize "notsuitableAdvantages"}}:</label>
+                <textarea class="input-text" type="text" name="data.notsuitableAdvantages.value" data-dtype="String">{{data.notsuitableAdvantages.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.commaSeparated'}}">
+                <label class="label-text">{{localize "notsuitableDisadvantages"}}:</label>
+                <textarea class="input-text" type="text" name="data.notsuitableDisadvantages.value" data-dtype="String">{{data.notsuitableDisadvantages.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.careerSkills'}}">
+                <label class="label-text">{{localize "skills"}}:</label>
+                <textarea class="input-text" type="text" name="data.skills.value" data-dtype="String">{{data.skills.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.careerSkills'}}">
+                <label class="label-text">{{localize "combatskill"}}:</label>
+                <textarea class="input-text" type="text" name="data.combatSkills.value" data-dtype="String">{{data.combatSkills.value}}</textarea>
+            </div>
+
+            <div class="form-group full-height" title="{{localize 'TT.careerSkills'}}">
+                <label class="label-text">{{localize "specialAbilities"}}:</label>
+                <textarea class="input-text" type="text" name="data.specialAbilities.value" data-dtype="String">{{data.specialAbilities.value}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="label-text">{{localize "mageLevel"}}</label>
+                <select name="data.mageLevel.value" data-dtype="String">
+                  {{#select data.mageLevel.value}}
+                  {{#each mageLevels as |ch char|}}
+                  <option value="{{char}}">{{localize ch}}</option>
+                  {{/each}}
+                  {{/select}}
+                </select>
+            </div>
+            {{#when data.mageLevel.value 'noteq' "mundane"}}
+            <div class="form-group">
+                <label class="label-text">{{localize "guidevalue"}}</label>
+                <select name="data.guidevalue.value" data-dtype="String">
+                    {{#select data.guidevalue.value}}
+                    {{#each guidevalues as |type sktype|}}
+                    <option value="{{sktype}}">{{localize type}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="label-text">{{localize "tradition"}}:</label>
+                <input class="input-text" type="text" name="data.tradition.value" value="{{data.tradition.value}}" data-dtype="String" />
+            </div>
+
+            <div class="form-group">
+                <label class="label-text">{{#when data.mageLevel.value 'eq' 'clerical'}}{{localize "aspect"}}{{else}}{{localize "feature"}}{{/when}}:</label>
+                <input class="input-text" type="text" name="data.feature.value" value="{{data.feature.value}}" data-dtype="String" />
+            </div>
+            {{#when data.mageLevel.value 'eq' 'clerical'}}
+            <div class="form-group full-height">
+                <label class="label-text">{{localize "happyTalents"}}:</label>
+                <textarea class="input-text" type="text" name="data.happyTalents.value" data-dtype="String">{{data.happyTalents.value}}</textarea>
+            </div>
+            <div class="form-group full-height">
+                <label class="label-text">{{localize "liturgies"}}:</label>
+                <textarea class="input-text" type="text" name="data.liturgies.value" data-dtype="String">{{data.liturgies.value}}</textarea>
+            </div>
+            <div class="form-group full-height">
+                <label class="label-text">{{localize "blessings"}}:</label>
+                <textarea class="input-text" type="text" name="data.blessings.value" data-dtype="String">{{data.blessings.value}}</textarea>
+            </div>
+            {{/when}} {{#when data.mageLevel.value 'eq' 'magical'}}
+            <div class="form-group full-height">
+                <label class="label-text">{{localize "spells"}}:</label>
+                <textarea class="input-text" type="text" name="data.spells.value" data-dtype="String">{{data.spells.value}}</textarea>
+            </div>
+            <div class="form-group full-height">
+                <label class="label-text">{{localize "magictricks"}}:</label>
+                <textarea class="input-text" type="text" name="data.spelltricks.value" data-dtype="String">{{data.spelltricks.value}}</textarea>
+            </div>
+            <div class="form-group">
+                <label class="label-text">{{localize "spelltrickCount"}}:</label>
+                <input class="input-text" type="text" name="data.spelltrickCount.value" value="{{data.spelltrickCount.value}}" data-dtype="Number" />
+            </div>
+            {{/when}} {{/when}}
+
+
+        </div>
+    </section>
+</form>

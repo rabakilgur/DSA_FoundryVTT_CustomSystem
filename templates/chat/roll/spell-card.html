@@ -1,0 +1,37 @@
+<div class="dsa5 chat-card" data-actor-id="{{actorId}}" data-hide={{hideData}}>
+    {{> systems/dsa5/templates/chat/roll/test-card.html}} {{#when testData.successLevel 'gt' '0'}}
+
+    <div class="card-content chatModifiers">
+        <b>{{localize "effect"}}</b>: ...
+        <a class="expand-mods"><i class="fas fa-plus"></i></a>
+        <div>
+            {{{replaceConditions (diceThingsUp testData.preData.source.data.effect.value)}}}
+        </div>
+    </div>
+    <div class="card-content">
+        <b>{{localize "castingTime"}}</b>: {{testData.preData.calculatedSpellModifiers.castingTime}}
+    </div>
+    <div class="card-content">
+        <b>{{localize "duration"}}</b>: {{testData.preData.source.data.duration.value}}
+    </div>
+    <div class="card-content">
+        <b>{{localize "reach"}}</b>: {{testData.preData.calculatedSpellModifiers.reach}}
+    </div>
+    {{/when}}
+    <div class="card-content">
+        <b>{{localize "cost"}}</b>: {{testData.preData.calculatedSpellModifiers.finalcost}}
+    </div>
+    {{#when testData.preData.calculatedSpellModifiers.maintainCost 'noteq' ''}}
+    <div class="card-content">
+        <b>{{localize "maintainCost"}}</b>: {{testData.preData.calculatedSpellModifiers.maintainCost}}
+    </div>
+    {{/when}} {{#if testData.effectResult}}
+    <div class="card-content" title="{{testData.calculatedEffectFormula}}">
+        <b>{{localize "effectResult"}}</b>: {{testData.effectResult}}
+    </div>
+    {{/if}} {{#if testData.preData.extensions }}
+    <div class="card-content">
+        <b>{{localize 'extensions'}}</b>: {{{testData.preData.extensions}}}
+    </div>
+    {{/if}}
+</div>

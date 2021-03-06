@@ -1,0 +1,116 @@
+{
+	"name": "custom-dsa4.1",
+	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln",
+	"description": "A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
+	"version": "1.2.0",
+	"templateVersion": 62,
+	"author": "rabakilgur",
+	"scripts": [
+		"./libs/flexsearch.min.js"
+	],
+	"esmodules": [
+		"dsa5.js"
+	],
+	"styles": [
+		"styles/dsa5.css"
+	],
+	"packs": [{
+			"name": "skills",
+			"label": "Talente",
+			"system": "dsa5",
+			"path": "packs/skills.db",
+			"entity": "Item",
+			"tags": [
+				"skill"
+			],
+			"langs": ["de"]
+		},
+		{
+			"name": "skillsen",
+			"label": "Skills",
+			"system": "dsa5",
+			"path": "packs/skillsen.db",
+			"entity": "Item",
+			"tags": [
+				"skill"
+			],
+			"langs": ["en"]
+		},
+		{
+			"name": "combatskills",
+			"label": "Kampftalente",
+			"system": "dsa5",
+			"path": "packs/combatskills.db",
+			"entity": "Item",
+			"tags": [
+				"combatskill"
+			],
+			"langs": ["de"]
+		},
+		{
+			"name": "combatskillsen",
+			"label": "Combat Techniques",
+			"system": "dsa5",
+			"path": "packs/combatskillsen.db",
+			"entity": "Item",
+			"tags": [
+				"combatskill"
+			],
+			"langs": ["en"]
+		},
+		{
+			"name": "money",
+			"label": "Geld",
+			"system": "dsa5",
+			"path": "packs/money.db",
+			"entity": "Item",
+			"tags": [
+				"money"
+			]
+		},
+		{
+			"name": "speciesen",
+			"label": "Species",
+			"system": "dsa5",
+			"path": "packs/speciesen.db",
+			"entity": "Item",
+			"tags": [
+				"species"
+			],
+			"langs": ["en"]
+		},
+		{
+			"name": "species",
+			"label": "Spezies",
+			"system": "dsa5",
+			"path": "packs/species.db",
+			"entity": "Item",
+			"tags": [
+				"species"
+			],
+			"langs": ["de"]
+		}
+	],
+	"languages": [{
+			"lang": "de",
+			"name": "Deutsch",
+			"path": "lang/de.json"
+		},
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"socket": true,
+	"initiative": "@status.initiative.value + 1d6",
+	"gridDistance": 10,
+	"gridUnits": "Schritt",
+	"primaryTokenAttribute": "status.wounds.value",
+	"secondaryTokenAttribute": "status.astralenergy.value",
+	"minimumCoreVersion": "0.7.7",
+	"compatibleCoreVersion": "0.7.9",
+	"url": "https://github.com/Plushtoast/dsa5-foundryVTT",
+	"manifest": "https://raw.githubusercontent.com/Plushtoast/dsa5-foundryVTT/master/system.json",
+	"download": "https://github.com/Plushtoast/dsa5-foundryVTT/releases/download/1.2.0/dsa5-foundryVTT-1.2.0.zip"
+}

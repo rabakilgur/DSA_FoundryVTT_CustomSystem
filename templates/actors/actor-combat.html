@@ -1,0 +1,263 @@
+<div class="groupbox">
+    <div class="row-section table-title lineheight">
+        <div class="col fourty">
+            <b>{{localize "meleeweapons"}}</b>
+            <span class="buttons">
+                <a data-char="dodge" class="ch-status item" data-mod="dodge" title="{{localize 'dodge'}}"><i class="fas fa-reply"></i></a>
+                <a data-char="attack" class="ch-weaponless item" data-mod="attackWeaponless" title="{{localize 'attackWeaponless'}}"><i class="fa attackWeaponless"></i></a>
+                <a data-char="parry" class="ch-weaponless item" data-mod="parryWeaponless" title="{{localize 'parryWeaponless'}}"><i class="fa fa-shield-alt"></i></a>
+            </span>
+        </div>
+        <div class="col five center small">
+            {{localize "Group"}}
+        </div>
+        <div class="col ten center small" title="{{localize 'CHAR.ATTACK'}}">
+            {{localize "CHARAbbrev.AT"}}
+        </div>
+        <div class="col ten center small" title="{{localize 'CHAR.PARRY'}}">
+            {{localize "CHARAbbrev.PA"}}
+        </div>
+
+        <div class="col ten center small" title="{{localize 'damage'}}">
+            {{localize "CHARAbbrev.damage"}}
+        </div>
+        <div class="col ten center small">
+            {{localize "reach"}}
+        </div>
+    </div>
+    <div class="row-section wrap rowtable inventory">
+        {{#each actor.wornMeleeWeapons as |item i|}}
+        <div class="col item" data-item-id="{{item._id}}">
+            <div class="row-section">
+                <div class="col ten image" style="background-image: url({{item.img}})">
+                    {{#if item.structureMax}}
+                    <div class="item-structure" style="--a: {{item.structureMax}}; --b: {{item.structureCurrent}}">
+                        <div class="inner"></div>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="col third">
+                    <a class="item-edit">{{item.name}}</a>
+                </div>
+                <div class="col five center small">
+                    {{localize item.data.combatskill.value}}
+                </div>
+                <div class="col ten center item" data-item-id="{{item._id}}" data-mod="attack">
+                    <a class="ch-rollCombat d20 die-attack">{{item.attack}}</a>
+                </div>
+                <div class="col ten center item" data-item-id="{{item._id}}" data-mod="parry">
+                    <a class="ch-rollCombatParry d20 die-parry">{{item.parry}}</a>
+                </div>
+
+                <div class="col ten center">
+                    <a class="ch-rollDamage d6 die-damage">{{item.damagedie}}</a><span title="{{localize 'damageOverThreshold'}}">{{item.damageAdd}}</span>
+                </div>
+                <div class="col ten center small">
+                    {{localize (concat "Range-" item.data.reach.value)}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="groupbox">
+    <div class="row-section table-title lineheight">
+        <div class="col fourtyfive">
+            <b>{{localize "rangeweapons"}}</b>
+        </div>
+        <div class="col five center small">
+            {{localize "Group"}}
+        </div>
+
+        <div class="col ten center small" title="{{localize 'CHAR.ATTACK'}}">
+            {{localize "CHARAbbrev.AT"}}
+        </div>
+        <div class="col eight center small" title="{{localize 'damage'}}">
+            {{localize "CHARAbbrev.damage"}}
+        </div>
+
+        <div class="col five center small">
+            {{localize "ammunition"}}
+        </div>
+        <div class="col ten center">
+
+        </div>
+    </div>
+    <div class="row-section wrap rowtable inventory">
+        {{#each actor.wornRangedWeapons as |item i|}}
+        <div class="col item" data-item-id="{{item._id}}">
+            <div class="row-section">
+                <div class="col ten image" style="background-image: url({{item.img}})">
+                </div>
+                <div class="col thirtyfive">
+                    <a class="item-edit">{{item.name}}</a>
+                </div>
+                <div class="col five center small">
+                    {{localize item.data.combatskill.value}}
+                </div>
+
+                <div class="col ten center item" data-item-id="{{item._id}}" data-mod="attack">
+                    <a class="ch-rollCombat d20 die-attack">{{item.attack}}</a>
+                </div>
+                <div class="col eight center">
+                    <a class="ch-rollDamage d6 die-damage">{{item.damagedie}}</a><span title="{{localize 'damageOverThreshold'}}">{{item.damageAdd}}</span>
+                </div>
+
+                <div class="col five center">
+                    {{#when item.data.ammunitiongroup.value 'noteq' "-"}}
+                    <div>
+                        <select name="currentAmmo-{{item._id}}" class="ammo-selector" data-item-id="{{item._id}}" data-dtype="String">
+                        {{#select item.data.currentAmmo.value}}
+                        <option class="ammo-option" value="">None</option>
+                        {{#each item.ammo as |ammo a|}}
+                        <option class="ammo-option" value="{{ammo._id}}"> ({{ammo.data.quantity.value}}) {{ammo.name}}</option>
+                        {{/each}}
+                        {{/select}}
+                      </select>
+                    </div>
+                    {{else}}
+                    <div class="no-ammo">
+                        -
+                    </div>
+                    {{/when}}
+                </div>
+                <div class="col ten very-small center">
+                    <a class="item-dropdown" title="{{localize 'SHEET.Dropdown'}}"><i class="fas fa-chevron-down"></i></a>
+                </div>
+            </div>
+            <div class="row-section lineheight expandDetails">
+                <div class="col">
+                    <ul>
+                        <li><b>{{localize "reach"}}</b>: {{item.data.reach.value}}</li>
+                        <li><b>{{localize "reloadTime"}}</b>: {{item.LZ}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="groupbox">
+    <div class="row-section table-title lineheight">
+        <div class="col two">
+            <b>{{localize "Equipment.armor"}}</b>
+        </div>
+        <div class="col four center small">{{localize "protection"}}</div>
+        <div class="col four center small">{{localize "encumbrance"}}</div>
+    </div>
+    <div class="row-section wrap rowtable inventory">
+        {{#each actor.wornArmor as |item i|}}
+        <div class="col item" data-item-id="{{item._id}}">
+            <div class="row-section">
+                <div class="col ten image" style="background-image: url({{item.img}})">
+                </div>
+                <div class="col fourty">
+                    <a class="item-edit">{{item.name}}</a>
+                </div>
+                <div class="col four center">
+                    {{item.data.protection.value}}
+                </div>
+                <div class="col four center">
+                    {{item.data.encumbrance.value}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="groupbox">
+    <div class="row-section">
+        <div class="col header-label lineheight">
+            <b>{{localize "combatspecialtalents"}}</b>
+        </div>
+    </div>
+    <div class="row-section wrap cards">
+        {{#each actor.specAbs.Combat as |item i|}}
+        <div class="item" data-item-id="{{item._id}}">
+            <a class="item-edit">{{item.name}}{{roman item.data.step.value}}</a>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+<div class="groupbox">
+    <div class="row-section">
+        <div class="col nintey header-label lineheight">
+            <b>{{localize "combatskill"}}</b>
+        </div>
+        <div class="col lineheight ten center">
+            <a class="ch-collapse"><i class="fas fa-angle-up" title="{{localize 'SHEET.collapse'}}"></i></a>
+        </div>
+    </div>
+    <div class="row-section wrap">
+        <div class="col two">
+            <div class="row-section skills table-title">
+                <div class="col fourty">
+                    {{localize "combatskill"}}
+                </div>
+                <div class="col five center">
+                    {{{localize "guidevalue_small"}}}
+                </div>
+
+                <div class="col eight center" title="{{localize 'KTW'}}">
+                    {{localize "CHARAbbrev.KTW"}}
+                </div>
+                <div class="col eight center">
+                    {{localize "CHARAbbrev.ATFK"}}
+                </div>
+                <div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
+                    {{localize "CHARAbbrev.PA"}}
+                </div>
+            </div>
+        </div>
+        <div class="col two">
+            <div class="row-section skills table-title">
+                <div class="col fourty">
+                    {{localize "combatskill"}}
+                </div>
+                <div class="col five center">
+                    {{{localize "guidevalue_small"}}}
+                </div>
+
+                <div class="col eight center" title="{{localize 'KTW'}}">
+                    {{localize "CHARAbbrev.KTW"}}
+                </div>
+                <div class="col eight center">
+                    {{localize "CHARAbbrev.ATFK"}}
+                </div>
+                <div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
+                    {{localize "CHARAbbrev.PA"}}
+                </div>
+            </div>
+        </div>
+        {{#each actor.combatskills as |item i|}}
+        <div class="col two">
+            <div class="row-section item skills lineheight" data-item-id="{{item._id}}">
+                <div class="col fourty">
+                    <a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
+                    <a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
+                    <a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
+                </div>
+                <div class="col five center">
+                    {{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
+                </div>
+
+                <div class="col eight center">
+                    <input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
+                </div>
+                <div class="col eight center item" data-item-id="{{item._id}}" data-mod="attack">
+                    <a class="ch-combatskill-attack d20 diet-mu">{{item.data.attack.value}}</a>
+                </div>
+                <div class="col eight center item" data-item-id="{{item._id}}" data-mod="parry">
+                    {{#when item.data.weapontype.value 'eq' 'melee'}} <a class="ch-combatskill-parry d20 diet-in">{{item.data.parry.value}}</a> {{else}}- {{/when}}
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+</div>
