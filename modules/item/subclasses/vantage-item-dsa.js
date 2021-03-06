@@ -1,6 +1,6 @@
-import Itemdsa5 from "../item-dsa5.js";
+import ItemcDSA from "../item-cDSA.js";
 
-export default class VantageItemDSA5 extends Itemdsa5 {
+export default class VantageItemcDSA extends ItemcDSA {
     static chatData(data, name) {
         return [
             this._chatLineHelper("effect", data.effect.value),

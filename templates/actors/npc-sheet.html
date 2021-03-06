@@ -33,7 +33,7 @@
                     <div class="ch-value col eight center" data-char="{{c}}"><a class="d20 die-{{c}}">{{ch.value}}</a></div>
                     {{/each}}
                 </div>
-                {{> systems/dsa5/templates/actors/parts/healthbar.html}} {{#if actor.schips}}
+                {{> systems/cDSA/templates/actors/parts/healthbar.html}} {{#if actor.schips}}
                 <div class="row-section">
                     <div class="col ten lineheight center" title="{{localize 'fatePoints'}}">
                         {{localize 'CHARAbbrev.fatePoints'}}
@@ -52,7 +52,7 @@
     </div>
     <!-- TABS -->
     <section id="tab-sections">
-        <nav id="dsa5-primarytabs" class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+        <nav id="cDSA-primarytabs" class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
             <a class="item active" data-tab="skills">{{localize "skills"}}</a>
             <a class="item" data-tab="combat">{{localize "Combat"}}</a> {{#if actor.magic.hasSpells}}
             <a class="item" data-tab="magic">{{localize "Magic"}}</a> {{/if}} {{#if actor.magic.hasPrayers}}
@@ -65,31 +65,31 @@
 
         <section class="content">
             <div class="tab main save-scroll" data-tab="main">
-                {{> systems/dsa5/templates/actors/npc/npc-main.html}}
+                {{> systems/cDSA/templates/actors/npc/npc-main.html}}
             </div>
             <div class="tab skills save-scroll" data-tab="skills">
-                {{> systems/dsa5/templates/actors/actor-talents.html}}
+                {{> systems/cDSA/templates/actors/actor-talents.html}}
             </div>
             <div class="tab combat save-scroll" data-tab="combat">
-                {{> systems/dsa5/templates/actors/actor-combat.html}}
+                {{> systems/cDSA/templates/actors/actor-combat.html}}
             </div>
             {{#if actor.magic.hasSpells}}
             <div class="tab magic save-scroll" data-tab="magic">
-                {{> systems/dsa5/templates/actors/character/actor-magic.html}}
+                {{> systems/cDSA/templates/actors/character/actor-magic.html}}
             </div>
             {{/if}} {{#if actor.magic.hasPrayers}}
             <div class="tab religion save-scroll" data-tab="religion">
-                {{> systems/dsa5/templates/actors/character/actor-religion.html}}
+                {{> systems/cDSA/templates/actors/character/actor-religion.html}}
             </div>
             {{/if}}
             <div class="tab inventory save-scroll" data-tab="inventory">
-                {{> systems/dsa5/templates/actors/actor-equipment.html}}
+                {{> systems/cDSA/templates/actors/actor-equipment.html}}
             </div>
             <div class="tab status save-scroll" data-tab="status">
-                {{> systems/dsa5/templates/actors/parts/status_effects.html}}
+                {{> systems/cDSA/templates/actors/parts/status_effects.html}}
             </div>
             <div class="tab save-scroll" data-tab="notes">
-                {{> systems/dsa5/templates/actors/actor-notes.html}}
+                {{> systems/cDSA/templates/actors/actor-notes.html}}
             </div>
         </section>
     </section>

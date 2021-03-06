@@ -1,5 +1,5 @@
 {
-	"name": "custom-dsa4.1",
+	"name": "cDSA",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln",
 	"description": "A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
 	"version": "1.2.0",
@@ -9,15 +9,15 @@
 		"./libs/flexsearch.min.js"
 	],
 	"esmodules": [
-		"dsa5.js"
+		"cDSA.js"
 	],
 	"styles": [
-		"styles/dsa5.css"
+		"styles/cDSA.css"
 	],
 	"packs": [{
 			"name": "skills",
 			"label": "Talente",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/skills.db",
 			"entity": "Item",
 			"tags": [
@@ -28,7 +28,7 @@
 		{
 			"name": "skillsen",
 			"label": "Skills",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/skillsen.db",
 			"entity": "Item",
 			"tags": [
@@ -39,7 +39,7 @@
 		{
 			"name": "combatskills",
 			"label": "Kampftalente",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/combatskills.db",
 			"entity": "Item",
 			"tags": [
@@ -50,7 +50,7 @@
 		{
 			"name": "combatskillsen",
 			"label": "Combat Techniques",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/combatskillsen.db",
 			"entity": "Item",
 			"tags": [
@@ -61,7 +61,7 @@
 		{
 			"name": "money",
 			"label": "Geld",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/money.db",
 			"entity": "Item",
 			"tags": [
@@ -71,7 +71,7 @@
 		{
 			"name": "speciesen",
 			"label": "Species",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/speciesen.db",
 			"entity": "Item",
 			"tags": [
@@ -82,7 +82,7 @@
 		{
 			"name": "species",
 			"label": "Spezies",
-			"system": "dsa5",
+			"system": "cDSA",
 			"path": "packs/species.db",
 			"entity": "Item",
 			"tags": [
@@ -110,7 +110,7 @@
 	"secondaryTokenAttribute": "status.astralenergy.value",
 	"minimumCoreVersion": "0.7.7",
 	"compatibleCoreVersion": "0.7.9",
-	"url": "https://github.com/Plushtoast/dsa5-foundryVTT",
-	"manifest": "https://raw.githubusercontent.com/Plushtoast/dsa5-foundryVTT/master/system.json",
-	"download": "https://github.com/Plushtoast/dsa5-foundryVTT/releases/download/1.2.0/dsa5-foundryVTT-1.2.0.zip"
+	"url": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem",
+	"manifest": "https://raw.githubusercontent.com/rabakilgur/DSA_FoundryVTT_CustomSystem/master/system.json",
+	"download": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem/releases/download/1.2.0/cDSA-foundryVTT-1.2.0.zip"
 }

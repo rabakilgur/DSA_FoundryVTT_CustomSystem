@@ -1,6 +1,6 @@
-import WizardDSA5 from "./dsa5_wizard.js"
+import WizardcDSA from "./cDSA_wizard.js"
 
-export default class CultureWizard extends WizardDSA5 {
+export default class CultureWizard extends WizardcDSA {
 
     constructor(app) {
         super(app)
@@ -12,7 +12,7 @@ export default class CultureWizard extends WizardDSA5 {
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("culture")}` })
-        options.template = 'systems/dsa5/templates/wizard/add-culture-wizard.html'
+        options.template = 'systems/cDSA/templates/wizard/add-culture-wizard.html'
         return options;
     }
 
@@ -27,7 +27,7 @@ export default class CultureWizard extends WizardDSA5 {
             });
             let elem = parent.find('.apCost')
             elem.text(apCost)
-            WizardDSA5.flashElem(elem, "emphasize2")
+            WizardcDSA.flashElem(elem, "emphasize2")
         })
     }
 
@@ -67,9 +67,9 @@ export default class CultureWizard extends WizardDSA5 {
         let choice = parent.find('.localKnowledge')
         if (choice.val() == "") {
             ui.notifications.error(game.i18n.localize("DSAError.MissingChoices"))
-            WizardDSA5.flashElem(choice)
+            WizardcDSA.flashElem(choice)
             let tabElem = choice.closest('.tab').attr("data-tab")
-            WizardDSA5.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
+            WizardcDSA.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
             return false
         }
         return super._validateInput(parent)

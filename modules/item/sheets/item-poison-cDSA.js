@@ -1,7 +1,7 @@
-import ItemSheetdsa5 from "../item-sheet.js";
-import DSA5 from "../../system/config-dsa5.js"
+import ItemSheetcDSA from "../item-sheet.js";
+import cDSA from "../../system/config-cDSA.js"
 
-export default class PoisonSheetDSA5 extends ItemSheetdsa5 {
+export default class PoisonSheetcDSA extends ItemSheetcDSA {
     _getHeaderButtons() {
         let buttons = super._getHeaderButtons();
         buttons.unshift({
@@ -13,7 +13,7 @@ export default class PoisonSheetDSA5 extends ItemSheetdsa5 {
     }
     async getData() {
         const data = await super.getData()
-        data["resistances"] = DSA5.magicResistanceModifiers
+        data["resistances"] = cDSA.magicResistanceModifiers
         return data
     }
 }

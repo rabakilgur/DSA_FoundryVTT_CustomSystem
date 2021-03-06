@@ -1,7 +1,7 @@
-import DSA5StatusEffects from "../status/status_effects.js";
-import DSA5ChatAutoCompletion from "../system/chat_autocompletion.js";
-import DSA5ChatListeners from "../system/chat_listeners.js";
-import DSA5_Utility from "../system/utility-dsa5.js";
+import cDSAStatusEffects from "../status/status_effects.js";
+import cDSAChatAutoCompletion from "../system/chat_autocompletion.js";
+import cDSAChatListeners from "../system/chat_listeners.js";
+import cDSA_Utility from "../system/utility-cDSA.js";
 
 
 export default function() {
@@ -15,12 +15,12 @@ export default function() {
         $(html).find(".share-image").attr("title", game.i18n.localize("SHEET.showToPlayers"));
 
         html.on('click', '.request-roll', ev => {
-            DSA5ChatAutoCompletion.showRQMessage($(ev.currentTarget).attr("data-name"), Number($(ev.currentTarget).attr("data-modifier")) || 0)
+            cDSAChatAutoCompletion.showRQMessage($(ev.currentTarget).attr("data-name"), Number($(ev.currentTarget).attr("data-modifier")) || 0)
         })
 
-        DSA5StatusEffects.bindButtons(html)
+        cDSAStatusEffects.bindButtons(html)
         html.on('click', '.chat-condition', ev => {
-            DSA5ChatListeners.postStatus($(ev.currentTarget).attr("data-id"))
+            cDSAChatListeners.postStatus($(ev.currentTarget).attr("data-id"))
         })
     })
 
@@ -28,6 +28,6 @@ export default function() {
 
     TextEditor.enrichHTML = function(content, { secrets = false, entities = true, links = true, rolls = true, rollData = null } = {}) {
         let result = TextEditor._enrichHTML(content, { secrets, entities, links, rolls, rollData })
-        return DSA5_Utility.customEntityLinks(DSA5_Utility.replaceConditions(result))
+        return cDSA_Utility.customEntityLinks(cDSA_Utility.replaceConditions(result))
     }
 }

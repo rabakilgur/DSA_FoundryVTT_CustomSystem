@@ -1,7 +1,7 @@
-import DSA5 from "../../system/config-dsa5.js";
-import LiturgyItemDSA5 from "./liturgy-item-dsa.js";
+import cDSA from "../../system/config-cDSA.js";
+import LiturgyItemcDSA from "./liturgy-item-dsa.js";
 
-export default class CeremonyItemDSA5 extends LiturgyItemDSA5 {
+export default class CeremonyItemcDSA extends LiturgyItemcDSA {
     static getCallbackData(testData, html, actor) {
         super.getCallbackData(testData, html, actor)
         testData.situationalModifiers.push({
@@ -29,8 +29,8 @@ export default class CeremonyItemDSA5 extends LiturgyItemDSA5 {
             SKModifier: skMod,
             ZKModifier: zkMod,
             isCeremony: true,
-            locationModifiers: DSA5.ceremonyLocationModifiers,
-            timeModifiers: DSA5.ceremonyTimeModifiers
+            locationModifiers: cDSA.ceremonyLocationModifiers,
+            timeModifiers: cDSA.ceremonyTimeModifiers
         })
     }
 }

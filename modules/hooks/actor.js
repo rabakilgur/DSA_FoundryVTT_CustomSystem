@@ -1,4 +1,4 @@
-import DSA5 from "../system/config-dsa5.js"
+import cDSA from "../system/config-cDSA.js"
 
 export default function() {
     Hooks.on("preCreateActor", (createData) => {
@@ -13,12 +13,12 @@ export default function() {
             })
 
         if (!createData.img)
-            createData.img = "systems/dsa5/tokens/unknown.webp"
+            createData.img = "systems/cDSA/tokens/unknown.webp"
 
         if (createData.type == "character") {
             createData.token.vision = true;
-            createData.token.brightSight = game.settings.get('dsa5', 'defaultBrightVision');
-            createData.token.dimSight = game.settings.get('dsa5', 'defaultDimVision');
+            createData.token.brightSight = game.settings.get('cDSA', 'defaultBrightVision');
+            createData.token.dimSight = game.settings.get('cDSA', 'defaultDimVision');
             createData.token.actorLink = true;
         }
 
@@ -47,7 +47,7 @@ export default function() {
             return;
 
         if (actor.data.type == "creature") {
-            let tokenSize = DSA5.tokenSizeCategories[actor.data.data.status.size.value]
+            let tokenSize = cDSA.tokenSizeCategories[actor.data.data.status.size.value]
             if (tokenSize) {
                 if (tokenSize < 1) {
                     data.scale = tokenSize;

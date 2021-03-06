@@ -1,6 +1,6 @@
-import Itemdsa5 from "../item/item-dsa5.js"
+import ItemcDSA from "../item/item-cDSA.js"
 
-export default class DSA5Initializer extends Dialog {
+export default class cDSAInitializer extends Dialog {
     constructor(title, content, module, lang = "") {
         let data = {
             title: title,
@@ -48,7 +48,7 @@ export default class DSA5Initializer extends Dialog {
                     this.folders[folder.data.name] = folder;
 
                 for (let folder in this.folders) {
-                    let parent = this.folders[folder].getFlag("dsa5", "parent")
+                    let parent = this.folders[folder].getFlag("cDSA", "parent")
                     if (parent) {
                         let parentId = this.folders[parent].data._id
                         this.folders[folder].update({ parent: parentId })
@@ -58,8 +58,8 @@ export default class DSA5Initializer extends Dialog {
                 let journal = game.packs.get(json.journal)
                 let entries = await journal.getContent()
                 for (let entry of entries) {
-                    let folder = entry.getFlag("dsa5", "parent")
-                    let sort = entry.getFlag("dsa5", "sort")
+                    let folder = entry.getFlag("cDSA", "parent")
+                    let sort = entry.getFlag("cDSA", "sort")
                     if (folder) {
                         entry.data.folder = this.folders[folder].data._id
                         entry.data.sort = sort
@@ -77,7 +77,7 @@ export default class DSA5Initializer extends Dialog {
                 for (let k of json.items)
                     k.folder = head._id
 
-                await Itemdsa5.create(json.items)
+                await ItemcDSA.create(json.items)
             }
             if (json.scenes) {
                 let head = await this.getFolderForType("Scene")
@@ -87,7 +87,7 @@ export default class DSA5Initializer extends Dialog {
                     entry.data.folder = head._id
                     entry.data.notes.forEach(n => {
                         try {
-                            n.entryId = this.journals[getProperty(n, `flags.dsa5.initName`)].data._id
+                            n.entryId = this.journals[getProperty(n, `flags.cDSA.initName`)].data._id
                         } catch (e) {
                             console.warn("Could not initialize Scene Notes" + e)
                         }

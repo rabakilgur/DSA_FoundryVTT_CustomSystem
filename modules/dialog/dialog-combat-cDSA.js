@@ -1,4 +1,4 @@
-export default class DSA5CombatDialog extends Dialog {
+export default class cDSACombatDialog extends Dialog {
 
     static get defaultOptions() {
         const options = super.defaultOptions;

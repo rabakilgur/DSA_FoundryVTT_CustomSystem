@@ -1,12 +1,12 @@
-import ItemSheetdsa5 from "../item-sheet.js";
-import DSA5 from "../../system/config-dsa5.js"
+import ItemSheetcDSA from "../item-sheet.js";
+import cDSA from "../../system/config-cDSA.js"
 
-export default class SpellSheetDSA5 extends ItemSheetdsa5 {
+export default class SpellSheetcDSA extends ItemSheetcDSA {
     async getData() {
         const data = await super.getData();
-        data['characteristics'] = DSA5.characteristics;
-        data['StFs'] = DSA5.StFs;
-        data['resistances'] = DSA5.magicResistanceModifiers
+        data['characteristics'] = cDSA.characteristics;
+        data['StFs'] = cDSA.StFs;
+        data['resistances'] = cDSA.magicResistanceModifiers
         if (data.isOwned) {
             data['extensions'] = this.item.options.actor.data.items.filter(x => { return x.type == "spellextension" && x.data.source == this.item.name && this.item.type == x.data.category })
         }
@@ -31,7 +31,7 @@ export default class SpellSheetDSA5 extends ItemSheetdsa5 {
         let itemId = this._getItemId(ev);
         let item = this.actor.data.items.find(x => x._id == itemId)
         let message = game.i18n.format("DIALOG.DeleteItemDetail", { item: item.name })
-        renderTemplate('systems/dsa5/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
+        renderTemplate('systems/cDSA/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
             new Dialog({
                 title: game.i18n.localize("Delete Confirmation"),
                 content: html,

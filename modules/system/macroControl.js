@@ -1,4 +1,4 @@
-export default class MacroDSA5 {
+export default class MacrocDSA {
 
     static weaponLessMacro(char) {
         const speaker = ChatMessage.getSpeaker();

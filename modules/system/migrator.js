@@ -1,4 +1,4 @@
-import DSA5_Utility from "./utility-dsa5.js"
+import cDSA_Utility from "./utility-cDSA.js"
 
 /*async function migrateDSA() {
     for (let a of game.actors.entities) {
@@ -15,7 +15,7 @@ import DSA5_Utility from "./utility-dsa5.js"
     }
 
 
-    game.settings.set("dsa5", "migrationVersion", 2)
+    game.settings.set("cDSA", "migrationVersion", 2)
 }*/
 
 
@@ -37,12 +37,12 @@ import DSA5_Utility from "./utility-dsa5.js"
 }*/
 
 async function migrateDSA(currentVersion, migrationVersion) {
-    await fetch("systems/dsa5/lazy/updatenotes.json").then(async r => r.json()).then(async json => {
+    await fetch("systems/cDSA/lazy/updatenotes.json").then(async r => r.json()).then(async json => {
         for (let i = currentVersion; i < migrationVersion; i++) {
-            let msg = `<h1>Changes</h1>${json["notes"][i]}.<br>For details or proposals check out our wiki page at <a href="https://github.com/Plushtoast/dsa5-foundryVTT" target="_blank">Github</a>. Have fun.`
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"))
+            let msg = `<h1>Changes</h1>${json["notes"][i]}.<br>For details or proposals check out our wiki page at <a href="https://github.com/Plushtoast/cDSA-foundryVTT" target="_blank">Github</a>. Have fun.`
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))
         }
-        game.settings.set("dsa5", "migrationVersion", migrationVersion)
+        game.settings.set("cDSA", "migrationVersion", migrationVersion)
     })
 }
 
@@ -50,7 +50,7 @@ export default function migrateWorld() {
     Hooks.once("ready", async function() {
         if (!game.user.isGM) return
 
-        const currentVersion = game.settings.get("dsa5", "migrationVersion")
+        const currentVersion = game.settings.get("cDSA", "migrationVersion")
         const NEEDS_MIGRATION_VERSION = 2
         const needsMigration = currentVersion < NEEDS_MIGRATION_VERSION
 

@@ -1,13 +1,13 @@
-import DSA5StatusEffects from "../../status/status_effects.js";
-import AdvantageRulesDSA5 from "../../system/advantage-rules-dsa5.js";
-import DSA5 from "../../system/config-dsa5.js";
-import DiceDSA5 from "../../system/dice-dsa5.js";
-import SpecialabilityRulesDSA5 from "../../system/specialability-rules-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
-import Actordsa5 from "../../actor/actor-dsa5.js";
-import DSA5_Utility from "../../system/utility-dsa5.js";
+import cDSAStatusEffects from "../../status/status_effects.js";
+import AdvantageRulescDSA from "../../system/advantage-rules-cDSA.js";
+import cDSA from "../../system/config-cDSA.js";
+import DicecDSA from "../../system/dice-cDSA.js";
+import SpecialabilityRulescDSA from "../../system/specialability-rules-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
+import ActorcDSA from "../../actor/actor-cDSA.js";
+import cDSA_Utility from "../../system/utility-cDSA.js";
 
-export default class MeleeweaponDSA5 extends Itemdsa5 {
+export default class MeleeweaponcDSA extends ItemcDSA {
     static chatData(data, name) {
         let res = [
             this._chatLineHelper("damage", data.damage.value),
@@ -16,14 +16,14 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
             this._chatLineHelper("combatskill", data.combatskill.value)
         ]
         if (data.effect.value != "")
-            res.push(this._chatLineHelper(DSA5_Utility.replaceConditions("effect", data.effect.value)))
+            res.push(this._chatLineHelper(cDSA_Utility.replaceConditions("effect", data.effect.value)))
 
         return res
     }
 
 
     static getSituationalModifiers(situationalModifiers, actor, data, source) {
-        let wrongHandDisabled = AdvantageRulesDSA5.hasVantage(actor, game.i18n.localize('LocalizedIDs.ambidextrous'))
+        let wrongHandDisabled = AdvantageRulescDSA.hasVantage(actor, game.i18n.localize('LocalizedIDs.ambidextrous'))
         source = source.data ? (source.data.data == undefined ? source : source.data) : source
 
         let toSeach = [source.data.combatskill.value.toLowerCase(), game.i18n.localize("LocalizedIDs.all")]
@@ -39,7 +39,7 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
                 });
             }
             for (let com of combatSpecAbs) {
-                let effects = Itemdsa5.parseEffect(com.data.data.effect.value, actor)
+                let effects = ItemcDSA.parseEffect(com.data.data.effect.value, actor)
                 let bonus = effects[game.i18n.localize("LocalizedAbilityModifiers.at")] || 0
                 let tpbonus = effects[game.i18n.localize("LocalizedAbilityModifiers.tp")] || 0
                 if (bonus != 0 || tpbonus != 0)
@@ -52,7 +52,7 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
                     })
             }
             mergeObject(data, {
-                weaponSizes: DSA5.meleeRanges,
+                weaponSizes: cDSA.meleeRanges,
                 melee: true,
                 wrongHandDisabled: wrongHandDisabled,
                 offHand: !wrongHandDisabled && source.data.worn.offHand,
@@ -63,7 +63,7 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
             });
         } else if (data.mode == "parry") {
             for (let com of combatSpecAbs) {
-                let effects = Itemdsa5.parseEffect(com.data.data.effect.value, actor)
+                let effects = ItemcDSA.parseEffect(com.data.data.effect.value, actor)
 
                 let bonus = effects[game.i18n.localize("LocalizedAbilityModifiers.pa")] || 0
                 if (bonus != 0)
@@ -103,26 +103,26 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
             rollMode: options.rollMode,
             mode: mode
         }
-        let situationalModifiers = actor ? DSA5StatusEffects.getRollModifiers(actor, item, { mode: mode }) : []
+        let situationalModifiers = actor ? cDSAStatusEffects.getRollModifiers(actor, item, { mode: mode }) : []
         this.getSituationalModifiers(situationalModifiers, actor, data, item)
         data["situationalModifiers"] = situationalModifiers
 
 
         let dialogOptions = {
             title: title,
-            template: "/systems/dsa5/templates/dialog/combatskill-enhanced-dialog.html",
+            template: "/systems/cDSA/templates/dialog/combatskill-enhanced-dialog.html",
             data: data,
             callback: (html) => {
                 cardOptions.rollMode = html.find('[name="rollMode"]').val();
                 testData.testModifier = Number(html.find('[name="testModifier"]').val());
-                testData.situationalModifiers = Actordsa5._parseModifiers('[name="situationalModifiers"]')
+                testData.situationalModifiers = ActorcDSA._parseModifiers('[name="situationalModifiers"]')
                 testData.rangeModifier = html.find('[name="distance"]').val()
-                testData.sizeModifier = DSA5.rangeSizeModifier[html.find('[name="size"]').val()]
+                testData.sizeModifier = cDSA.rangeSizeModifier[html.find('[name="size"]').val()]
                 testData.visionModifier = Number(html.find('[name="vision"]').val())
                 testData.opposingWeaponSize = html.find('[name="weaponsize"]').val()
                 testData.defenseCount = Number(html.find('[name="defenseCount"]').val())
                 testData.narrowSpace = html.find('[name="narrowSpace"]').is(":checked")
-                testData.doubleAttack = html.find('[name="doubleAttack"]').is(":checked") ? (-2 + SpecialabilityRulesDSA5.abilityStep(actor, game.i18n.localize('LocalizedIDs.twoWeaponCombat'))) : 0
+                testData.doubleAttack = html.find('[name="doubleAttack"]').is(":checked") ? (-2 + SpecialabilityRulescDSA.abilityStep(actor, game.i18n.localize('LocalizedIDs.twoWeaponCombat'))) : 0
                 testData.wrongHand = html.find('[name="wrongHand"]').is(":checked") ? -4 : 0
                 let attackOfOpportunity = html.find('[name="opportunityAttack"]').is(":checked") ? -4 : 0
                 testData.attackOfOpportunity = attackOfOpportunity != 0
@@ -134,15 +134,15 @@ export default class MeleeweaponDSA5 extends Itemdsa5 {
                     name: game.i18n.localize("attackFromBehind"),
                     value: html.find('[name="attackFromBehind"]').is(":checked") ? -4 : 0
                 })
-                testData.situationalModifiers.push(...Itemdsa5.getSpecAbModifiers(html, mode))
+                testData.situationalModifiers.push(...ItemcDSA.getSpecAbModifiers(html, mode))
 
                 return { testData, cardOptions };
             }
         };
 
-        let cardOptions = actor._setupCardOptions("systems/dsa5/templates/chat/roll/combatskill-card.html", title)
+        let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/combatskill-card.html", title)
 
-        return DiceDSA5.setupDialog({
+        return DicecDSA.setupDialog({
             dialogOptions: dialogOptions,
             testData: testData,
             cardOptions: cardOptions

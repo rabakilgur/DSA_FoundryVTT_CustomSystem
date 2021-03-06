@@ -1,13 +1,13 @@
-import DSA5_Utility from "../system/utility-dsa5.js";
-import DSA5 from "../system/config-dsa5.js"
-import ActorSheetDsa5 from "./actor-sheet.js";
-import TraitRulesDSA5 from "../system/trait-rules-dsa5.js"
+import cDSA_Utility from "../system/utility-cDSA.js";
+import cDSA from "../system/config-cDSA.js"
+import ActorSheetcDSA from "./actor-sheet.js";
+import TraitRulescDSA from "../system/trait-rules-cDSA.js"
 
-export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
+export default class ActorSheetcDSACreature extends ActorSheetcDSA {
     static get defaultOptions() {
         const options = super.defaultOptions;
         mergeObject(options, {
-            classes: options.classes.concat(["dsa5", "actor", "creature-sheet"]),
+            classes: options.classes.concat(["cDSA", "actor", "creature-sheet"]),
             width: 770,
             height: 740,
         });
@@ -15,8 +15,8 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
     }
 
     get template() {
-        if (!game.user.isGM && this.actor.limited) return "systems/dsa5/templates/actors/creature-limited.html";
-        return "systems/dsa5/templates/actors/creature-sheet.html";
+        if (!game.user.isGM && this.actor.limited) return "systems/cDSA/templates/actors/creature-limited.html";
+        return "systems/cDSA/templates/actors/creature-sheet.html";
     }
 
     activateListeners(html) {
@@ -43,7 +43,7 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
 
     async getData() {
         const data = super.getData();
-        data["sizeCategories"] = DSA5.sizeCategories
+        data["sizeCategories"] = cDSA.sizeCategories
         return data;
     }
 
@@ -52,7 +52,7 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
         switch (item.type) {
             case "trait":
                 await this._updateAPs(item.data.APValue.value * -1)
-                TraitRulesDSA5.traitRemoved(this.actor, item)
+                TraitRulescDSA.traitRemoved(this.actor, item)
                 break;
         }
         super._cleverDeleteItem(itemId)
@@ -65,7 +65,7 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
         if (!res) {
             await this._updateAPs(item.data.data.APValue.value)
             await this.actor.createEmbeddedEntity("OwnedItem", item);
-            await TraitRulesDSA5.traitAdded(this.actor, item)
+            await TraitRulescDSA.traitAdded(this.actor, item)
         }
     }
 
@@ -78,13 +78,13 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
         if (selfTarget && !event.ctrlKey) {
             return
         } else if (dragData.id && dragData.pack) {
-            item = await DSA5_Utility.findItembyIdAndPack(dragData.id, dragData.pack);
+            item = await cDSA_Utility.findItembyIdAndPack(dragData.id, dragData.pack);
             typeClass = item.data.type
         } else if (dragData.id && dragData.type == "Actor") {
-            item = DSA5_Utility.findActorbyId(dragData.id);
+            item = cDSA_Utility.findActorbyId(dragData.id);
             typeClass = item.data.type
         } else if (dragData.id) {
-            item = DSA5_Utility.findItembyId(dragData.id);
+            item = cDSA_Utility.findItembyId(dragData.id);
             typeClass = item.data.type
         } else {
             item = dragData.data
@@ -101,8 +101,8 @@ export default class ActorSheetdsa5Creature extends ActorSheetDsa5 {
                 case "npc":
                 case "creature":
                 case "character":
-                    if (DSA5.hooks.shapeshift) {
-                        DSA5.hooks.shapeshift(item, this.actor)
+                    if (cDSA.hooks.shapeshift) {
+                        cDSA.hooks.shapeshift(item, this.actor)
                         break
                     }
                 default:

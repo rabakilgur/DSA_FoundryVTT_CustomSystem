@@ -1,9 +1,9 @@
-import AdvantageRulesDSA5 from "../../system/advantage-rules-dsa5.js";
-import DiceDSA5 from "../../system/dice-dsa5.js";
-import DSA5_Utility from "../../system/utility-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
-import Actordsa5 from "../../actor/actor-dsa5.js";
-export default class PoisonItemDSA5 extends Itemdsa5 {
+import AdvantageRulescDSA from "../../system/advantage-rules-cDSA.js";
+import DicecDSA from "../../system/dice-cDSA.js";
+import cDSA_Utility from "../../system/utility-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
+import ActorcDSA from "../../actor/actor-cDSA.js";
+export default class PoisonItemcDSA extends ItemcDSA {
     static chatData(data, name) {
         return [
             this._chatLineHelper("stepValue", data.step.value),
@@ -11,7 +11,7 @@ export default class PoisonItemDSA5 extends Itemdsa5 {
             this._chatLineHelper("start", data.start.value),
             this._chatLineHelper("duration", data.duration.value),
             this._chatLineHelper("resistanceModifier", data.resistance.value),
-            this._chatLineHelper("effect", DSA5_Utility.replaceDies(data.effect.value))
+            this._chatLineHelper("effect", cDSA_Utility.replaceDies(data.effect.value))
         ]
     }
 
@@ -23,7 +23,7 @@ export default class PoisonItemDSA5 extends Itemdsa5 {
             game.user.targets.forEach(target => {
                 skMod = target.actor.data.data.status.soulpower.max * -1
                 zkMod = target.actor.data.data.status.toughness.max * -1
-                situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(target.actor.data, game.i18n.localize("LocalizedIDs.poisonResistance"), -1))
+                situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(target.actor.data, game.i18n.localize("LocalizedIDs.poisonResistance"), -1))
             });
 
         }
@@ -56,12 +56,12 @@ export default class PoisonItemDSA5 extends Itemdsa5 {
 
         let dialogOptions = {
             title: title,
-            template: "/systems/dsa5/templates/dialog/poison-dialog.html",
+            template: "/systems/cDSA/templates/dialog/poison-dialog.html",
             data: data,
             callback: (html) => {
                 cardOptions.rollMode = html.find('[name="rollMode"]').val();
                 testData.testModifier = Number(html.find('[name="testModifier"]').val());
-                testData.situationalModifiers = Actordsa5._parseModifiers('[name="situationalModifiers"]')
+                testData.situationalModifiers = ActorcDSA._parseModifiers('[name="situationalModifiers"]')
 
                 testData.situationalModifiers.push({
                     name: game.i18n.localize("zkModifier"),
@@ -76,9 +76,9 @@ export default class PoisonItemDSA5 extends Itemdsa5 {
             }
         };
 
-        let cardOptions = item._setupCardOptions(`systems/dsa5/templates/chat/roll/${item.type}-card.html`, title)
+        let cardOptions = item._setupCardOptions(`systems/cDSA/templates/chat/roll/${item.type}-card.html`, title)
 
-        return DiceDSA5.setupDialog({
+        return DicecDSA.setupDialog({
             dialogOptions: dialogOptions,
             testData: testData,
             cardOptions: cardOptions

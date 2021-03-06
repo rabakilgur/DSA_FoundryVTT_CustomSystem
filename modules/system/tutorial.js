@@ -1,14 +1,14 @@
-import DSA5_Utility from './utility-dsa5.js'
+import cDSA_Utility from './utility-cDSA.js'
 
-export default class DSA5Tutorial {
+export default class cDSATutorial {
 
     static firstTimeMessage() {
 
-        if (!(game.settings.get("dsa5", "firstTimeStart"))) {
+        if (!(game.settings.get("cDSA", "firstTimeStart"))) {
             let msg = game.i18n.localize('WELCOME')
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg))
-            DSA5Tutorial.firstTimeLanguage()
-            game.settings.set("dsa5", "firstTimeStart", true)
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg))
+            cDSATutorial.firstTimeLanguage()
+            game.settings.set("cDSA", "firstTimeStart", true)
         }
     }
 
@@ -25,7 +25,7 @@ export default class DSA5Tutorial {
             data.buttons[lang] = {
                 label: game.i18n.localize(lang),
                 callback: dlg => {
-                    DSA5Tutorial.setLanguage(lang)
+                    cDSATutorial.setLanguage(lang)
                 }
             }
         }
@@ -34,7 +34,7 @@ export default class DSA5Tutorial {
     }
 
     static setLanguage(lang) {
-        game.settings.set("dsa5", "firstTimeStart", true)
+        game.settings.set("cDSA", "firstTimeStart", true)
         game.settings.set("core", "language", lang)
     }
 }

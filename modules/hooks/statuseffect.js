@@ -2,7 +2,7 @@ export default function() {
     Token.prototype.drawEffects = async function() {
         this.effects.removeChildren().forEach(c => c.destroy());
         const tokenEffects = this.data.effects;
-        const actorEffects = this.actor ? this.actor.temporaryEffects.filter(x => x.data.flags.dsa5.value > 0 || x.data.flags.dsa5.value == null) : [];
+        const actorEffects = this.actor ? this.actor.temporaryEffects.filter(x => x.data.flags.cDSA.value > 0 || x.data.flags.cDSA.value == null) : [];
         let overlay = {
             src: this.data.overlayEffect,
             tint: null
@@ -21,7 +21,7 @@ export default function() {
                     overlay = { src: f.data.icon, tint };
                     continue;
                 }
-                promises.push(this._drawEffect(f.data.icon, i, bg, w, tint, getProperty(f, "data.flags.dsa5.value")));
+                promises.push(this._drawEffect(f.data.icon, i, bg, w, tint, getProperty(f, "data.flags.cDSA.value")));
                 i++;
             }
 
@@ -45,8 +45,8 @@ export default function() {
         if (tint) icon.tint = tint;
         bg.drawRoundedRect(icon.x + 1, icon.y + 1, w - 2, w - 2, 2);
         this.effects.addChild(icon);
-        let textEffect = game.dsa5.config.effectTextStyle
-        let color = game.settings.get("dsa5", "statusEffectCounterColor")
+        let textEffect = game.cDSA.config.effectTextStyle
+        let color = game.settings.get("cDSA", "statusEffectCounterColor")
         textEffect._fill = /^#[0-9A-F]+$/.test(color) ? color : "#000000"
         if (value) {
             let text = this.effects.addChild(new PreciseText(value, textEffect))
@@ -62,7 +62,7 @@ export default function() {
         const effect = (img.dataset.statusId && this.object.actor) ?
             CONFIG.statusEffects.find(e => e.id === img.dataset.statusId) :
             img.getAttribute("src");
-        if (!effect.flags.dsa5.editable)
+        if (!effect.flags.cDSA.editable)
             return
         if (event.button == 0)
             return this.object.incrementCondition(effect)
@@ -73,7 +73,7 @@ export default function() {
 
     Token.prototype.incrementCondition = async function(effect, { active, overlay = false } = {}) {
         const existing = this.actor.effects.find(e => e.getFlag("core", "statusId") === effect.id);
-        if (!existing || Number.isNumeric(getProperty(existing, "data.flags.dsa5.value")))
+        if (!existing || Number.isNumeric(getProperty(existing, "data.flags.cDSA.value")))
             this.actor.addCondition(effect.id, 1, false, false)
         else if (existing)
             this.actor.removeCondition(effect.id, 1, false)

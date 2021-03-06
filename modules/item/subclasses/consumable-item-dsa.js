@@ -1,11 +1,11 @@
-import DSA5_Utility from "../../system/utility-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
+import cDSA_Utility from "../../system/utility-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
 
-export default class ConsumableItemDSA extends Itemdsa5 {
+export default class ConsumableItemDSA extends ItemcDSA {
     static chatData(dat, name) {
         return [
             this._chatLineHelper("qualityStep", data.QL),
-            this._chatLineHelper("effect", DSA5_Utility.replaceDies(data.QLList.split("\n")[data.QL - 1])),
+            this._chatLineHelper("effect", cDSA_Utility.replaceDies(data.QLList.split("\n")[data.QL - 1])),
             this._chatLineHelper("charges", data.charges)
         ]
     }
@@ -29,7 +29,7 @@ export default class ConsumableItemDSA extends Itemdsa5 {
         let newCharges = item.data.data.charges <= 1 ? item.data.data.maxCharges : item.data.data.charges - 1
         let newQuantity = item.data.data.charges <= 1 ? item.data.data.quantity.value - 1 : item.data.data.quantity.value
 
-        let effect = DSA5_Utility.replaceDies(item.data.data.QLList.split("\n")[item.data.data.QL - 1], true)
+        let effect = cDSA_Utility.replaceDies(item.data.data.QLList.split("\n")[item.data.data.QL - 1], true)
         let msg = `<div><b>${title}</b></div><div>${item.data.data.description.value}</div><div><b>${game.i18n.localize('effect')}</b>: ${effect}</div>`
         if (newQuantity == 0) {
             item.options.actor.deleteEmbeddedEntity("OwnedItem", item.data._id)
@@ -39,7 +39,7 @@ export default class ConsumableItemDSA extends Itemdsa5 {
                 'data.charges': newCharges
             })
         }
-        ChatMessage.create(DSA5_Utility.chatDataSetup(msg))
+        ChatMessage.create(cDSA_Utility.chatDataSetup(msg))
     }
 
     static async combineItem(item1, item2, actor) {

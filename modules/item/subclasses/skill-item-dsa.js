@@ -1,11 +1,11 @@
-import DSA5StatusEffects from "../../status/status_effects.js";
-import AdvantageRulesDSA5 from "../../system/advantage-rules-dsa5.js";
-import DSA5 from "../../system/config-dsa5.js";
-import DiceDSA5 from "../../system/dice-dsa5.js";
-import ItemRulesDSA5 from "../../system/item-rules-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
-import Actordsa5 from "../../actor/actor-dsa5.js";
-export default class SkillItemDSA5 extends Itemdsa5 {
+import cDSAStatusEffects from "../../status/status_effects.js";
+import AdvantageRulescDSA from "../../system/advantage-rules-cDSA.js";
+import cDSA from "../../system/config-cDSA.js";
+import DicecDSA from "../../system/dice-cDSA.js";
+import ItemRulescDSA from "../../system/item-rules-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
+import ActorcDSA from "../../actor/actor-cDSA.js";
+export default class SkillItemcDSA extends ItemcDSA {
 
     static chatData(data, name) {
         return [
@@ -14,8 +14,8 @@ export default class SkillItemDSA5 extends Itemdsa5 {
     }
 
     static getSituationalModifiers(situationalModifiers, actor, data, source) {
-        situationalModifiers.push(...ItemRulesDSA5.getTalentBonus(actor.data, source.name, ["advantage", "disadvantage", "specialability", "equipment"]))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
+        situationalModifiers.push(...ItemRulescDSA.getTalentBonus(actor.data, source.name, ["advantage", "disadvantage", "specialability", "equipment"]))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
     }
 
     static setupDialog(ev, options, skill, actor) {
@@ -31,25 +31,25 @@ export default class SkillItemDSA5 extends Itemdsa5 {
 
         let data = {
             rollMode: options.rollMode,
-            difficultyLabels: (DSA5.skillDifficultyLabels),
+            difficultyLabels: (cDSA.skillDifficultyLabels),
             modifier: options.modifier || 0,
             characteristics: [1, 2, 3].map(x => skill.data[`characteristic${x}`].value)
         }
 
-        let situationalModifiers = actor ? DSA5StatusEffects.getRollModifiers(actor, skill) : []
+        let situationalModifiers = actor ? cDSAStatusEffects.getRollModifiers(actor, skill) : []
         this.getSituationalModifiers(situationalModifiers, actor, data, skill)
         data["situationalModifiers"] = situationalModifiers
 
         let dialogOptions = {
             title: title,
-            template: "/systems/dsa5/templates/dialog/skill-dialog.html",
+            template: "/systems/cDSA/templates/dialog/skill-dialog.html",
             data: data,
 
             callback: (html) => {
                 cardOptions.rollMode = html.find('[name="rollMode"]').val();
                 testData.testModifier = Number(html.find('[name="testModifier"]').val());
-                testData.testDifficulty = DSA5.skillDifficultyModifiers[html.find('[name="testDifficulty"]').val()];
-                testData.situationalModifiers = Actordsa5._parseModifiers('[name="situationalModifiers"]')
+                testData.testDifficulty = cDSA.skillDifficultyModifiers[html.find('[name="testDifficulty"]').val()];
+                testData.situationalModifiers = ActorcDSA._parseModifiers('[name="situationalModifiers"]')
                 testData.advancedModifiers = {
                     chars: [0, 1, 2].map(x => Number(html.find(`[name="ch${x}"]`).val())),
                     fps: Number(html.find(`[name="fp"]`).val())
@@ -58,9 +58,9 @@ export default class SkillItemDSA5 extends Itemdsa5 {
             }
         };
 
-        let cardOptions = actor._setupCardOptions("systems/dsa5/templates/chat/roll/skill-card.html", title)
+        let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/skill-card.html", title)
 
-        return DiceDSA5.setupDialog({
+        return DicecDSA.setupDialog({
             dialogOptions: dialogOptions,
             testData: testData,
             cardOptions: cardOptions

@@ -1,7 +1,7 @@
-import ItemSheetdsa5 from "../item-sheet.js"
-import DSA5 from "../../system/config-dsa5.js"
+import ItemSheetcDSA from "../item-sheet.js"
+import cDSA from "../../system/config-cDSA.js"
 
-export default class ItemCareerdsa5 extends ItemSheetdsa5 {
+export default class ItemCareercDSA extends ItemSheetcDSA {
     constructor(item, options) {
         options.width = 700
         options.height = 700
@@ -11,9 +11,9 @@ export default class ItemCareerdsa5 extends ItemSheetdsa5 {
 
     async getData() {
         const data = await super.getData();
-        let chars = duplicate(DSA5.characteristics)
+        let chars = duplicate(cDSA.characteristics)
         chars["-"] = "-"
-        data["mageLevels"] = DSA5.mageLevels
+        data["mageLevels"] = cDSA.mageLevels
         data['guidevalues'] = chars;
         return data
     }

@@ -1,6 +1,6 @@
-import DSA5 from './config-dsa5.js'
+import cDSA from './config-cDSA.js'
 
-export default class DSA5_Utility {
+export default class cDSA_Utility {
 
     static async allSkills() {
         let returnSkills = [];
@@ -47,7 +47,7 @@ export default class DSA5_Utility {
             let items
             await pack.getContent().then(content => items = content.filter(i => i.data.type == "money").map(i => i.data));
 
-            let money = items.filter(t => Object.values(DSA5.moneyNames).map(n => n.toLowerCase()).includes(t.name.toLowerCase()))
+            let money = items.filter(t => Object.values(cDSA.moneyNames).map(n => n.toLowerCase()).includes(t.name.toLowerCase()))
 
             moneyItems = moneyItems.concat(money)
         }
@@ -135,7 +135,7 @@ export default class DSA5_Utility {
     }
 
     static _calculateAdvCost(currentAdvances, type, modifier = 1) {
-        return DSA5.advancementCosts[type][Number(currentAdvances) + modifier]
+        return cDSA.advancementCosts[type][Number(currentAdvances) + modifier]
     }
 
     static async findAnyItem(lookup) {
@@ -190,18 +190,18 @@ export default class DSA5_Utility {
     }
 
     static replaceConditions(content) {
-        if (!DSA5.statusRegex) {
-            let effects = DSA5.statusEffects.map(x => game.i18n.localize(x.label).toLowerCase())
+        if (!cDSA.statusRegex) {
+            let effects = cDSA.statusEffects.map(x => game.i18n.localize(x.label).toLowerCase())
             let keywords = ["status", "condition", "level", "levels"].map(x => game.i18n.localize(x)).join("|")
-            DSA5.statusRegex = {
+            cDSA.statusRegex = {
                 effects: effects,
                 regex: new RegExp(`(${keywords}) (${effects.join('|')})`, 'gi')
             }
         }
 
-        return content.replace(DSA5.statusRegex.regex, function(str) {
+        return content.replace(cDSA.statusRegex.regex, function(str) {
             let parts = str.split(" ")
-            let cond = DSA5.statusEffects[DSA5.statusRegex.effects.indexOf(parts[1].toLowerCase())]
+            let cond = cDSA.statusEffects[cDSA.statusRegex.effects.indexOf(parts[1].toLowerCase())]
             return `${parts[0]} <a class="chatButton chat-condition" data-id="${cond.id}"><img src="${cond.icon}"/>${parts[1]}</a>`
         })
     }

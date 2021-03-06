@@ -1,12 +1,12 @@
-const DSA5 = {}
+const cDSA = {}
 
-DSA5.statusEffects = [{
+cDSA.statusEffects = [{
         id: "prone",
         label: "CONDITION.prone",
         icon: "icons/svg/falling.svg",
         description: "CONDITIONDESCRIPTION.prone",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -19,7 +19,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/unconscious.svg",
         description: "CONDITIONDESCRIPTION.unconscious",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -32,7 +32,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/net.svg",
         description: "CONDITIONDESCRIPTION.rooted",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -45,7 +45,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/padlock.svg",
         description: "CONDITIONDESCRIPTION.fixated",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -58,7 +58,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/hazard.svg",
         description: "CONDITIONDESCRIPTION.surprised",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -71,7 +71,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/blind.svg",
         description: "CONDITIONDESCRIPTION.blind",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -84,7 +84,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/poison.svg",
         description: "CONDITIONDESCRIPTION.poisoned",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -97,7 +97,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/biohazard.svg",
         description: "CONDITIONDESCRIPTION.sick",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -110,7 +110,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/deaf.svg",
         description: "CONDITIONDESCRIPTION.deaf",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -123,7 +123,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/fire.svg",
         description: "CONDITIONDESCRIPTION.burning",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -136,7 +136,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/circle.svg",
         description: "CONDITIONDESCRIPTION.invisible",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -149,7 +149,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/cave.svg",
         description: "CONDITIONDESCRIPTION.constricted",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -162,7 +162,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/bones.svg",
         description: "CONDITIONDESCRIPTION.bloodrush",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -175,7 +175,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/silenced.svg",
         description: "CONDITIONDESCRIPTION.mute",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -188,7 +188,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/sleep.svg",
         description: "CONDITIONDESCRIPTION.incapacitated",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": null,
                 "editable": true,
                 "impact": null
@@ -201,7 +201,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/anchor.svg",
         description: "CONDITIONDESCRIPTION.encumbered",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": false,
                 "impact": "-1",
@@ -215,7 +215,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/daze.svg",
         description: "CONDITIONDESCRIPTION.stunned",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -229,7 +229,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/ice-aura.svg",
         description: "CONDITIONDESCRIPTION.raptured",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -243,7 +243,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/terror.svg",
         description: "CONDITIONDESCRIPTION.feared",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -257,7 +257,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/paralysis.svg",
         description: "CONDITIONDESCRIPTION.paralysed",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -271,7 +271,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/blood.svg",
         description: "CONDITIONDESCRIPTION.inpain",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -285,7 +285,7 @@ DSA5.statusEffects = [{
         icon: "icons/svg/stoned.svg",
         description: "CONDITIONDESCRIPTION.confused",
         flags: {
-            dsa5: {
+            cDSA: {
                 "value": 1,
                 "editable": true,
                 "impact": "-1",
@@ -297,13 +297,13 @@ DSA5.statusEffects = [{
 ]
 
 
-DSA5.effectTextStyle = CONFIG.canvasTextStyle.clone();
-DSA5.effectTextStyle.fontSize = "30";
-DSA5.effectTextStyle.fontFamily = "GentiumBasic"
+cDSA.effectTextStyle = CONFIG.canvasTextStyle.clone();
+cDSA.effectTextStyle.fontSize = "30";
+cDSA.effectTextStyle.fontFamily = "GentiumBasic"
 
-DSA5.knownShortcuts = {}
+cDSA.knownShortcuts = {}
 
-DSA5.defaultWeapon = {
+cDSA.defaultWeapon = {
     name: "default",
     type: "meleeweapon",
     data: {
@@ -335,7 +335,7 @@ DSA5.defaultWeapon = {
     }
 }
 
-DSA5.characteristics = {
+cDSA.characteristics = {
     "mu": "CHAR.MU",
     "kl": "CHAR.KL",
     "in": "CHAR.IN",
@@ -346,7 +346,7 @@ DSA5.characteristics = {
     "kk": "CHAR.KK"
 };
 
-DSA5.equipmentTypes = {
+cDSA.equipmentTypes = {
     "misc": "Equipment.misc",
     "clothes": "Equipment.clothes",
     "tools": "Equipment.tools",
@@ -361,7 +361,7 @@ DSA5.equipmentTypes = {
     "blessed": "Equipment.blessed"
 };
 
-DSA5.narrowSpaceModifiers = {
+cDSA.narrowSpaceModifiers = {
     "weaponshort": {
         "attack": 0,
         "parry": 0,
@@ -394,14 +394,14 @@ DSA5.narrowSpaceModifiers = {
     }
 }
 
-DSA5.moneyNames = {
+cDSA.moneyNames = {
     "D": "Money-D",
     "S": "Money-S",
     "H": "Money-H",
     "K": "Money-K"
 }
 
-DSA5.rangeMods = {
+cDSA.rangeMods = {
     "short": {
         "damage": 1,
         "attack": 2
@@ -420,42 +420,42 @@ DSA5.rangeMods = {
     }
 }
 
-DSA5.regnerationCampLocations = {
+cDSA.regnerationCampLocations = {
     "0": "regnerationCampLocations.normal",
     "-1": "regnerationCampLocations.bad",
     "1": "regnerationCampLocations.good"
 }
 
-DSA5.regenerationInterruptOptions = {
+cDSA.regenerationInterruptOptions = {
     "0": "regenerationInterruptOptions.none",
     "-1": "regenerationInterruptOptions.small",
     "-2": "regenerationInterruptOptions.big"
 }
 
-DSA5.targetMomevementOptions = {
+cDSA.targetMomevementOptions = {
     "0": "rangeMovementOptions.SLOW",
     "-2": "rangeMovementOptions.FAST",
     "2": "rangeMovementOptions.STATIONARY",
 }
 
-DSA5.shooterMovementOptions = {
+cDSA.shooterMovementOptions = {
     "0": "rangeMovementOptions.SHOOTERSTATIONARY",
     "-2": "rangeMovementOptions.SHOOTERMOVING",
     "-4": "rangeMovementOptions.SHOOTERRUNNING"
 }
 
-DSA5.mountedRangeOptions = {
+cDSA.mountedRangeOptions = {
     "0": "mountedRangeOptions.STATIONARY",
     "-4": "mountedRangeOptions.SCHRITT",
     "-8": "mountedRangeOptions.GALOPP",
 }
-DSA5.aimOptions = {
+cDSA.aimOptions = {
     "0": "aimOptions.0",
     "2": "aimOptions.1",
     "4": "aimOptions.2"
 }
 
-DSA5.traitCategories = {
+cDSA.traitCategories = {
     "meleeAttack": "closeCombatAttacks",
     "rangeAttack": "rangeCombatAttacks",
     "armor": "armor",
@@ -463,19 +463,19 @@ DSA5.traitCategories = {
     "familiar": "familiar"
 }
 
-DSA5.ritualLocationModifiers = {
+cDSA.ritualLocationModifiers = {
     "-": 0,
     "RITUALMODIFIER.holysite": 1,
     "RITUALMODIFIER.wrongsite": -3
 }
 
-DSA5.ritualTimeModifiers = {
+cDSA.ritualTimeModifiers = {
     "-": 0,
     "RITUALMODIFIER.matchingConstellation": 1,
     "RITUALMODIFIER.wrongConstellation": -1
 }
 
-DSA5.ceremonyLocationModifiers = {
+cDSA.ceremonyLocationModifiers = {
     "-": 0,
     "CEREMONYMODIFIER.holysite": 2,
     "CEREMONYMODIFIER.temple": 1,
@@ -486,7 +486,7 @@ DSA5.ceremonyLocationModifiers = {
     "CEREMONYMODIFIER.nemesis": -5
 }
 
-DSA5.advancementCosts = {
+cDSA.advancementCosts = {
     "A": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
     "B": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
     "C": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42],
@@ -494,9 +494,9 @@ DSA5.advancementCosts = {
     "E": [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180],
 }
 
-DSA5.hooks = {}
+cDSA.hooks = {}
 
-DSA5.startXP = {
+cDSA.startXP = {
     "900": "EXP.inexperienced",
     "1000": "EXP.average",
     "1100": "EXP.experienced",
@@ -506,7 +506,7 @@ DSA5.startXP = {
     "2100": "EXP.legendary"
 }
 
-DSA5.helpContent = [{
+cDSA.helpContent = [{
         name: "pay",
         command: "/pay [0-9]+",
         example: "/pay 5.03",
@@ -537,20 +537,20 @@ DSA5.helpContent = [{
     }
 ]
 
-DSA5.ceremonyTimeModifiers = {
+cDSA.ceremonyTimeModifiers = {
     "-": 0,
     "CEREMONYMODIFIER.monthGod": 1,
     "CEREMONYMODIFIER.celebration": 2,
     "CEREMONYMODIFIER.namelessDays": -5
 }
 
-DSA5.mageLevels = {
+cDSA.mageLevels = {
     "mundane": "mundane",
     "clerical": "clerical",
     "magical": "magical"
 }
 
-DSA5.specialAbilityCategories = {
+cDSA.specialAbilityCategories = {
     "general": "general",
     "Combat": "Combat",
     "fatePoints": "fatePoints",
@@ -561,43 +561,43 @@ DSA5.specialAbilityCategories = {
     "staff": "traditionArtifact"
 }
 
-DSA5.dieColors = {
+cDSA.dieColors = {
     "dodge": "ge"
 }
 
-DSA5.addvantageRules = {}
-DSA5.removevantageRules = {}
-DSA5.vantagesNeedingAdaption = {}
+cDSA.addvantageRules = {}
+cDSA.removevantageRules = {}
+cDSA.vantagesNeedingAdaption = {}
 
-DSA5.addAbilityRules = {}
-DSA5.removeAbilityRules = {}
-DSA5.AbilitiesNeedingAdaption = {}
+cDSA.addAbilityRules = {}
+cDSA.removeAbilityRules = {}
+cDSA.AbilitiesNeedingAdaption = {}
 
-DSA5.rangeWeaponModifiers = {
+cDSA.rangeWeaponModifiers = {
     "short": "RangeMod.short",
     "medium": "RangeMod.medium",
     "long": "RangeMod.long",
     "rangesense": "RangeMod.rangesense"
 }
 
-DSA5.meleeRangesArray = [
+cDSA.meleeRangesArray = [
     "short",
     "medium",
     "long"
 ]
 
-DSA5.meleeRanges = {
+cDSA.meleeRanges = {
     "short": "Range-short",
     "medium": "Range-medium",
     "long": "Range-long"
 };
 
-DSA5.weapontypes = {
+cDSA.weapontypes = {
     "melee": "meleeweapon",
     "range": "rangeweapon"
 }
 
-DSA5.ammunitiongroups = {
+cDSA.ammunitiongroups = {
     "-": "-",
     "arrow": "arrow",
     "bolt": "bolt",
@@ -606,14 +606,14 @@ DSA5.ammunitiongroups = {
     "dart": "dart"
 }
 
-DSA5.combatskillsGuidevalues = {
+cDSA.combatskillsGuidevalues = {
     "ff": "CHAR.FF",
     "ge": "CHAR.GE",
     "kk": "CHAR.KK",
     "ge/kk": "CHAR.GEKK"
 }
 
-DSA5.skillDifficultyModifiers = {
+cDSA.skillDifficultyModifiers = {
     "eeasy": 5,
     "veasy": 3,
     "easy": 1,
@@ -623,13 +623,13 @@ DSA5.skillDifficultyModifiers = {
     "vhard": -5
 }
 
-DSA5.magicResistanceModifiers = {
+cDSA.magicResistanceModifiers = {
     "-": "-",
     "SK": "soulpower",
     "ZK": "toughness"
 }
 
-DSA5.sizeCategories = {
+cDSA.sizeCategories = {
     "tiny": "SIZE.tiny",
     "small": "SIZE.small",
     "average": "SIZE.average",
@@ -637,7 +637,7 @@ DSA5.sizeCategories = {
     "giant": "SIZE.giant"
 }
 
-DSA5.tokenSizeCategories = {
+cDSA.tokenSizeCategories = {
     "tiny": 0.5,
     "small": 0.8,
     "average": 1,
@@ -645,7 +645,7 @@ DSA5.tokenSizeCategories = {
     "giant": 4
 }
 
-DSA5.rangeSizeCategories = {
+cDSA.rangeSizeCategories = {
     "tiny": "RANGESIZE.tiny",
     "small": "RANGESIZE.small",
     "average": "RANGESIZE.average",
@@ -653,13 +653,13 @@ DSA5.rangeSizeCategories = {
     "giant": "RANGESIZE.giant"
 }
 
-DSA5.shieldSizes = {
+cDSA.shieldSizes = {
     "short": "SIZE.small",
     "medium": "SIZE.average",
     "long": "SIZE.big"
 }
 
-DSA5.rangeSizeModifier = {
+cDSA.rangeSizeModifier = {
     "tiny": -8,
     "small": -4,
     "average": 0,
@@ -667,7 +667,7 @@ DSA5.rangeSizeModifier = {
     "giant": 8
 }
 
-DSA5.rangeVision = {
+cDSA.rangeVision = {
     "0": "VisionDisruption.step0",
     "-2": "VisionDisruption.step1",
     "-4": "VisionDisruption.step2",
@@ -676,7 +676,7 @@ DSA5.rangeVision = {
 }
 
 
-DSA5.attributeDifficultyModifiers = {
+cDSA.attributeDifficultyModifiers = {
     "eeasy": 6,
     "veasy": 4,
     "easy": 2,
@@ -686,7 +686,7 @@ DSA5.attributeDifficultyModifiers = {
     "vhard": -6
 }
 
-DSA5.skillDifficultyLabels = {
+cDSA.skillDifficultyLabels = {
     "eeasy": "Skill-eeasy",
     "veasy": "Skill-veasy",
     "easy": "Skill-easy",
@@ -696,7 +696,7 @@ DSA5.skillDifficultyLabels = {
     "vhard": "Skill-vhard"
 }
 
-DSA5.attributeDifficultyLabels = {
+cDSA.attributeDifficultyLabels = {
     "eeasy": "Attribute-eeasy",
     "veasy": "Attribute-veasy",
     "easy": "Attribute-easy",
@@ -706,7 +706,7 @@ DSA5.attributeDifficultyLabels = {
     "vhard": "Attribute-vhard"
 }
 
-DSA5.skillGroups = {
+cDSA.skillGroups = {
     "body": "SKILL.body",
     "social": "SKILL.social",
     "knowledge": "SKILL.knowledge",
@@ -714,17 +714,17 @@ DSA5.skillGroups = {
     "nature": "SKILL.nature"
 };
 
-DSA5.skillBurdens = {
+cDSA.skillBurdens = {
     "yes": "yes",
     "no": "no",
     "maybe": "maybe"
 }
 
-DSA5.StFs = {
+cDSA.StFs = {
     "A": "A",
     "B": "B",
     "C": "C",
     "D": "D"
 }
 
-export default DSA5
+export default cDSA

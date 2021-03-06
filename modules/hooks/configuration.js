@@ -1,5 +1,5 @@
 export default function() {
-    game.settings.register("dsa5", "meleeBotchTableEnabled", {
+    game.settings.register("cDSA", "meleeBotchTableEnabled", {
         name: "DSASETTINGS.meleeBotchTableEnabled",
         hint: "DSASETTINGS.meleeBotchTableEnabledHint",
         scope: "world",
@@ -7,7 +7,7 @@ export default function() {
         default: false,
         type: Boolean
     });
-    game.settings.register("dsa5", "rangeBotchTableEnabled", {
+    game.settings.register("cDSA", "rangeBotchTableEnabled", {
         name: "DSASETTINGS.rangeBotchTableEnabled",
         hint: "DSASETTINGS.rangeBotchTableEnabledHint",
         scope: "world",
@@ -15,7 +15,7 @@ export default function() {
         default: false,
         type: Boolean
     });
-    game.settings.register("dsa5", "defenseBotchTableEnabled", {
+    game.settings.register("cDSA", "defenseBotchTableEnabled", {
         name: "DSASETTINGS.defenseBotchTableEnabled",
         hint: "DSASETTINGS.defenseBotchTableEnabledHint",
         scope: "world",
@@ -23,7 +23,7 @@ export default function() {
         default: false,
         type: Boolean
     });
-    game.settings.register("dsa5", "higherDefense", {
+    game.settings.register("cDSA", "higherDefense", {
         name: "DSASETTINGS.higherDefense",
         hint: "DSASETTINGS.higherDefenseHint",
         scope: "world",
@@ -36,7 +36,7 @@ export default function() {
             "4": "+4",
         }
     });
-    game.settings.register("dsa5", "statusEffectCounterColor", {
+    game.settings.register("cDSA", "statusEffectCounterColor", {
         name: "DSASETTINGS.statusEffectCounterColor",
         hint: "DSASETTINGS.statusEffectCounterColorHint",
         scope: "client",
@@ -44,7 +44,7 @@ export default function() {
         default: "#FFFFFF",
         type: String
     });
-    game.settings.register("dsa5", "defaultDimVision", {
+    game.settings.register("cDSA", "defaultDimVision", {
         name: "DSASETTINGS.defaultDimVision",
         hint: "DSASETTINGS.defaultDimVisionHint",
         scope: "world",
@@ -52,7 +52,7 @@ export default function() {
         default: 20,
         type: Number
     });
-    game.settings.register("dsa5", "defaultBrightVision", {
+    game.settings.register("cDSA", "defaultBrightVision", {
         name: "DSASETTINGS.defaultBrightVision",
         hint: "DSASETTINGS.defaultBrightVisionHint",
         scope: "world",
@@ -60,7 +60,7 @@ export default function() {
         default: 10,
         type: Number
     });
-    game.settings.register("dsa5", "migrationVersion", {
+    game.settings.register("cDSA", "migrationVersion", {
         name: "migrationVersion",
         hint: "migrationVersion",
         scope: "world",
@@ -68,7 +68,7 @@ export default function() {
         default: 2,
         type: Number
     })
-    game.settings.register("dsa5", "firstTimeStart", {
+    game.settings.register("cDSA", "firstTimeStart", {
         name: "firstTimeStart",
         hint: "firstTimeStart",
         scope: "world",
@@ -76,7 +76,7 @@ export default function() {
         default: false,
         type: Boolean
     })
-    game.settings.register("dsa5", "tokenizerSetup", {
+    game.settings.register("cDSA", "tokenizerSetup", {
         name: "tokenizerSetup",
         hint: "tokenizerSetup",
         scope: "world",
@@ -84,7 +84,7 @@ export default function() {
         default: false,
         type: Boolean
     })
-    game.settings.register("dsa5", "diceSetup", {
+    game.settings.register("cDSA", "diceSetup", {
         name: "diceSetup",
         hint: "diceSetup",
         scope: "world",
@@ -92,7 +92,7 @@ export default function() {
         default: false,
         type: Boolean
     })
-    game.settings.register("dsa5", "capQSat", {
+    game.settings.register("cDSA", "capQSat", {
         name: "DSASETTINGS.capQSat",
         hint: "DSASETTINGS.capQSatHint",
         scope: "world",
@@ -101,7 +101,7 @@ export default function() {
         type: Number
     });
 
-    game.settings.register("dsa5", "talentModifierEnabled", {
+    game.settings.register("cDSA", "talentModifierEnabled", {
         name: "DSASETTINGS.talentModifierEnabled",
         hint: "DSASETTINGS.talentModifierEnabledHint",
         scope: "client",

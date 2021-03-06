@@ -1,6 +1,6 @@
-import Itemdsa5 from "../item-dsa5.js";
+import ItemcDSA from "../item-cDSA.js";
 
-export default class CantripItemDSA5 extends Itemdsa5 {
+export default class CantripItemcDSA extends ItemcDSA {
     static chatData(data, name) {
         return [
             this._chatLineHelper("duration", data.duration.value),

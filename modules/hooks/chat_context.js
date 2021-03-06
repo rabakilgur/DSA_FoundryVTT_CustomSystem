@@ -1,4 +1,4 @@
-import DSA5_Utility from "../system/utility-dsa5.js";
+import cDSA_Utility from "../system/utility-cDSA.js";
 
 export default function() {
     Hooks.on("getChatLogEntryContext", (html, options) => {
@@ -81,9 +81,9 @@ export default function() {
             condition: canHeal,
             callback: li => {
                 let message = game.messages.get(li.attr("data-message-id"))
-                let actor = DSA5_Utility.getSpeaker(message.data.speaker)
+                let actor = cDSA_Utility.getSpeaker(message.data.speaker)
                 if (!actor)
-                    actor = new Actordsa5(newTestData.extra.actor, { temporary: true })
+                    actor = new ActorcDSA(newTestData.extra.actor, { temporary: true })
                 if (!actor.owner)
                     return ui.notifications.error(game.i18n.localize("DSAError.DamagePermission"))
 
@@ -100,9 +100,9 @@ export default function() {
             callback: li => {
                 let message = game.messages.get(li.attr("data-message-id"))
                 let cardData = message.data.flags.data
-                let actor = DSA5_Utility.getSpeaker(message.data.speaker)
+                let actor = cDSA_Utility.getSpeaker(message.data.speaker)
                 if (!actor)
-                    actor = new Actordsa5(newTestData.extra.actor, { temporary: true })
+                    actor = new ActorcDSA(newTestData.extra.actor, { temporary: true })
                 if (!actor.owner)
                     return ui.notifications.error(game.i18n.localize("DSAError.DamagePermission"))
                 actor.applyMana(cardData.preData.calculatedSpellModifiers.finalcost, ["ritual", "spell"].includes(cardData.preData.source.type) ? "AsP" : "KaP")
@@ -114,7 +114,7 @@ export default function() {
             callback: li => {
                 let cardData = game.messages.get(li.attr("data-message-id")).data.flags.opposeData
                 let defenderSpeaker = cardData.speakerDefend;
-                let actor = DSA5_Utility.getSpeaker(defenderSpeaker)
+                let actor = cDSA_Utility.getSpeaker(defenderSpeaker)
                 if (!actor.owner)
                     return ui.notifications.error(game.i18n.localize("DSAError.DamagePermission"))
 
@@ -127,7 +127,7 @@ export default function() {
             callback: li => {
                 let cardData = game.messages.get(li.attr("data-message-id")).data.flags.opposeData
                 let defenderSpeaker = cardData.speakerDefend;
-                let actor = DSA5_Utility.getSpeaker(defenderSpeaker)
+                let actor = cDSA_Utility.getSpeaker(defenderSpeaker)
                 if (!actor.owner)
                     return ui.notifications.error(game.i18n.localize("DSAError.DamagePermission"))
 

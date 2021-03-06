@@ -1,20 +1,20 @@
-import DSA5CombatDialog from './dialog-combat-dsa5.js'
-import DSA5SpellDialog from './dialog-spell-dsa5.js'
+import cDSACombatDialog from './dialog-combat-cDSA.js'
+import cDSASpellDialog from './dialog-spell-cDSA.js'
 
-export default class DSA5Dialog extends Dialog {
+export default class cDSADialog extends Dialog {
     static getDialogForItem(type) {
         switch (type) {
             case "rangeweapon":
             case "meleeweapon":
             case "trait":
-                return DSA5CombatDialog
+                return cDSACombatDialog
             case "spell":
             case "ritual":
             case "liturgy":
             case "ceremony":
-                return DSA5SpellDialog
+                return cDSASpellDialog
         }
-        return DSA5Dialog
+        return cDSADialog
     }
 
     activateListeners(html) {

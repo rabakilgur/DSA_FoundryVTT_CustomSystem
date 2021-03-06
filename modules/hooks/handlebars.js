@@ -1,4 +1,4 @@
-import DSA5_Utility from "../system/utility-dsa5.js";
+import cDSA_Utility from "../system/utility-cDSA.js";
 
 export default function() {
     Handlebars.registerHelper('concat', function(a, b) {
@@ -32,10 +32,10 @@ export default function() {
         else return options.inverse(this);
     });
     Handlebars.registerHelper("diceThingsUp", function(a) {
-        return DSA5_Utility.replaceDies(a)
+        return cDSA_Utility.replaceDies(a)
     })
     Handlebars.registerHelper("replaceConditions", function(a) {
-        return DSA5_Utility.replaceConditions(a)
+        return cDSA_Utility.replaceConditions(a)
     })
     Handlebars.registerHelper("floor", function(a) {
         return Math.floor(Number(a))

@@ -1,6 +1,6 @@
-import WizardDSA5 from "./dsa5_wizard.js"
+import WizardcDSA from "./cDSA_wizard.js"
 
-export default class SpeciesWizard extends WizardDSA5 {
+export default class SpeciesWizard extends WizardcDSA {
     constructor(app) {
         super(app)
         this.actor = null
@@ -12,7 +12,7 @@ export default class SpeciesWizard extends WizardDSA5 {
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("species")}` })
-        options.template = 'systems/dsa5/templates/wizard/add-species-wizard.html'
+        options.template = 'systems/cDSA/templates/wizard/add-species-wizard.html'
         return options;
     }
 
@@ -27,7 +27,7 @@ export default class SpeciesWizard extends WizardDSA5 {
             });
             let elem = parent.find('.apCost')
             elem.text(apCost)
-            WizardDSA5.flashElem(elem, "emphasize2")
+            WizardcDSA.flashElem(elem, "emphasize2")
         })
     }
 
@@ -132,7 +132,7 @@ export default class SpeciesWizard extends WizardDSA5 {
                 continue
 
             let attrs = attr.trim().split(" ")
-            let dataAttr = game.dsa5.config.knownShortcuts[attrs[0].toLowerCase().trim()].slice(0)
+            let dataAttr = game.cDSA.config.knownShortcuts[attrs[0].toLowerCase().trim()].slice(0)
             dataAttr[dataAttr.length - 1] = "species"
             update[`data.${dataAttr.join(".")}`] = Number(attrs[1])
         }

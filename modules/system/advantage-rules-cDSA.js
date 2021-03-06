@@ -1,15 +1,15 @@
-import DSA5 from "./config-dsa5.js";
-import ItemRulesDSA5 from "./item-rules-dsa5.js";
+import cDSA from "./config-cDSA.js";
+import ItemRulescDSA from "./item-rules-cDSA.js";
 
-export default class AdvantageRulesDSA5 extends ItemRulesDSA5 {
+export default class AdvantageRulescDSA extends ItemRulescDSA {
     static setupFunctions() {}
     static async vantageAdded(actor, item) {
-        if (game.dsa5.config.addvantageRules[item.name])
-            game.dsa5.config.addvantageRules[item.name](actor, item)
+        if (game.cDSA.config.addvantageRules[item.name])
+            game.cDSA.config.addvantageRules[item.name](actor, item)
     }
     static async vantageRemoved(actor, item) {
-        if (game.dsa5.config.removevantageRules[item.name])
-            game.dsa5.config.removevantageRules[item.name](actor, item)
+        if (game.cDSA.config.removevantageRules[item.name])
+            game.cDSA.config.removevantageRules[item.name](actor, item)
     }
 
 
@@ -30,8 +30,8 @@ export default class AdvantageRulesDSA5 extends ItemRulesDSA5 {
         }
 
         if (adoption != null) {
-            if (DSA5.vantagesNeedingAdaption[item.name].effect) {
-                item.data.effect.value = `${adoption.name} ${DSA5.vantagesNeedingAdaption[item.name].effect}`
+            if (cDSA.vantagesNeedingAdaption[item.name].effect) {
+                item.data.effect.value = `${adoption.name} ${cDSA.vantagesNeedingAdaption[item.name].effect}`
             }
             item.name = `${item.name.replace(' ()', '')} (${adoption.name})`
             if (adoption.data)
@@ -48,31 +48,31 @@ export default class AdvantageRulesDSA5 extends ItemRulesDSA5 {
                 vantage.data.step.value += 1
                 await actor._updateAPs(xpCost)
                 await actor.updateEmbeddedEntity("OwnedItem", vantage);
-                await AdvantageRulesDSA5.vantageAdded(actor, vantage)
+                await AdvantageRulescDSA.vantageAdded(actor, vantage)
             }
         } else if (await actor.checkEnoughXP(item.data.APValue.value.split(';').map(x => x.trim())[0])) {
-            await AdvantageRulesDSA5.vantageAdded(actor, item)
+            await AdvantageRulescDSA.vantageAdded(actor, item)
             await actor._updateAPs(item.data.APValue.value.split(';').map(x => x.trim())[0])
             await actor.createEmbeddedEntity("OwnedItem", item);
         }
     }
 
     static async needsAdoption(actor, item, typeClass) {
-        if (DSA5.vantagesNeedingAdaption[item.name]) {
+        if (cDSA.vantagesNeedingAdaption[item.name]) {
             let template
             let callback
-            if (DSA5.vantagesNeedingAdaption[item.name].items == "text") {
-                template = await renderTemplate('systems/dsa5/templates/dialog/requires-adoption-string-dialog.html', { original: item })
+            if (cDSA.vantagesNeedingAdaption[item.name].items == "text") {
+                template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-string-dialog.html', { original: item })
                 callback = function(dlg) {
                     let adoption = { name: dlg.find('[name="entryselection"]').val() }
-                    AdvantageRulesDSA5._vantageReturnFunction(actor, item, typeClass, adoption)
+                    AdvantageRulescDSA._vantageReturnFunction(actor, item, typeClass, adoption)
                 }
             } else {
-                let items = actor.items.filter(x => DSA5.vantagesNeedingAdaption[item.name].items.includes(x.type))
-                template = await renderTemplate('systems/dsa5/templates/dialog/requires-adoption-dialog.html', { items: items, original: item })
+                let items = actor.items.filter(x => cDSA.vantagesNeedingAdaption[item.name].items.includes(x.type))
+                template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-dialog.html', { items: items, original: item })
                 callback = function(dlg) {
                     let adoption = items.find(x => x.name == dlg.find('[name="entryselection"]').val())
-                    AdvantageRulesDSA5._vantageReturnFunction(actor, item, typeClass, adoption)
+                    AdvantageRulescDSA._vantageReturnFunction(actor, item, typeClass, adoption)
                 }
             }
             await new Dialog({
@@ -92,7 +92,7 @@ export default class AdvantageRulesDSA5 extends ItemRulesDSA5 {
                 default: 'Yes'
             }).render(true)
         } else {
-            AdvantageRulesDSA5._vantageReturnFunction(actor, item, typeClass, null)
+            AdvantageRulescDSA._vantageReturnFunction(actor, item, typeClass, null)
         }
     }
 

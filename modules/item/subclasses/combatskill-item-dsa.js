@@ -1,8 +1,8 @@
-import Actordsa5 from "../../actor/actor-dsa5.js";
-import DiceDSA5 from "../../system/dice-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
+import ActorcDSA from "../../actor/actor-cDSA.js";
+import DicecDSA from "../../system/dice-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
 
-export default class CombatskillDSA5 extends Itemdsa5 {
+export default class CombatskillcDSA extends ItemcDSA {
     static chatData(data, name) {
         return [
             this._chatLineHelper("Description", game.i18n.localize(`Combatskilldescr.${name}`)),
@@ -25,21 +25,21 @@ export default class CombatskillDSA5 extends Itemdsa5 {
 
         let dialogOptions = {
             title: title,
-            template: "/systems/dsa5/templates/dialog/combatskill-dialog.html",
+            template: "/systems/cDSA/templates/dialog/combatskill-dialog.html",
             data: {
                 rollMode: options.rollMode
             },
             callback: (html) => {
                 cardOptions.rollMode = html.find('[name="rollMode"]').val();
                 testData.testModifier = Number(html.find('[name="testModifier"]').val());
-                testData.situationalModifiers = Actordsa5._parseModifiers('[name="situationalModifiers"]')
+                testData.situationalModifiers = ActorcDSA._parseModifiers('[name="situationalModifiers"]')
                 return { testData, cardOptions };
             }
         };
 
-        let cardOptions = actor._setupCardOptions("systems/dsa5/templates/chat/roll/combatskill-card.html", title)
+        let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/combatskill-card.html", title)
 
-        return DiceDSA5.setupDialog({
+        return DicecDSA.setupDialog({
             dialogOptions: dialogOptions,
             testData: testData,
             cardOptions: cardOptions

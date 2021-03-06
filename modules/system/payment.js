@@ -1,6 +1,6 @@
-import DSA5_Utility from "./utility-dsa5.js";
+import cDSA_Utility from "./utility-cDSA.js";
 
-export default class DSA5Payment {
+export default class cDSAPayment {
     static payMoney(actor, moneyString) {
         let money = this._getPaymoney(moneyString)
 
@@ -8,12 +8,12 @@ export default class DSA5Payment {
             let actorsMoney = this._actorsMoney(actor)
             let msg = ""
             if (actorsMoney.sum >= money) {
-                DSA5Payment._updateMoney(actor, actorsMoney.money, actorsMoney.sum - money)
-                msg = `<p>${game.i18n.format("PAYMENT.pay", {actor: actor.name, amount: DSA5Payment._moneyToString(money)})}</p>`
+                cDSAPayment._updateMoney(actor, actorsMoney.money, actorsMoney.sum - money)
+                msg = `<p>${game.i18n.format("PAYMENT.pay", {actor: actor.name, amount: cDSAPayment._moneyToString(money)})}</p>`
             } else {
-                msg = `<p>${game.i18n.format("PAYMENT.cannotpay", {actor: actor.name, amount: DSA5Payment._moneyToString(money)})}</p>`
+                msg = `<p>${game.i18n.format("PAYMENT.cannotpay", {actor: actor.name, amount: cDSAPayment._moneyToString(money)})}</p>`
             }
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"))
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))
         }
 
     }
@@ -23,14 +23,14 @@ export default class DSA5Payment {
 
         if (money) {
             let actorsMoney = this._actorsMoney(actor)
-            DSA5Payment._updateMoney(actor, actorsMoney.money, actorsMoney.sum + money)
-            let msg = `<p>${game.i18n.format("PAYMENT.getPaid", {actor: actor.name, amount: DSA5Payment._moneyToString(money)})}</p>`
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"))
+            cDSAPayment._updateMoney(actor, actorsMoney.money, actorsMoney.sum + money)
+            let msg = `<p>${game.i18n.format("PAYMENT.getPaid", {actor: actor.name, amount: cDSAPayment._moneyToString(money)})}</p>`
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))
         }
     }
 
     static _updateMoney(actor, money, newSum) {
-        let coins = DSA5Payment._moneyToCoins(newSum)
+        let coins = cDSAPayment._moneyToCoins(newSum)
 
         for (let m of money) {
             switch (m.name) {
@@ -56,8 +56,8 @@ export default class DSA5Payment {
         let money = this._getPaidmoney(moneyString)
 
         if (money) {
-            let msg = `<p><b>${game.i18n.localize("PAYMENT.wage")}</b></p><p>${game.i18n.format("PAYMENT.getPaidSum", {amount: DSA5Payment._moneyToString(money)})}</p><button class="getPaidButton" data-amount="${money}">${game.i18n.localize("PAYMENT.getPaidButton")}</button>`
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"))
+            let msg = `<p><b>${game.i18n.localize("PAYMENT.wage")}</b></p><p>${game.i18n.format("PAYMENT.getPaidSum", {amount: cDSAPayment._moneyToString(money)})}</p><button class="getPaidButton" data-amount="${money}">${game.i18n.localize("PAYMENT.getPaidButton")}</button>`
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))
         }
     }
 
@@ -65,8 +65,8 @@ export default class DSA5Payment {
         let money = this._getPaymoney(moneyString)
 
         if (money) {
-            let msg = `<p><b>${game.i18n.localize("PAYMENT.bill")}</b></p>${game.i18n.format("PAYMENT.paySum", {amount: DSA5Payment._moneyToString(money)})}</p><button class="payButton" data-amount="${money}">${game.i18n.localize("PAYMENT.payButton")}</button>`
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"))
+            let msg = `<p><b>${game.i18n.localize("PAYMENT.bill")}</b></p>${game.i18n.format("PAYMENT.paySum", {amount: cDSAPayment._moneyToString(money)})}</p><button class="payButton" data-amount="${money}">${game.i18n.localize("PAYMENT.payButton")}</button>`
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))
         }
     }
 
@@ -76,7 +76,7 @@ export default class DSA5Payment {
 
         if (!money) {
             let msg = `<p><b>${game.i18n.localize("PAYMENT.error")}</b></p><p><i>${game.i18n.localize("PAYMENT.getPaidexample")}</i></p>`;
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"));
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"));
             return false
         }
         return money
@@ -87,7 +87,7 @@ export default class DSA5Payment {
 
         if (!money) {
             let msg = `<p><b>${game.i18n.localize("PAYMENT.error")}</b></p><p><i>${game.i18n.localize("PAYMENT.payexample")}</i></p>`;
-            ChatMessage.create(DSA5_Utility.chatDataSetup(msg, "roll"));
+            ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"));
             return false
         }
         return money
@@ -119,9 +119,9 @@ export default class DSA5Payment {
         }
         let actor = game.user.character
         if (actor && pay) {
-            DSA5Payment.payMoney(actor, $(ev.currentTarget).attr("data-amount"))
+            cDSAPayment.payMoney(actor, $(ev.currentTarget).attr("data-amount"))
         } else if (actor && !pay) {
-            DSA5Payment.getMoney(actor, $(ev.currentTarget).attr("data-amount"))
+            cDSAPayment.getMoney(actor, $(ev.currentTarget).attr("data-amount"))
 
         } else {
             ui.notifications.notify(game.i18n.localize("PAYMENT.onlyActors"))
@@ -142,7 +142,7 @@ export default class DSA5Payment {
     }
 
     static _moneyToString(money) {
-            let coins = DSA5Payment._moneyToCoins(money)
+            let coins = cDSAPayment._moneyToCoins(money)
             let res = []
             for (const [key, value] of Object.entries(coins)) {
                 if (value > 0) {
@@ -155,10 +155,10 @@ export default class DSA5Payment {
 
     static async chatListeners(html) {
         html.on('click', '.payButton', ev => {
-            DSA5Payment.handlePayAction(ev, true)
+            cDSAPayment.handlePayAction(ev, true)
         })
         html.on('click', '.getPaidButton', ev => {
-            DSA5Payment.handlePayAction(ev, false)
+            cDSAPayment.handlePayAction(ev, false)
         })
     }
 }

@@ -117,25 +117,25 @@ h7 {
 	overflow: hidden;
 }
 
-.dsa5 .tab.description.active {
+.cDSA .tab.description.active {
 	display: flex;
 	flex-flow: column;
 	height: calc(100% - 129px);
 	overflow-y: hidden;
 }
 
-.dsa5 .tab.description.active .editor {
+.cDSA .tab.description.active .editor {
 	height: 100%;
 }
 
-.dsa5.item-sheet img {
+.cDSA.item-sheet img {
 	max-height: 50px;
 	max-width: 50px;
 	margin-top: 5px;
 	border-color: transparent;
 }
 
-.dsa5.item textarea {
+.cDSA.item textarea {
 	padding: 1px 3px;
 }
 
@@ -143,7 +143,7 @@ h7 {
 	display: none;
 }
 
-.dsa5 .editor {
+.cDSA .editor {
 	border: none;
 	overflow: auto;
 	flex-grow: 1;
@@ -953,7 +953,7 @@ input[type="text"].col-Money-H {
 	margin-right: 15px;
 }
 
-form.dsa5.item-sheet {
+form.cDSA.item-sheet {
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -1031,26 +1031,26 @@ form.dsa5.item-sheet {
 	margin-right: 25px;
 }
 
-.dsa5.item .item-header {
+.cDSA.item .item-header {
 	background-image: url(../icons/backgrounds/kapitelstart.webp);
 	background-size: 100% 50px;
 	background-repeat: no-repeat;
 	height: 50px;
 }
 
-.dsa5.item div.item-header,
-.dsa5.item .item-header input {
+.cDSA.item div.item-header,
+.cDSA.item .item-header input {
 	text-align: center;
 	padding: 8px;
 	background: none;
 	border: none;
 }
 
-.dsa5.item.minimized .window-header .window-title {
+.cDSA.item.minimized .window-header .window-title {
 	color: black;
 }
 
-.dsa5.item .window-header .window-title {
+.cDSA.item .window-header .window-title {
 	color: transparent;
 	text-shadow: none;
 }
@@ -1060,7 +1060,7 @@ form.dsa5.item-sheet {
 	font-size: 12px;
 }
 
-.dsa5.item h1 {
+.cDSA.item h1 {
 	border: none;
 }
 
@@ -1080,7 +1080,7 @@ form.dsa5.item-sheet {
 	margin-top: 15px;
 }
 
-.dsa5.item .item-main input {
+.cDSA.item .item-main input {
 	margin: 0;
 	border-radius: 0%;
 	height: 29px;
@@ -1100,7 +1100,7 @@ form.dsa5.item-sheet {
 	font-size: 10px;
 }
 
-.dsa5.item .input-text,
+.cDSA.item .input-text,
 .creature-sheet .input-text {
 	border: 1px solid var(--border-color);
 	border-radius: 0px;
@@ -1109,7 +1109,7 @@ form.dsa5.item-sheet {
 	text-align: center;
 }
 
-.dsa5.item select,
+.cDSA.item select,
 .creature-sheet select {
 	/*font-size: 12px;*/
 	height: 28px;
@@ -1118,11 +1118,11 @@ form.dsa5.item-sheet {
 	text-align: center;
 }
 
-.dsa5.item section.content {
+.cDSA.item section.content {
 	height: calc(100% - 140px);
 }
 
-.dsa5.item section.content .tab.active {
+.cDSA.item section.content .tab.active {
 	height: 100%;
 }
 
@@ -1971,7 +1971,7 @@ a.inline-roll {
 	display: inline-block;
 }
 
-.dsa5.post-item img {
+.cDSA.post-item img {
 	border: none;
 }
 

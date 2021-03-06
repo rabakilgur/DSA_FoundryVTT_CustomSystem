@@ -1,3 +1,3 @@
-import CantripItemDSA5 from "./cantrip-item-dsa.js";
+import CantripItemcDSA from "./cantrip-item-dsa.js";
 
-export default class BlessingItemDSA5 extends CantripItemDSA5 {}
+export default class BlessingItemcDSA extends CantripItemcDSA {}

@@ -1,10 +1,10 @@
-import DSA5_Utility from "../../system/utility-dsa5.js";
-import DiceDSA5 from "../../system/dice-dsa5.js"
-import DSA5StatusEffects from "../../status/status_effects.js";
-import AdvantageRulesDSA5 from "../../system/advantage-rules-dsa5.js";
-import Itemdsa5 from "../item-dsa5.js";
-import Actordsa5 from "../../actor/actor-dsa5.js";
-export default class SpellItemDSA5 extends Itemdsa5 {
+import cDSA_Utility from "../../system/utility-cDSA.js";
+import DicecDSA from "../../system/dice-cDSA.js"
+import cDSAStatusEffects from "../../status/status_effects.js";
+import AdvantageRulescDSA from "../../system/advantage-rules-cDSA.js";
+import ItemcDSA from "../item-cDSA.js";
+import ActorcDSA from "../../actor/actor-cDSA.js";
+export default class SpellItemcDSA extends ItemcDSA {
     static chatData(data, name) {
         return [
             this._chatLineHelper("castingTime", data.castingTime.value),
@@ -13,14 +13,14 @@ export default class SpellItemDSA5 extends Itemdsa5 {
             this._chatLineHelper("duration", data.duration.value),
             this._chatLineHelper("reach", data.range.value),
             this._chatLineHelper("targetCategory", data.targetCategory.value),
-            this._chatLineHelper("effect", DSA5_Utility.replaceConditions(DSA5_Utility.replaceDies(data.effect.value)))
+            this._chatLineHelper("effect", cDSA_Utility.replaceConditions(cDSA_Utility.replaceDies(data.effect.value)))
         ]
     }
 
     static getCallbackData(testData, html, actor) {
         testData.testModifier = Number(html.find('[name="testModifier"]').val());
         testData.testDifficulty = 0
-        testData.situationalModifiers = Actordsa5._parseModifiers('[name="situationalModifiers"]')
+        testData.situationalModifiers = ActorcDSA._parseModifiers('[name="situationalModifiers"]')
         testData.calculatedSpellModifiers = {
             castingTime: html.find(".castingTime").text(),
             cost: html.find(".aspcost").text(),
@@ -52,7 +52,7 @@ export default class SpellItemDSA5 extends Itemdsa5 {
             name: game.i18n.localize("maintainedSpells"),
             value: Number(html.find('[name="maintainedSpells"]').val()) * -1
         })
-        testData.extensions = SpellItemDSA5.getSpecAbModifiers(html).join(", ")
+        testData.extensions = SpellItemcDSA.getSpecAbModifiers(html).join(", ")
         testData.advancedModifiers = {
             chars: [0, 1, 2].map(x => Number(html.find(`[name="ch${x}"]`).val())),
             fps: Number(html.find(`[name="fp"]`).val())
@@ -71,10 +71,10 @@ export default class SpellItemDSA5 extends Itemdsa5 {
         let skMod = 0
         let zkMod = 0
 
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalAttunement')))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalRestriction'), -1))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.boundToArtifact'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalAttunement')))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalRestriction'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.boundToArtifact'), -1))
         if (game.user.targets.size) {
             game.user.targets.forEach(target => {
                 skMod = target.actor.data.data.status.soulpower.max * -1
@@ -121,13 +121,13 @@ export default class SpellItemDSA5 extends Itemdsa5 {
             characteristics: [1, 2, 3].map(x => spell.data[`characteristic${x}`].value)
         }
 
-        let situationalModifiers = actor ? DSA5StatusEffects.getRollModifiers(actor, spell) : []
+        let situationalModifiers = actor ? cDSAStatusEffects.getRollModifiers(actor, spell) : []
         this.getSituationalModifiers(situationalModifiers, actor, data)
         data["situationalModifiers"] = situationalModifiers
 
         let dialogOptions = {
             title: title,
-            template: `/systems/dsa5/templates/dialog/${sheet}-enhanced-dialog.html`,
+            template: `/systems/cDSA/templates/dialog/${sheet}-enhanced-dialog.html`,
             data: data,
             callback: (html) => {
                 cardOptions.rollMode = html.find('[name="rollMode"]').val();
@@ -136,9 +136,9 @@ export default class SpellItemDSA5 extends Itemdsa5 {
             }
         };
 
-        let cardOptions = actor._setupCardOptions("systems/dsa5/templates/chat/roll/spell-card.html", title)
+        let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/spell-card.html", title)
 
-        return DiceDSA5.setupDialog({
+        return DicecDSA.setupDialog({
             dialogOptions: dialogOptions,
             testData: testData,
             cardOptions: cardOptions

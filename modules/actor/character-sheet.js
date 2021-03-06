@@ -1,13 +1,13 @@
-import ActorSheetDsa5 from "./actor-sheet.js";
+import ActorSheetcDSA from "./actor-sheet.js";
 import CultureWizard from "../wizards/culture_wizard.js";
 import CareerWizard from "../wizards/career_wizard.js"
 import SpeciesWizard from "../wizards/species_wizard.js";
 
-export default class ActorSheetdsa5Character extends ActorSheetDsa5 {
+export default class ActorSheetcDSACharacter extends ActorSheetcDSA {
     static get defaultOptions() {
         const options = super.defaultOptions;
         mergeObject(options, {
-            classes: options.classes.concat(["dsa5", "actor", "character-sheet"]),
+            classes: options.classes.concat(["cDSA", "actor", "character-sheet"]),
             width: 784,
             height: 740,
         });
@@ -15,8 +15,8 @@ export default class ActorSheetdsa5Character extends ActorSheetDsa5 {
     }
 
     get template() {
-        if (!game.user.isGM && this.actor.limited) return "systems/dsa5/templates/actors/npc-limited.html";
-        return "systems/dsa5/templates/actors/actor-sheet.html";
+        if (!game.user.isGM && this.actor.limited) return "systems/cDSA/templates/actors/npc-limited.html";
+        return "systems/cDSA/templates/actors/actor-sheet.html";
 
     }
 

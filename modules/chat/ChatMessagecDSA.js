@@ -1,4 +1,4 @@
-export default class ChatMessageDSA5Roll extends ChatMessage {
+export default class ChatMessagecDSARoll extends ChatMessage {
     get isRoll() {
         return this.isDSARoll || super.isRoll
     }

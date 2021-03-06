@@ -1,5 +1,5 @@
-import Itemdsa5 from "../item-dsa5.js"
+import ItemcDSA from "../item-cDSA.js"
 
 
-export default class SpeciesItemDSA5 extends Itemdsa5 {
+export default class SpeciesItemcDSA extends ItemcDSA {
 }

@@ -1,10 +1,10 @@
-import AdvantageRulesDSA5 from "../system/advantage-rules-dsa5.js"
-import DSA5 from "../system/config-dsa5.js"
-import ItemRulesDSA5 from "../system/item-rules-dsa5.js"
-import SpecialabilityRulesDSA5 from "../system/specialability-rules-dsa5.js"
-import DSA5_Utility from "../system/utility-dsa5.js"
+import AdvantageRulescDSA from "../system/advantage-rules-cDSA.js"
+import cDSA from "../system/config-cDSA.js"
+import ItemRulescDSA from "../system/item-rules-cDSA.js"
+import SpecialabilityRulescDSA from "../system/specialability-rules-cDSA.js"
+import cDSA_Utility from "../system/utility-cDSA.js"
 
-export default class WizardDSA5 extends Application {
+export default class WizardcDSA extends Application {
     constructor(app) {
         super(app)
         this.items = []
@@ -19,7 +19,7 @@ export default class WizardDSA5 extends Application {
         const options = super.defaultOptions;
         options.tabs = [{ navSelector: ".tabs", contentSelector: ".content", initial: "description" }]
         mergeObject(options, {
-            classes: options.classes.concat(["dsa5", "largeDialog"]),
+            classes: options.classes.concat(["cDSA", "largeDialog"]),
             width: 770,
             height: 740,
         });
@@ -32,7 +32,7 @@ export default class WizardDSA5 extends Application {
             return []
 
         return value.split(", ").map(x => {
-            let parsed = DSA5_Utility.parseAbilityString(x.trim())
+            let parsed = cDSA_Utility.parseAbilityString(x.trim())
             let item = this.items.find(y => y.name == parsed.original && types.includes(y.type))
             if (!item) {
                 item = this.items.find(y => y.name == parsed.name && types.includes(y.type))
@@ -41,8 +41,8 @@ export default class WizardDSA5 extends Application {
                 if (this.attributes.includes(parsed.name)) {
                     let cost = 0
 
-                    for (let i = this.actor.data.data.characteristics[game.dsa5.config.knownShortcuts[parsed.name.toLowerCase()][1]].value + 1; i < parsed.step + 1; i++) {
-                        cost += DSA5.advancementCosts.E[i]
+                    for (let i = this.actor.data.data.characteristics[game.cDSA.config.knownShortcuts[parsed.name.toLowerCase()][1]].value + 1; i < parsed.step + 1; i++) {
+                        cost += cDSA.advancementCosts.E[i]
                     }
                     item = {
                         name: parsed.name,
@@ -67,7 +67,7 @@ export default class WizardDSA5 extends Application {
             } else {
                 item = duplicate(item)
                 item.tooltip = game.i18n.localize("Details")
-                item = ItemRulesDSA5.reverseAdoptionCalculation(this.actor, parsed, item)
+                item = ItemRulescDSA.reverseAdoptionCalculation(this.actor, parsed, item)
                 if (item.data.APValue) {
                     item.APunparseable = isNaN(item.data.APValue.value)
                     item.apCost = item.APunparseable ? item.data.APValue.value : parsed.step * Number(item.data.APValue.value)
@@ -94,13 +94,13 @@ export default class WizardDSA5 extends Application {
                     item.data.step.value = Number($(k).attr("data-step"))
                     item.data.APValue.value = Number($(k).attr("data-cost"))
                     await this.actor.createEmbeddedEntity("OwnedItem", item)
-                    AdvantageRulesDSA5.vantageAdded(this.actor, item)
+                    AdvantageRulescDSA.vantageAdded(this.actor, item)
                     break
                 case "specialability":
                     item.data.step.value = Number($(k).attr("data-step"))
                     item.data.APValue.value = Number($(k).attr("data-cost"))
                     await this.actor.createEmbeddedEntity("OwnedItem", item)
-                    SpecialabilityRulesDSA5.abilityAdded(this.actor, item)
+                    SpecialabilityRulescDSA.abilityAdded(this.actor, item)
                     break
                 case "magictrick":
                     await this.actor.createEmbeddedEntity("OwnedItem", item)
@@ -144,7 +144,7 @@ export default class WizardDSA5 extends Application {
     }
 
     async updateSkill(skill, itemType, factor = 1, bonus = true) {
-        let parsed = DSA5_Utility.parseAbilityString(skill.trim())
+        let parsed = cDSA_Utility.parseAbilityString(skill.trim())
         let res = this.actor.data.items.find(i => {
             return i.type == itemType && i.name == parsed.name
         });
@@ -182,9 +182,9 @@ export default class WizardDSA5 extends Application {
             let allowed = Number(choice.attr('data-count'))
             if (parent.find(`.${k}:checked`).length != allowed) {
                 ui.notifications.error(game.i18n.localize("DSAError.MissingChoices"))
-                WizardDSA5.flashElem(choice)
+                WizardcDSA.flashElem(choice)
                 let tabElem = choice.closest('.tab').attr("data-tab")
-                WizardDSA5.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
+                WizardcDSA.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
                 return false
             }
         }
@@ -218,7 +218,7 @@ export default class WizardDSA5 extends Application {
             let maxSelections = Number(maxDomElem.attr("data-count"))
             if (parent.find(`.exclusive_${sel}:checked`).length > maxSelections) {
                 ev.currentTarget.checked = false
-                WizardDSA5.flashElem(maxDomElem)
+                WizardcDSA.flashElem(maxDomElem)
                 return
             }
         })

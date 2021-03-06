@@ -1,10 +1,10 @@
-import ActorSheetdsa5Character from './character-sheet.js'
+import ActorSheetcDSACharacter from './character-sheet.js'
 
-export default class ActorSheetdsa5NPC extends ActorSheetdsa5Character {
+export default class ActorSheetcDSANPC extends ActorSheetcDSACharacter {
     static get defaultOptions() {
         const options = super.defaultOptions;
         mergeObject(options, {
-            classes: options.classes.concat(["dsa5", "actor", "npc-sheet"]),
+            classes: options.classes.concat(["cDSA", "actor", "npc-sheet"]),
             width: 770,
             height: 740,
         });
@@ -12,8 +12,8 @@ export default class ActorSheetdsa5NPC extends ActorSheetdsa5Character {
     }
 
     get template() {
-        if (!game.user.isGM && this.actor.limited) return "systems/dsa5/templates/actors/npc-limited.html";
-        return "systems/dsa5/templates/actors/npc-sheet.html";
+        if (!game.user.isGM && this.actor.limited) return "systems/cDSA/templates/actors/npc-limited.html";
+        return "systems/cDSA/templates/actors/npc-sheet.html";
 
     }
 

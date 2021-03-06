@@ -1,7 +1,7 @@
-import DSA5_Utility from "../system/utility-dsa5.js"
-import WizardDSA5 from "./dsa5_wizard.js"
+import cDSA_Utility from "../system/utility-cDSA.js"
+import WizardcDSA from "./cDSA_wizard.js"
 
-export default class CareerWizard extends WizardDSA5 {
+export default class CareerWizard extends WizardcDSA {
     constructor(app) {
         super(app)
         this.items = []
@@ -19,7 +19,7 @@ export default class CareerWizard extends WizardDSA5 {
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("career")}` })
-        options.template = 'systems/dsa5/templates/wizard/add-career-wizard.html'
+        options.template = 'systems/cDSA/templates/wizard/add-career-wizard.html'
         return options;
     }
 
@@ -31,7 +31,7 @@ export default class CareerWizard extends WizardDSA5 {
                 let maxSelections = Number(parent.find('.maxTricks').attr("data-spelltricklimit"))
                 if (parent.find('.exclusiveTricks:checked').length > maxSelections) {
                     ev.currentTarget.checked = false
-                    WizardDSA5.flashElem(parent.find('.maxTricks'))
+                    WizardcDSA.flashElem(parent.find('.maxTricks'))
                     return
                 }
             }
@@ -41,7 +41,7 @@ export default class CareerWizard extends WizardDSA5 {
             });
             let elem = parent.find('.apCost')
             elem.text(apCost)
-            WizardDSA5.flashElem(elem, "emphasize2")
+            WizardcDSA.flashElem(elem, "emphasize2")
         })
     }
 
@@ -50,9 +50,9 @@ export default class CareerWizard extends WizardDSA5 {
         let allowed = Number(choice.attr("data-spelltricklimit")) || 0
         if (parent.find('.exclusiveTricks:checked').length != allowed) {
             ui.notifications.error(game.i18n.localize("DSAError.MissingChoices"))
-            WizardDSA5.flashElem(choice)
+            WizardcDSA.flashElem(choice)
             let tabElem = choice.closest('.tab').attr("data-tab")
-            WizardDSA5.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
+            WizardcDSA.flashElem(parent.find(`.tabs a[data-tab='${tabElem}']`))
             return false
         }
         return super._validateInput(parent)
@@ -121,7 +121,7 @@ export default class CareerWizard extends WizardDSA5 {
             return
 
         for (let k of value.split(",")) {
-            let parsed = DSA5_Utility.parseAbilityString(k.trim())
+            let parsed = cDSA_Utility.parseAbilityString(k.trim())
             let item = this.actor.data.items.find(x => types.includes(x.type) && x.name == parsed.original)
             if (item) {
                 item = duplicate(item)
@@ -197,7 +197,7 @@ export default class CareerWizard extends WizardDSA5 {
 
         for (let k of parent.find('.attributes')) {
             let attr = $(k).attr("data-attribute").toLowerCase()
-            attr = game.dsa5.config.knownShortcuts[attr.toLowerCase()][1]
+            attr = game.cDSA.config.knownShortcuts[attr.toLowerCase()][1]
             console.log(attr)
             if (Number(this.actor.data.data.characteristics[attr].initial) + Number(this.actor.data.data.characteristics[attr].advances) < Number($(k).val())) {
                 update[`data.characteristics.${attr}.advances`] = Number($(k).val()) - Number(this.actor.data.data.characteristics[attr].initial)

@@ -1,12 +1,12 @@
-import DSA5_Utility from "../system/utility-dsa5.js";
-import DSA5 from "../system/config-dsa5.js";
-import AdvantageRulesDSA5 from "../system/advantage-rules-dsa5.js";
-import Itemdsa5 from "../item/item-dsa5.js";
-import SpecialabilityRulesDSA5 from "../system/specialability-rules-dsa5.js";
-import DSA5ChatListeners from "../system/chat_listeners.js";
+import cDSA_Utility from "../system/utility-cDSA.js";
+import cDSA from "../system/config-cDSA.js";
+import AdvantageRulescDSA from "../system/advantage-rules-cDSA.js";
+import ItemcDSA from "../item/item-cDSA.js";
+import SpecialabilityRulescDSA from "../system/specialability-rules-cDSA.js";
+import cDSAChatListeners from "../system/chat_listeners.js";
 
 
-export default class ActorSheetDsa5 extends ActorSheet {
+export default class ActorSheetcDSA extends ActorSheet {
 
     get actorType() {
         return this.actor.data.type;
@@ -125,18 +125,18 @@ export default class ActorSheetDsa5 extends ActorSheet {
     }
 
     _addDefaultActiveEffects(data) {
-        let conditions = duplicate(CONFIG.statusEffects) //.filter(x => x.flags.dsa5.editable)
+        let conditions = duplicate(CONFIG.statusEffects) //.filter(x => x.flags.cDSA.editable)
         for (let condition of conditions) {
             let existing = this.actor.data.effects.find(e => e.flags.core != undefined && e.flags.core.statusId == condition.id)
-            condition.editable = condition.flags.dsa5.editable
+            condition.editable = condition.flags.cDSA.editable
 
-            if (condition.flags.dsa5.value == null)
+            if (condition.flags.cDSA.value == null)
                 condition.boolean = true;
 
             if (existing) {
-                condition.value = existing.flags.dsa5.value
+                condition.value = existing.flags.cDSA.value
                 condition.existing = true
-                condition.manual = existing.flags.dsa5.manual
+                condition.manual = existing.flags.cDSA.manual
             } else {
                 condition.value = 0;
                 condition.existing = false
@@ -152,7 +152,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
         let header = event.currentTarget,
             data = duplicate(header.dataset);
 
-        if (DSA5.equipmentTypes[data.type]) {
+        if (cDSA.equipmentTypes[data.type]) {
             data.type = "equipment"
             data = mergeObject(data, {
                 "data.equipmentType.value": event.currentTarget.attributes["item-section"].value
@@ -163,7 +163,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
             data["data.quantity.value"] = 0
         }
 
-        Itemdsa5.defaultIcon(data)
+        ItemcDSA.defaultIcon(data)
         data["name"] = game.i18n.localize(data.type);
         this.actor.createEmbeddedEntity("OwnedItem", data);
     }
@@ -175,7 +175,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
         let infoMsg = `<h3 class="center"><b>${game.i18n.localize("aggregatedTest")}</b></h3>`
         if (aggregated.data.usedTestCount.value >= aggregated.data.allowedTestCount.value) {
             infoMsg += `${game.i18n.localize("Aggregated.noMoreAllowed")}`;
-            ChatMessage.create(DSA5_Utility.chatDataSetup(infoMsg));
+            ChatMessage.create(cDSA_Utility.chatDataSetup(infoMsg));
         } else {
             this.actor.setupSkill(skill.data, { moreModifiers: [{ name: game.i18n.localize("failedTests"), value: -1 * aggregated.data.previousFailedTests.value, selected: true }] }).then(setupData => {
                 this.actor.basicTest(setupData).then(res => {
@@ -219,7 +219,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
 
     async _advanceAttribute(attr) {
         let advances = Number(this.actor.data.data.characteristics[attr].advances) + Number(this.actor.data.data.characteristics[attr].initial)
-        let cost = DSA5_Utility._calculateAdvCost(advances, "E")
+        let cost = cDSA_Utility._calculateAdvCost(advances, "E")
         if (await this._checkEnoughXP(cost)) {
             let attrJs = `data.characteristics.${attr}.advances`
             await this.actor.update({
@@ -232,7 +232,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
     async _refundAttributeAdvance(attr) {
         let advances = Number(this.actor.data.data.characteristics[attr].advances) + Number(this.actor.data.data.characteristics[attr].initial)
         if (Number(this.actor.data.data.characteristics[attr].advances) > 0) {
-            let cost = DSA5_Utility._calculateAdvCost(advances, "E", 0)
+            let cost = cDSA_Utility._calculateAdvCost(advances, "E", 0)
             let attrJs = `data.characteristics.${attr}.advances`
             await this.actor.update({
                 [attrJs]: Number(this.actor.data.data.characteristics[attr].advances) - 1,
@@ -243,7 +243,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
 
     async _advancePoints(attr) {
         let advances = Number(this.actor.data.data.status[attr].advances)
-        let cost = DSA5_Utility._calculateAdvCost(advances, "D")
+        let cost = cDSA_Utility._calculateAdvCost(advances, "D")
         if (await this._checkEnoughXP(cost) && this._checkMaximumPointAdvancement(attr, advances + 1)) {
             let attrJs = `data.status.${attr}.advances`
             await this.actor.update({
@@ -256,7 +256,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
     async _refundPointsAdvance(attr) {
         let advances = Number(this.actor.data.data.status[attr].advances)
         if (advances > 0) {
-            let cost = DSA5_Utility._calculateAdvCost(advances, "D", 0)
+            let cost = cDSA_Utility._calculateAdvCost(advances, "D", 0)
             let attrJs = `data.status.${attr}.advances`
             await this.actor.update({
                 [attrJs]: Number(this.actor.data.data.status[attr].advances) - 1,
@@ -267,7 +267,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
 
     async _advanceItem(itemId) {
         let item = duplicate(this.actor.items.find(i => i.data._id == itemId))
-        let cost = DSA5_Utility._calculateAdvCost(Number(item.data.talentValue.value), item.data.StF.value)
+        let cost = cDSA_Utility._calculateAdvCost(Number(item.data.talentValue.value), item.data.StF.value)
         if (await this._checkEnoughXP(cost) && this._checkMaximumItemAdvancement(item, Number(item.data.talentValue.value) + 1)) {
             item.data.talentValue.value += 1
             await this.actor.update({
@@ -280,7 +280,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
     async _refundItemAdvance(itemId) {
         let item = duplicate(this.actor.items.find(i => i.data._id == itemId))
         if (item.data.talentValue.value > 0) {
-            let cost = DSA5_Utility._calculateAdvCost(Number(item.data.talentValue.value), item.data.StF.value, 0)
+            let cost = cDSA_Utility._calculateAdvCost(Number(item.data.talentValue.value), item.data.StF.value, 0)
             item.data.talentValue.value -= 1
             await this.actor.update({
                 "data.details.experience.spent": Number(this.actor.data.data.details.experience.spent) - cost
@@ -312,16 +312,16 @@ export default class ActorSheetDsa5 extends ActorSheet {
         let result = false
         switch (item.type) {
             case "combatskill":
-                result = newValue <= Math.max(...(item.data.guidevalue.value.split("/").map(x => this.actor.data.data.characteristics[x].value))) + 2 + AdvantageRulesDSA5.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalCombatTechnique')} (${item.name})`)
+                result = newValue <= Math.max(...(item.data.guidevalue.value.split("/").map(x => this.actor.data.data.characteristics[x].value))) + 2 + AdvantageRulescDSA.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalCombatTechnique')} (${item.name})`)
                 break
             case "spell":
             case "ritual":
             case "liturgy":
             case "ceremony":
-                result = newValue <= 14 + AdvantageRulesDSA5.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalSkill')} (${item.name})`)
+                result = newValue <= 14 + AdvantageRulescDSA.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalSkill')} (${item.name})`)
                 break
             case "skill":
-                result = newValue <= Math.max(...[this.actor.data.data.characteristics[item.data.characteristic1.value].value, this.actor.data.data.characteristics[item.data.characteristic2.value].value, this.actor.data.data.characteristics[item.data.characteristic3.value].value]) + 2 + AdvantageRulesDSA5.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalSkill')} (${item.name})`)
+                result = newValue <= Math.max(...[this.actor.data.data.characteristics[item.data.characteristic1.value].value, this.actor.data.data.characteristics[item.data.characteristic2.value].value, this.actor.data.data.characteristics[item.data.characteristic3.value].value]) + 2 + AdvantageRulescDSA.vantageStep(this.actor, `${game.i18n.localize('LocalizedIDs.exceptionalSkill')} (${item.name})`)
                 break
         }
         if (!result)
@@ -331,7 +331,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
     }
 
     async _openLibrary() {
-        game.dsa5.itemLibrary.render(true)
+        game.cDSA.itemLibrary.render(true)
     }
 
     _getHeaderButtons() {
@@ -515,7 +515,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
                 if (effect) {
                     let text = $(`<div style="padding:5px;"><b><a class="chat-condition chatButton" data-id="${effect.id}"><img src="${effect.icon}"/>${game.i18n.localize(effect.label)}</a></b>: ${game.i18n.localize(effect.description)}</div>`)
                     text.find('.chat-condition').on('click', ev => {
-                        DSA5ChatListeners.postStatus($(ev.currentTarget).attr('data-id'))
+                        cDSAChatListeners.postStatus($(ev.currentTarget).attr('data-id'))
                     })
                     let elem = $(ev.currentTarget).closest('.groupbox').find('.effectDescription')
                     elem.fadeOut('fast', function() {
@@ -690,7 +690,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
         html.find(".condition-toggle").mousedown(ev => {
             let condKey = $(ev.currentTarget).parents(".statusEffect").attr("data-id")
 
-            if (CONFIG.statusEffects.find(e => e.id == condKey).flags.dsa5.value == null) {
+            if (CONFIG.statusEffects.find(e => e.id == condKey).flags.cDSA.value == null) {
                 if (this.actor.hasCondition(condKey))
                     this.actor.removeCondition(condKey)
                 else
@@ -756,7 +756,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
         let itemId = this._getItemId(ev);
         let item = this.actor.data.items.find(x => x._id == itemId)
         let message = game.i18n.format("DIALOG.DeleteItemDetail", { item: item.name })
-        renderTemplate('systems/dsa5/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
+        renderTemplate('systems/cDSA/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
             new Dialog({
                 title: game.i18n.localize("Delete Confirmation"),
                 content: html,
@@ -784,7 +784,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
         switch (item.type) {
             case "advantage":
             case "disadvantage":
-                await AdvantageRulesDSA5.vantageRemoved(this.actor, item)
+                await AdvantageRulescDSA.vantageRemoved(this.actor, item)
                 xpCost = item.data.APValue.value * item.data.step.value
                 if (/;/.test(item.data.APValue.value)) {
                     steps = item.data.APValue.value.split(";").map(x => Number(x.trim()))
@@ -795,7 +795,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
                 await this._updateAPs(-1 * xpCost)
                 break;
             case "specialability":
-                await SpecialabilityRulesDSA5.abilityRemoved(this.actor, item)
+                await SpecialabilityRulescDSA.abilityRemoved(this.actor, item)
                 break;
             case "blessing":
             case "magictrick":
@@ -805,7 +805,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
             case "ceremony":
             case "liturgy":
             case "spell":
-                let apVal = DSA5_Utility._calculateAdvCost(0, item.data.StF.value, 0)
+                let apVal = cDSA_Utility._calculateAdvCost(0, item.data.StF.value, 0)
                 let extensions = this.actor.data.items.filter(i => i.type == "spellextension" && item.type == i.data.category && item.name == i.data.source)
                 if (extensions) {
                     apVal += extensions.reduce((a, b) => { return a + b.data.APValue.value }, 0)
@@ -839,11 +839,11 @@ export default class ActorSheetDsa5 extends ActorSheet {
     }
 
     async _addVantage(item, typeClass) {
-        AdvantageRulesDSA5.needsAdoption(this.actor, item, typeClass)
+        AdvantageRulescDSA.needsAdoption(this.actor, item, typeClass)
     }
 
     async _addSpecialAbility(item, typeClass) {
-        SpecialabilityRulesDSA5.needsAdoption(this.actor, item, typeClass)
+        SpecialabilityRulescDSA.needsAdoption(this.actor, item, typeClass)
     }
 
 
@@ -895,7 +895,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
                 case "liturgy":
                 case "ceremony":
                 case "ritual":
-                    apCost = DSA5_Utility._calculateAdvCost(0, item.data.StF.value, 0)
+                    apCost = cDSA_Utility._calculateAdvCost(0, item.data.StF.value, 0)
                     break
                 case "blessing":
                 case "magictrick":
@@ -913,11 +913,11 @@ export default class ActorSheetDsa5 extends ActorSheet {
 
     async _addLoot(item) {
         item = duplicate(item)
-        let res = this.actor.data.items.find(i => Itemdsa5.areEquals(item, i));
+        let res = this.actor.data.items.find(i => ItemcDSA.areEquals(item, i));
         if (!res) {
             await this.actor.createEmbeddedEntity("OwnedItem", item);
         } else {
-            Itemdsa5.stackItems(res, item, this.actor)
+            ItemcDSA.stackItems(res, item, this.actor)
         }
     }
 
@@ -987,7 +987,7 @@ export default class ActorSheetDsa5 extends ActorSheet {
     }
 
     async _handleLookup(item) {
-        let lookup = await DSA5_Utility.findAnyItem(item.items)
+        let lookup = await cDSA_Utility.findAnyItem(item.items)
         if (lookup) {
             for (let thing of item.items) {
                 if (thing.count) {
@@ -1022,14 +1022,14 @@ export default class ActorSheetDsa5 extends ActorSheet {
         if (selfTarget && !originalEvent.ctrlKey) {
             return
         } else if (dragData.id && dragData.pack) {
-            item = await DSA5_Utility.findItembyIdAndPack(dragData.id, dragData.pack);
+            item = await cDSA_Utility.findItembyIdAndPack(dragData.id, dragData.pack);
             typeClass = item.data.type
 
         } else if (dragData.id && dragData.type == "Actor") {
-            item = DSA5_Utility.findActorbyId(dragData.id);
+            item = cDSA_Utility.findActorbyId(dragData.id);
             typeClass = item.data.type
         } else if (dragData.id) {
-            item = DSA5_Utility.findItembyId(dragData.id);
+            item = cDSA_Utility.findItembyId(dragData.id);
             typeClass = item.data.type
         } else {
             item = dragData.data

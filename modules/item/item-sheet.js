@@ -1,10 +1,10 @@
-import DSA5_Utility from "../system/utility-dsa5.js";
-import DSA5 from "../system/config-dsa5.js"
-import DSA5StatusEffects from "../status/status_effects.js";
-import DSA5ChatListeners from "../system/chat_listeners.js";
+import cDSA_Utility from "../system/utility-cDSA.js";
+import cDSA from "../system/config-cDSA.js"
+import cDSAStatusEffects from "../status/status_effects.js";
+import cDSAChatListeners from "../system/chat_listeners.js";
 
 
-export default class ItemSheetdsa5 extends ItemSheet {
+export default class ItemSheetcDSA extends ItemSheet {
     constructor(item, options) {
         super(item, options);
         this.mce = null;
@@ -14,7 +14,7 @@ export default class ItemSheetdsa5 extends ItemSheet {
         const options = super.defaultOptions;
         options.tabs = [{ navSelector: ".tabs", contentSelector: ".content", initial: "description" }]
         mergeObject(options, {
-            classes: options.classes.concat(["dsa5", "item"]),
+            classes: options.classes.concat(["cDSA", "item"]),
             width: 450,
             height: 500,
         });
@@ -51,7 +51,7 @@ export default class ItemSheetdsa5 extends ItemSheet {
 
     get template() {
         let type = this.item.type;
-        return `systems/dsa5/templates/items/item-${type}-sheet.html`;
+        return `systems/cDSA/templates/items/item-${type}-sheet.html`;
     }
 
     _getItemId(ev) {
@@ -83,9 +83,9 @@ export default class ItemSheetdsa5 extends ItemSheet {
             this.advanceWrapper(ev, "_refundStep")
         })
 
-        DSA5StatusEffects.bindButtons(html)
+        cDSAStatusEffects.bindButtons(html)
         html.on('click', '.chat-condition', ev => {
-            DSA5ChatListeners.postStatus($(ev.currentTarget).attr("data-id"))
+            cDSAChatListeners.postStatus($(ev.currentTarget).attr("data-id"))
         })
     }
 
@@ -94,32 +94,32 @@ export default class ItemSheetdsa5 extends ItemSheet {
 
         switch (this.item.type) {
             case "skill":
-                data['characteristics'] = DSA5.characteristics;
-                data['skillGroups'] = DSA5.skillGroups;
-                data['skillBurdens'] = DSA5.skillBurdens;
-                data['StFs'] = DSA5.StFs;
+                data['characteristics'] = cDSA.characteristics;
+                data['skillGroups'] = cDSA.skillGroups;
+                data['skillBurdens'] = cDSA.skillBurdens;
+                data['StFs'] = cDSA.StFs;
                 break;
             case "combatskill":
-                data['weapontypes'] = DSA5.weapontypes;
-                data['guidevalues'] = DSA5.combatskillsGuidevalues;
-                data['StFs'] = DSA5.StFs;
+                data['weapontypes'] = cDSA.weapontypes;
+                data['guidevalues'] = cDSA.combatskillsGuidevalues;
+                data['StFs'] = cDSA.StFs;
                 break;
             case "rangeweapon":
-                data['ammunitiongroups'] = DSA5.ammunitiongroups;
-                data['combatskills'] = await DSA5_Utility.allCombatSkillsList("range");
+                data['ammunitiongroups'] = cDSA.ammunitiongroups;
+                data['combatskills'] = await cDSA_Utility.allCombatSkillsList("range");
                 break;
             case "ammunition":
-                data['ammunitiongroups'] = DSA5.ammunitiongroups;
+                data['ammunitiongroups'] = cDSA.ammunitiongroups;
                 break;
             case "trait":
-                data["traitCategories"] = DSA5.traitCategories
-                data['ranges'] = DSA5.meleeRanges;
+                data["traitCategories"] = cDSA.traitCategories
+                data['ranges'] = cDSA.meleeRanges;
                 break
             case "equipment":
-                data['equipmentTypes'] = DSA5.equipmentTypes;
+                data['equipmentTypes'] = cDSA.equipmentTypes;
                 break;
             case "aggregatedTest":
-                data["allSkills"] = await DSA5_Utility.allSkillsList()
+                data["allSkills"] = await cDSA_Utility.allSkillsList()
                 break
         }
         data.isOwned = this.item.isOwned

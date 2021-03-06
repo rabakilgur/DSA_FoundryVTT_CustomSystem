@@ -1,6 +1,6 @@
-import ItemSheetdsa5 from "../item-sheet.js"
+import ItemSheetcDSA from "../item-sheet.js"
 
-export default class ItemSpeciesdsa5 extends ItemSheetdsa5 {
+export default class ItemSpeciescDSA extends ItemSheetcDSA {
     constructor(item, options) {
         options.width = 530
         options.height = 570

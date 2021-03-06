@@ -1,7 +1,7 @@
-import DSA5 from "../../system/config-dsa5.js";
-import AdvantageRulesDSA5 from "../../system/advantage-rules-dsa5.js";
-import SpellItemDSA5 from "./spell-item-dsa.js";
-export default class RitualItemDSA5 extends SpellItemDSA5 {
+import cDSA from "../../system/config-cDSA.js";
+import AdvantageRulescDSA from "../../system/advantage-rules-cDSA.js";
+import SpellItemcDSA from "./spell-item-dsa.js";
+export default class RitualItemcDSA extends SpellItemcDSA {
     static getCallbackData(testData, html, actor) {
         super.getCallbackData(testData, html, actor)
         testData.situationalModifiers.push({
@@ -21,10 +21,10 @@ export default class RitualItemDSA5 extends SpellItemDSA5 {
     static getSituationalModifiers(situationalModifiers, actor, data) {
         let skMod = 0
         let zkMod = 0
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalAttunement')))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalRestriction'), -1))
-        situationalModifiers.push(...AdvantageRulesDSA5.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.boundToArtifact'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.minorSpirits'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalAttunement')))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.magicalRestriction'), -1))
+        situationalModifiers.push(...AdvantageRulescDSA.getVantageAsModifier(actor.data, game.i18n.localize('LocalizedIDs.boundToArtifact'), -1))
         if (game.user.targets.size) {
             game.user.targets.forEach(target => {
                 skMod = target.actor.data.data.status.soulpower.max * -1
@@ -35,8 +35,8 @@ export default class RitualItemDSA5 extends SpellItemDSA5 {
             SKModifier: skMod,
             ZKModifier: zkMod,
             isRitual: true,
-            locationModifiers: DSA5.ritualLocationModifiers,
-            timeModifiers: DSA5.ritualTimeModifiers
+            locationModifiers: cDSA.ritualLocationModifiers,
+            timeModifiers: cDSA.ritualTimeModifiers
         })
     }
 }

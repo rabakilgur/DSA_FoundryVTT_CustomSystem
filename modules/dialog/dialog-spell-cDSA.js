@@ -1,4 +1,4 @@
-export default class DSA5SpellDialog extends Dialog {
+export default class cDSASpellDialog extends Dialog {
 
     static get defaultOptions() {
         const options = super.defaultOptions;
@@ -105,11 +105,11 @@ export default class DSA5SpellDialog extends Dialog {
             newPosition = baseCastingTime
             parent.find('.spellModifier[data-castingTime]:checked').each(function(index, element) {
                 if (bigCasts) {
-                    let ind = DSA5Dialog.bigTimes.indexOf(newPosition)
+                    let ind = cDSADialog.bigTimes.indexOf(newPosition)
                     if (ind != undefined) {
                         let newIndex = ind + (element.value > 0 ? 1 : -1)
-                        if (newIndex < DSA5Dialog.bigTimes.length && newIndex >= 0) {
-                            newPosition = DSA5Dialog.bigTimes[newIndex]
+                        if (newIndex < cDSADialog.bigTimes.length && newIndex >= 0) {
+                            newPosition = cDSADialog.bigTimes[newIndex]
                         } else {
                             ui.notifications.error(game.i18n.localize("DSAError.CastingTimeLimit"))
                         }

@@ -4,26 +4,26 @@ export default function() {
         if (data.mod == "dodge") {
             let item = {
                 name: game.i18n.localize(data.mod),
-                img: "systems/dsa5/icons/categories/Dodge.webp"
+                img: "systems/cDSA/icons/categories/Dodge.webp"
             }
             let command
             if (game.user.isGM || data.actorId == undefined) {
-                command = `game.dsa5.macro.charMacro("${data.mod}")`
+                command = `game.cDSA.macro.charMacro("${data.mod}")`
             } else {
-                command = `game.dsa5.macro.charMacroById("${data.mod}", "${data.actorId}")`
+                command = `game.cDSA.macro.charMacroById("${data.mod}", "${data.actorId}")`
             }
 
             await createHotBarMacro(command, item.name, item.img, slot)
         } else if (data.mod == "attackWeaponless" || data.mod == "parryWeaponless") {
             let item = {
                 name: game.i18n.localize(data.mod),
-                img: "systems/dsa5/icons/categories/attack_weaponless.webp"
+                img: "systems/cDSA/icons/categories/attack_weaponless.webp"
             }
             let command
             if (game.user.isGM || data.actorId == undefined) {
-                command = `game.dsa5.macro.weaponLessMacro("${data.mod}")`
+                command = `game.cDSA.macro.weaponLessMacro("${data.mod}")`
             } else {
-                command = `game.dsa5.macro.weaponLessMacroId("${data.mod}", "${data.actorId}")`
+                command = `game.cDSA.macro.weaponLessMacroId("${data.mod}", "${data.actorId}")`
             }
 
             await createHotBarMacro(command, item.name, item.img, slot)
@@ -42,9 +42,9 @@ export default function() {
             let param = `{mod: "${data.mod}"}`
             let command
             if (game.user.isGM || data.actorId == undefined) {
-                command = `game.dsa5.macro.itemMacro("${item.name}", "${item.type}", ${param});`;
+                command = `game.cDSA.macro.itemMacro("${item.name}", "${item.type}", ${param});`;
             } else {
-                command = `game.dsa5.macro.itemMacroById("${data.actorId}", "${item.name}", "${item.type}", ${param})`;
+                command = `game.cDSA.macro.itemMacroById("${data.actorId}", "${item.name}", "${item.type}", ${param})`;
             }
             let name = data.mod == undefined ? item.name : `${item.name} - ${game.i18n.localize("CHAR." + data.mod.toUpperCase())}`
             await createHotBarMacro(command, name, item.img, slot)

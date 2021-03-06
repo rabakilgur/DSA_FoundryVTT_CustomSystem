@@ -42,7 +42,7 @@ class SearchDocument {
     get img() {
         switch (this.itemType) {
             case 'JournalEntry':
-                return "systems/dsa5/icons/categories/DSA-Auge.webp"
+                return "systems/cDSA/icons/categories/DSA-Auge.webp"
             default:
                 return this.document.img
         }
@@ -51,7 +51,7 @@ class SearchDocument {
 
 
 
-export default class DSA5ItemLibrary extends Application {
+export default class cDSAItemLibrary extends Application {
     constructor(app) {
         super(app)
         this.journalBuild = false
@@ -193,13 +193,13 @@ export default class DSA5ItemLibrary extends Application {
 
     static get defaultOptions() {
         const options = super.defaultOptions
-        options.id = "DSA5ItemLibrary"
-        options.classes.push("dsa5", "itemlibrary")
+        options.id = "cDSAItemLibrary"
+        options.classes.push("cDSA", "itemlibrary")
         options.height = 800
         options.width = 800
         options.resizable = true
         options.title = game.i18n.localize("ItemLibrary")
-        options.template = "systems/dsa5/templates/system/itemlibrary.html"
+        options.template = "systems/cDSA/templates/system/itemlibrary.html"
         options.tabs = [{ navSelector: ".tabs", contentSelector: ".content", initial: "equipment" }]
         return options
     }
@@ -247,7 +247,7 @@ export default class DSA5ItemLibrary extends Application {
         }
         filteredItems = await this.filterStuff(category, index)
         let resultField = html.find('.searchResult .item-list')
-        renderTemplate('systems/dsa5/templates/system/libraryItem.html', { items: filteredItems }).then(innerhtml => {
+        renderTemplate('systems/cDSA/templates/system/libraryItem.html', { items: filteredItems }).then(innerhtml => {
 
             resultField.empty().append(innerhtml)
             resultField.find(".browser-item").each((i, li) => {
