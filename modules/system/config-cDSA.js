@@ -714,17 +714,33 @@ cDSA.skillGroups = {
 	"nature": "SKILL.nature"
 };
 
-cDSA.skillBurdens = {
+/*cDSA.skillBurdens = {
 	"yes": "yes",
 	"no": "no",
 	"maybe": "maybe"
+}*/
+cDSA.skillBurdens = {
+	"-": "-",
+	"max BE": "max BE",
+	"BE-5": "BE-5",
+	"BE-4": "BE-4",
+	"BE-3": "BE-3",
+	"BE-2": "BE-2",
+	"BE-1": "BE-1",
+	"BE": "BE",
+	"BEx2": "BEx2"
 }
 
 cDSA.StFs = {
+	"A*": "A*",
 	"A": "A",
 	"B": "B",
 	"C": "C",
-	"D": "D"
+	"D": "D",
+	"E": "E",
+	"F": "F",
+	"G": "G",
+	"H": "H"
 }
 
 export default cDSA

@@ -2,7 +2,7 @@
 	"name": "cDSA",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln",
 	"description": "A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"templateVersion": 62,
 	"author": "rabakilgur",
 	"scripts": [
@@ -92,15 +92,11 @@
 			"langs": ["de"]
 		}
 	],
-	"languages": [{
+	"languages": [
+		{
 			"lang": "de",
 			"name": "Deutsch",
 			"path": "lang/de.json"
-		},
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
 		}
 	],
 	"socket": true,
