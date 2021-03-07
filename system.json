@@ -12,7 +12,8 @@
 		"cDSA.js"
 	],
 	"styles": [
-		"styles/cDSA.css"
+		"styles/cDSA.css",
+		"styles/cDSA-custom.css"
 	],
 	"packs": [{
 			"name": "skills",

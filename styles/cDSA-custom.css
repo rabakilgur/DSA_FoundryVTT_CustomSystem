@@ -1,0 +1,51 @@
+/* This file is meant to override all styles from modules or the main cDSA.css style file. */
+
+/*
+::-webkit-scrollbar {
+	width: 14px;
+}
+::-webkit-scrollbar-track {
+	background: #111;
+}
+::-webkit-scrollbar-thumb {
+	background: #782e22;
+	border: 1px solid #111;
+}
+.sidebar-tab ::-webkit-scrollbar-thumb {
+	background: #782e22;
+	border: 1px solid #111;
+}
+.sidebar-tab ::-webkit-scrollbar {
+	width: 8px;
+}
+*/
+
+::-webkit-scrollbar,
+.sidebar-tab ::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+::-webkit-scrollbar-track {
+	background-image: url("../assets/scrollbar_track.png");
+	background-repeat: repeat-y;
+	background-position: 50% 0%;
+	background-size: 50%;
+}
+::-webkit-scrollbar-thumb,
+.sidebar-tab ::-webkit-scrollbar-thumb {
+	background-image: url("../assets/scrollbar_thumb.png");
+	background-repeat: no-repeat;
+	background-position: 0% 50%;
+	background-size: 300% 100%;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-position: 50% 50%;
+}
+::-webkit-scrollbar-thumb:active {
+	background-position: 100% 50%;
+}
+
+
+.dice-tray__input {
+	color: #111 !important;
+}
