@@ -442,11 +442,13 @@
 	},
 
 	"SKILL": {
-		"body": "Körpertalente",
-		"social": "Gesellschaftstalente",
+		"weapon": "Kampftechniken",
+		"body": "Körperliche Talente",
+		"social": "Gesellschaftliche Talente",
+		"nature": "Natur Talente",
 		"knowledge": "Wissenstalente",
-		"trade": "Handwerkstalente",
-		"nature": "Naturtalente"
+		"language": "Sprachen & Schriften",
+		"trade": "Handwerkliche Talente"
 	},
 	"Racedescr": {
 		"Mensch": "<p><b>Eigenschaftsänderungen</b>: Eine beliebige Eigenschaft nach Wahl +1</p>",

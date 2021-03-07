@@ -336,11 +336,13 @@ export default class ActorcDSA extends Actor {
 		let encumbrance = 0;
 
 		let skills = {
+			weapon: [],
 			body: [],
 			social: [],
+			nature: [],
 			knowledge: [],
-			trade: [],
-			nature: []
+			language: [],
+			trade: []
 		}
 
 		for (let i of actorData.items) {
