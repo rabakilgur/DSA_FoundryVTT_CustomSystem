@@ -30,6 +30,7 @@
 	background-repeat: repeat-y;
 	background-position: 50% 0%;
 	background-size: 50%;
+	background-color: transparent !important;
 }
 ::-webkit-scrollbar-thumb,
 .sidebar-tab ::-webkit-scrollbar-thumb {
@@ -37,6 +38,8 @@
 	background-repeat: no-repeat;
 	background-position: 0% 50%;
 	background-size: 300% 100%;
+	background-color: transparent !important;
+	border: none !important;
 }
 ::-webkit-scrollbar-thumb:hover {
 	background-position: 50% 50%;
@@ -46,6 +49,9 @@
 }
 
 
+#sidebar {
+	right: 0;
+}
 .dice-tray__input {
 	color: #111 !important;
 }
