@@ -1,5 +1,7 @@
 # Custom "Das Schwarze Auge" system for foundryVTT
 
+Version: 0.0.8
+
 ![Title image](https://repository-images.githubusercontent.com/311655339/4d523800-55a9-11eb-9e2e-6bbc2b71d8a4)
 
 This system is intended for usage with [Foundry Virtual Tabletop](https://foundryvtt.com/) to play a custom house-rules "Das Schwarze Auge" edition.
