@@ -46,6 +46,7 @@ Hooks.once("init", () => {
 	loadTemplates([
 		"systems/cDSA/templates/actors/actor-main.html",
 		"systems/cDSA/templates/actors/actor-talents.html",
+		"systems/cDSA/templates/actors/actor-talents-cDSA.html",
 		"systems/cDSA/templates/items/item-description.html",
 		"systems/cDSA/templates/dialog/default-dialog.html",
 		"systems/cDSA/templates/dialog/enhanced-default-dialog.html",
