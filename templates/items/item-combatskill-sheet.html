@@ -34,11 +34,11 @@
 			</div>
 
 			<div class="form-group">
-				<label class="label-text">{{localize "guidevalue"}}</label>
-				<select name="data.guidevalue.value" data-dtype="String">
-					{{#select data.guidevalue.value}}
-					{{#each guidevalues as |type sktype|}}
-					<option value="{{sktype}}">{{localize type}}</option>
+				<label class="label-text">BE Erschwernis</label>
+				<select name="data.be.value" data-dtype="String">
+					{{#select data.be.value}}
+					{{#each skillBurdens as |be|}}
+					<option value="{{be}}">{{be}}</option>
 					{{/each}}
 					{{/select}}
 				</select>
