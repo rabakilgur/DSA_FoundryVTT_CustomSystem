@@ -74,10 +74,10 @@ input.skill-advances {
 .advance.advance-item {
 	display: none;
 }
-.box-battleskills > .col:nth-child(4n) > .skills,
+/*.box-battleskills > .col:nth-child(4n) > .skills,
 .box-battleskills > .col:nth-child(4n+1) > .skills {
 	background-color: rgba(0, 0, 0, 0.1);
-}
+}*/
 .box-battleskills .row-section.skills {
 	border: none;
 }
