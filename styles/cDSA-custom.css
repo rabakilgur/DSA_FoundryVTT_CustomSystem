@@ -55,3 +55,9 @@
 .dice-tray__input {
 	color: #111 !important;
 }
+.box-talents {
+	margin: 0 -4px;
+}
+.col-talent {
+	padding: 0 4px;
+}
