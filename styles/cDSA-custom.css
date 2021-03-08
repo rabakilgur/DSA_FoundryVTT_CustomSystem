@@ -61,3 +61,16 @@
 .col-talent {
 	padding: 0 4px;
 }
+.skill-select > .d20:not(:last-child) {
+	margin-right: -4px;
+}
+.box-talents .row-section.skills {
+	border: none;
+}
+input.skill-advances {
+	text-align: center;
+}
+.advance.refund-item,
+.advance.advance-item {
+	display: none;
+}
