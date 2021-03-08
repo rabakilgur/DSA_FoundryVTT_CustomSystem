@@ -208,9 +208,7 @@
 
 
 			{{#each actor.combatskills as |item i|}}
-			<script>
-				console.log(actor.combatskills);
-			</script>
+			{{#ifEquals i.weapontype.value "melee" }}
 			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
@@ -233,6 +231,7 @@
 					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
 				</div>
 			</div>
+			{{/ifEquals}}
 			{{/each}}
 
 
@@ -246,6 +245,33 @@
 				<div class="col eight center" title="Talentwert">TaW</div>
 			</div>
 
+
+			{{#each actor.combatskills as |item i|}}
+			{{#ifEquals i.weapontype.value "range" }}
+			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
+				<div class="col fourty">
+					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
+					<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
+					<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
+				</div>
+				<div class="col eight center">
+					?
+				</div>
+				<div class="col eight center">
+					{{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
+				</div>
+				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="attack">
+					<a class="ch-combatskill-attack d20 diet-mu">{{item.data.attack.value}}</a>
+				</div>
+				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="parry">
+					{{#when item.data.weapontype.value 'eq' 'melee'}} <a class="ch-combatskill-parry d20 diet-in">{{item.data.parry.value}}</a> {{else}}- {{/when}}
+				</div>
+				<div class="col eight center">
+					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
+				</div>
+			</div>
+			{{/ifEquals}}
+			{{/each}}
 
 
 		</div>

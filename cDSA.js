@@ -16,6 +16,9 @@ import AdvantageRulescDSA from "./modules/system/advantage-rules-cDSA.js";
 import SpecialabilityRulescDSA from "./modules/system/specialability-rules-cDSA.js"
 import ChatMessagecDSARoll from "./modules/chat/ChatMessagecDSA.js";
 
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+	return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
 
 Hooks.once("init", async function() {
 	console.log("Initializing cDSA system")
