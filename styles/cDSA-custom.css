@@ -78,9 +78,13 @@ input.skill-advances {
 .box-battleskills > .col:nth-child(4n+1) > .skills {
 	background-color: rgba(0, 0, 0, 0.1);
 }
+.box-battleskills .row-section.skills {
+	border: none;
+}
 .col-probe {
-	flex: 50px;
+	flex: 50px !important;
+	min-width: 65px;
 }
 .col-be {
-	flex: 30px;
+	flex: 30px !important;
 }

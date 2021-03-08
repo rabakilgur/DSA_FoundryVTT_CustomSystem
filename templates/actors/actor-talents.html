@@ -69,14 +69,14 @@
 				<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
 				<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
 			</div>
-			<div class="col third">
+			<div class="col col-probe">
 				<a class="skill-select">
 					<span class="d20 diet-{{item.data.characteristic1.value}}">{{localize (concatUp "CHARAbbrev." item.data.characteristic1.value)}}</span>
 					<span class="d20 diet-{{item.data.characteristic2.value}}">{{localize (concatUp "CHARAbbrev." item.data.characteristic2.value)}}</span>
 					<span class="d20 diet-{{item.data.characteristic3.value}}">{{localize (concatUp "CHARAbbrev." item.data.characteristic3.value)}}</span>
 				</a>
 			</div>
-			<div class="col ten">{{item.data.burden.value}}</div>
+			<div class="col col-be">{{item.data.burden.value}}</div>
 			<div class="col ten"><input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" /></div>
 		</div>
 		{{/each}}

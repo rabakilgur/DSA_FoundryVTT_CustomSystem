@@ -199,18 +199,20 @@
 				<div class="col fourty">
 					{{localize "combatskill"}}
 				</div>
-				<div class="col five center">
-					BE
+				<div class="col eight center" title="Abzug durch Behinderung">
+					Spa.
 				</div>
-
-				<div class="col eight center" title="Talentwert">
-					TaW
+				<div class="col eight center" title="Abzug durch Behinderung">
+					BE
 				</div>
 				<div class="col eight center">
 					{{localize "CHARAbbrev.ATFK"}}
 				</div>
 				<div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
 					{{localize "CHARAbbrev.PA"}}
+				</div>
+				<div class="col eight center" title="Talentwert">
+					TaW
 				</div>
 			</div>
 		</div>
@@ -219,18 +221,20 @@
 				<div class="col fourty">
 					{{localize "combatskill"}}
 				</div>
-				<div class="col five center">
-					BE
+				<div class="col eight center" title="Abzug durch Behinderung">
+					Spa.
 				</div>
-
-				<div class="col eight center" title="Talentwert">
-					TaW
+				<div class="col eight center" title="Abzug durch Behinderung">
+					BE
 				</div>
 				<div class="col eight center">
 					{{localize "CHARAbbrev.ATFK"}}
 				</div>
 				<div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
 					{{localize "CHARAbbrev.PA"}}
+				</div>
+				<div class="col eight center" title="Talentwert">
+					TaW
 				</div>
 			</div>
 		</div>
@@ -242,18 +246,20 @@
 					<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
 					<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
 				</div>
-				<div class="col five center">
-					{{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
-				</div>
-
 				<div class="col eight center">
-					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
+					? <!-- ToDo: Steigerungsspalte hinzufügen -->
+				</div>
+				<div class="col eight center">
+					{{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
 				</div>
 				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="attack">
 					<a class="ch-combatskill-attack d20 diet-mu">{{item.data.attack.value}}</a>
 				</div>
 				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="parry">
 					{{#when item.data.weapontype.value 'eq' 'melee'}} <a class="ch-combatskill-parry d20 diet-in">{{item.data.parry.value}}</a> {{else}}- {{/when}}
+				</div>
+				<div class="col eight center">
+					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
 				</div>
 			</div>
 
