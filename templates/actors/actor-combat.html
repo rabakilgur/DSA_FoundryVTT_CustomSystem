@@ -210,7 +210,7 @@
 			{{#each actor.combatskills as |item i|}}
 			{{log item}}
 			{{#ifEquals item.data.weapontype.value "melee" }}
-			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
+			<div class="row-section item skills lineheight tableOdd" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
 					<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
@@ -249,7 +249,7 @@
 
 			{{#each actor.combatskills as |item i|}}
 			{{#ifEquals item.data.weapontype.value "range" }}
-			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
+			<div class="row-section item skills lineheight tableOdd" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
 					<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
