@@ -728,7 +728,7 @@ cDSA.skillGroups = {
 }*/
 cDSA.skillBurdens = {
 	"-": "-",
-	"max BE": "max BE",
+	"maxBE": "maxBE",
 	"BE-5": "BE-5",
 	"BE-4": "BE-4",
 	"BE-3": "BE-3",

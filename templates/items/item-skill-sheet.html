@@ -69,7 +69,7 @@
 				<select name="data.burden.value" data-dtype="String">
 					{{#select data.burden.value}}
 					{{#each skillBurdens as |type sktype|}}
-					<option value="{{sktype}}">{{localize type}}</option>
+					<option value="{{sktype}}">{{type}}</option>
 					{{/each}}
 					{{/select}}
 				</select>
