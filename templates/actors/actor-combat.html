@@ -208,7 +208,8 @@
 
 
 			{{#each actor.combatskills as |item i|}}
-			{{item.data.weapontype.value}}
+			{{log item}}
+			{{log i}}
 			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
