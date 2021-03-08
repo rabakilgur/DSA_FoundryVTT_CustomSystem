@@ -78,7 +78,7 @@
 					<span class="d20 diet-{{item.data.characteristic3.value}}">{{localize (concatUp "CHARAbbrev." item.data.characteristic3.value)}}</span>
 				</a>
 			</div>
-			<div class="col ten">{{localize item.data.burden.value}}</div>
+			<div class="col ten">{{item.data.burden.value}}</div>
 			<div class="col ten"><input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" /></div>
 		</div>
 		{{/each}}
