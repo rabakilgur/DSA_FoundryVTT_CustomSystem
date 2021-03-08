@@ -25,8 +25,8 @@
 				{{localize "skill"}}
 			</div>
 			<div class="col col-probe">{{localize "probe"}}</div>
-			<div class="col col-be" title="{{localize 'BE'}}">{{localize "CHARAbbrev.BE"}}</div>
-			<div class="col ten" title="Talentfertigkeitswert">TaW</div>
+			<div class="col col-be" title="Behinderungsmodifikator">BE</div>
+			<div class="col ten" title="Talentwert">TaW</div>
 		</div>
 		{{#each this as |item i|}}
 		<div class="row-section skills lineheight tableOdd item{{#when item.data.talentValue.value 'eq' 0}} notLearned{{/when}}" data-item-id="{{item._id}}">
@@ -58,9 +58,9 @@
 			<div class="col two">
 				{{localize "skill"}}
 			</div>
-			<div class="col third">{{localize "probe"}}</div>
-			<div class="col ten" title="{{localize 'BE'}}">{{localize "CHARAbbrev.BE"}}</div>
-			<div class="col ten" title="{{localize 'Fw'}}">{{localize "CHARAbbrev.FW"}}</div>
+			<div class="col col-probe">{{localize "probe"}}</div>
+			<div class="col col-be" title="Behinderungsmodifikator">BE</div>
+			<div class="col ten" title="Talentwert">TaW</div>
 		</div>
 		{{#each this as |item i|}}
 		<div class="row-section skills lineheight tableOdd item{{#when item.data.talentValue.value 'eq' 0}} notLearned{{/when}}" data-item-id="{{item._id}}">
