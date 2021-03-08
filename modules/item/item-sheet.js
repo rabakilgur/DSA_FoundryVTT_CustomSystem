@@ -101,7 +101,7 @@ export default class ItemSheetcDSA extends ItemSheet {
 				break;
 			case "combatskill":
 				data['weapontypes'] = cDSA.weapontypes;
-				data['guidevalues'] = cDSA.combatskillsGuidevalues;
+				data['skillBurdens'] = cDSA.skillBurdens;
 				data['StFs'] = cDSA.StFs;
 				break;
 			case "rangeweapon":

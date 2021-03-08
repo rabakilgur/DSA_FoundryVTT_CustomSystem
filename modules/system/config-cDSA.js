@@ -309,10 +309,10 @@ cDSA.defaultWeapon = {
 	data: {
 		data: {
 			reach: {
-				value: "short"
+				value: "N"
 			},
 			damage: {
-				value: "1d6"
+				value: "1d6+2"
 			},
 			atmod: {
 				value: 0,
@@ -322,8 +322,8 @@ cDSA.defaultWeapon = {
 				value: 0,
 				offHandMod: 0
 			},
-			guidevalue: {
-				value: "ge/kk"
+			be: {
+				value: "-"
 			},
 			damageThreshold: {
 				value: "5000"
