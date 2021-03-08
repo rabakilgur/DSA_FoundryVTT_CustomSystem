@@ -193,22 +193,81 @@
 			<a class="ch-collapse"><i class="fas fa-angle-up" title="{{localize 'SHEET.collapse'}}"></i></a>
 		</div>
 	</div>
-	<div class="row-section wrap box-battleskills">
+
+
+	<div class="row-section wrap allTalents showAll box-talents">
+		<div class="col col-talent morph">
+			<div class="row-section skills table-title">
+				<div class="col fourty">Nahkampftechniken</div>
+				<div class="col eight center" title="Steigerungsspalte">Spa.</div>
+				<div class="col eight center" title="Abzug durch Behinderung">BE</div>
+				<div class="col eight center" title="Attacke">AT</div>
+				<div class="col eight center" title="Parade">PA</div>
+				<div class="col eight center" title="Talentwert">TaW</div>
+			</div>
+
+
+			{{#each actor.combatskills as |item i|}}
+			<script>
+				console.log(i);
+			</script>
+			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
+				<div class="col fourty">
+					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
+					<a class="advance refund-item"><i title="{{item.refund}}" class="fas fa-minus"></i></a>
+					<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
+				</div>
+				<div class="col eight center">
+					?
+				</div>
+				<div class="col eight center">
+					{{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
+				</div>
+				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="attack">
+					<a class="ch-combatskill-attack d20 diet-mu">{{item.data.attack.value}}</a>
+				</div>
+				<div class="col eight center item" data-item-id="{{item._id}}" data-mod="parry">
+					{{#when item.data.weapontype.value 'eq' 'melee'}} <a class="ch-combatskill-parry d20 diet-in">{{item.data.parry.value}}</a> {{else}}- {{/when}}
+				</div>
+				<div class="col eight center">
+					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
+				</div>
+			</div>
+			{{/each}}
+
+
+		</div>
+		<div class="col col-talent morph">
+			<div class="row-section skills table-title">
+				<div class="col fourty">Fernkampftechniken</div>
+				<div class="col eight center" title="Steigerungsspalte">Spa.</div>
+				<div class="col eight center" title="Abzug durch Behinderung">BE</div>
+				<div class="col eight center" title="Fernkampf">FK</div>
+				<div class="col eight center" title="Talentwert">TaW</div>
+			</div>
+
+
+
+		</div>
+	</div>
+
+
+	<!--<div class="row-section wrap box-battleskills">
 		<div class="col two">
 			<div class="row-section skills table-title">
 				<div class="col fourty">
 					{{localize "combatskill"}}
 				</div>
-				<div class="col eight center" title="Abzug durch Behinderung">
+				<div class="col eight center" title="Steigerungsspalte">
 					Spa.
 				</div>
 				<div class="col eight center" title="Abzug durch Behinderung">
 					BE
 				</div>
-				<div class="col eight center">
+				<div class="col eight center" title="Attacke / Fernkampf">
 					{{localize "CHARAbbrev.ATFK"}}
 				</div>
-				<div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
+				<div class="col eight center" title="Parade">
 					{{localize "CHARAbbrev.PA"}}
 				</div>
 				<div class="col eight center" title="Talentwert">
@@ -221,16 +280,16 @@
 				<div class="col fourty">
 					{{localize "combatskill"}}
 				</div>
-				<div class="col eight center" title="Abzug durch Behinderung">
+				<div class="col eight center" title="Steigerungsspalte">
 					Spa.
 				</div>
 				<div class="col eight center" title="Abzug durch Behinderung">
 					BE
 				</div>
-				<div class="col eight center">
+				<div class="col eight center" title="Attacke / Fernkampf">
 					{{localize "CHARAbbrev.ATFK"}}
 				</div>
-				<div class="col eight center" title="{{localize 'CHAR.PARRY'}}">
+				<div class="col eight center" title="Parade">
 					{{localize "CHARAbbrev.PA"}}
 				</div>
 				<div class="col eight center" title="Talentwert">
@@ -247,7 +306,7 @@
 					<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
 				</div>
 				<div class="col eight center">
-					? <!-- ToDo: Steigerungsspalte hinzufügen -->
+					?
 				</div>
 				<div class="col eight center">
 					{{localize (concatUp "CHARAbbrev." item.data.guidevalue.value)}}
@@ -265,5 +324,5 @@
 
 		</div>
 		{{/each}}
-	</div>
+	</div>-->
 </div>
