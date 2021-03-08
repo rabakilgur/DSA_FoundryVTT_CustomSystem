@@ -2,7 +2,7 @@
 	"name": "cDSA",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln",
 	"description": "A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"templateVersion": 62,
 	"author": "rabakilgur",
 	"scripts": [
@@ -27,17 +27,6 @@
 			"langs": ["de"]
 		},
 		{
-			"name": "skillsen",
-			"label": "Skills",
-			"system": "cDSA",
-			"path": "packs/skillsen.db",
-			"entity": "Item",
-			"tags": [
-				"skill"
-			],
-			"langs": ["en"]
-		},
-		{
 			"name": "combatskills",
 			"label": "Kampftalente",
 			"system": "cDSA",
@@ -49,17 +38,6 @@
 			"langs": ["de"]
 		},
 		{
-			"name": "combatskillsen",
-			"label": "Combat Techniques",
-			"system": "cDSA",
-			"path": "packs/combatskillsen.db",
-			"entity": "Item",
-			"tags": [
-				"combatskill"
-			],
-			"langs": ["en"]
-		},
-		{
 			"name": "money",
 			"label": "Geld",
 			"system": "cDSA",
@@ -68,17 +46,6 @@
 			"tags": [
 				"money"
 			]
-		},
-		{
-			"name": "speciesen",
-			"label": "Species",
-			"system": "cDSA",
-			"path": "packs/speciesen.db",
-			"entity": "Item",
-			"tags": [
-				"species"
-			],
-			"langs": ["en"]
 		},
 		{
 			"name": "species",

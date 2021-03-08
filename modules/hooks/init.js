@@ -98,12 +98,12 @@ Hooks.once("init", () => {
 });
 
 Hooks.once('setup', function() {
-	if (!["de", "en"].includes(game.i18n.lang)) {
-		console.warn(`cDSA - ${game.i18n.lang} is not a supported language. Falling back to default language.`)
+	if (!["de"].includes(game.i18n.lang)) {
+		console.warn(`cDSA - ${game.i18n.lang} is not a supported language. Falling back to default language (german).`)
 		game.settings.set("core", "language", "de")
 	}
 	setupKnownEquipmentModifiers()
-})
+});
 
 
 function setupKnownEquipmentModifiers() {

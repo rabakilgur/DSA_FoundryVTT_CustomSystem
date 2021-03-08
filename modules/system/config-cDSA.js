@@ -586,10 +586,17 @@ cDSA.meleeRangesArray = [
 	"long"
 ]
 
-cDSA.meleeRanges = {
+/*cDSA.meleeRanges = {
 	"short": "Range-short",
 	"medium": "Range-medium",
 	"long": "Range-long"
+};*/
+cDSA.meleeRanges = {
+	"H": "H",
+	"N": "N",
+	"S": "S",
+	"P": "P",
+	"X": "X"
 };
 
 cDSA.weapontypes = {
