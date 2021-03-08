@@ -209,7 +209,7 @@
 
 			{{#each actor.combatskills as |item i|}}
 			{{log item}}
-			{{log i}}
+			{{#ifEquals item.data.weapontype.value "melee" }}
 			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
@@ -232,7 +232,7 @@
 					<input class="skill-advances" type="text" data-dtype="Number" value="{{item.data.talentValue.value}}" />
 				</div>
 			</div>
-
+			{{/ifEquals}}
 			{{/each}}
 
 
@@ -248,7 +248,7 @@
 
 
 			{{#each actor.combatskills as |item i|}}
-			{{#ifEquals i.weapontype.value "range" }}
+			{{#ifEquals item.data.weapontype.value "range" }}
 			<div class="row-section item skills lineheight" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}

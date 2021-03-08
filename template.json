@@ -656,9 +656,6 @@
 			"damageThreshold": {
 				"value": 0
 			},
-			"guidevalue": {
-				"value": "-"
-			},
 			"combatskill": {
 				"value": "daggers"
 			},
@@ -863,8 +860,8 @@
 			"templates": [
 				"skill"
 			],
-			"guidevalue": {
-				"value": "ff"
+			"be": {
+				"value": "-"
 			},
 			"parry": {
 				"value": 0
