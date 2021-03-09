@@ -208,7 +208,6 @@
 
 
 			{{#each actor.combatskills as |item i|}}
-			{{log item}}
 			{{#ifEquals item.data.weapontype.value "melee" }}
 			<div class="row-section item skills lineheight tableOdd" data-item-id="{{item._id}}">
 				<div class="col fourty">
@@ -217,7 +216,12 @@
 					<a class="advance advance-item"><i title="{{item.cost}}" class="fas fa-plus"></i></a>{{/if}}
 				</div>
 				<div class="col eight center">
-					{{item.data.StF.value}}
+					{{log item}}
+					{{log item.data}}
+					{{log item.data.StF}}
+					{{log item.data.StF.value}}
+					<!--{{item.data.StF.value}}-->
+					?
 				</div>
 				<div class="col eight center">
 					{{item.data.be.value}}
