@@ -201,13 +201,15 @@ export default class ActorcDSA extends Actor {
 
 	static _calculateCombatSkillValues(i, actorData) {
 		if (i.data.weapontype.value == "melee") {
-			let vals = i.data.guidevalue.value.split('/').map(x =>
+			/*let vals = i.data.guidevalue.value.split('/').map(x =>
 				Number(actorData.data.characteristics[x].initial) + Number(actorData.data.characteristics[x].modifier) + Number(actorData.data.characteristics[x].advances)
 			);
 			let parryChar = Math.max(...vals);
 			i.data.parry.value = Math.ceil(i.data.talentValue.value / 2) + Math.max(0, Math.floor((parryChar - 8) / 3)) + Number(game.settings.get("cDSA", "higherDefense"))
 			let attackChar = actorData.data.characteristics.mu.initial + actorData.data.characteristics.mu.modifier + actorData.data.characteristics.mu.advances;
-			i.data.attack.value = i.data.talentValue.value + Math.max(0, Math.floor((attackChar - 8) / 3));
+			i.data.attack.value = i.data.talentValue.value + Math.max(0, Math.floor((attackChar - 8) / 3));*/
+			i.data.parry.value = Math.floor(i.data.talentValue.value / 2);
+			i.data.attack.value = Math.ceil(i.data.talentValue.value / 2);
 		} else {
 			i.data.parry.value = 0;
 			let attackChar = actorData.data.characteristics.ff.initial + actorData.data.characteristics.ff.modifier + actorData.data.characteristics.ff.advances;
