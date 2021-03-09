@@ -207,10 +207,11 @@
 			</div>
 
 
+			{{log actor.combatskills}}
 			{{#each actor.combatskills as |item i|}}
 			{{log item}}
 			{{log item.data}}
-			{{#ifEquals item.data.weapontype.value "melee" }}
+			{{#ifEquals item.data.weapontype?.value "melee" }}
 			<div class="row-section item skills lineheight tableOdd" data-item-id="{{item._id}}">
 				<div class="col fourty">
 					<a class="item-edit">{{item.name}}</a> {{#if item.canAdvance}}
