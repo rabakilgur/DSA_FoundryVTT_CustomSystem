@@ -614,16 +614,14 @@ export default class DicecDSA {
 		let FP_modifier = (testData.advancedModifiers.fps + this._situationalModifiers(testData, "FP"));  // Fertigkeitspunkte-Erschwernis (explizit und implizit)
 		let eFW = FW - FP_modifier;  // Effektiver Fertigkeitswert für diese Probe
 
-		const eFW2low = eFW < 0;
 		if (eFW < 0) {
 			ui.notifications.error("Deine Fertigkeitspunke-Erschwernis ist höher als der Fertigkeitswert!");
 			return;
 		}
 
-		eFW -= modifier;
+		eFW -= modifier;  // ziehe die Erschwernis von
 		let eEig = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value - testData.advancedModifiers.chars[x - 1]); // Effektive Eigenschaften für diese Probe
 
-		const checkNotDoable = eEig.some(eig => (eig < (1 - eFW)));
 		if (eEig.some(eig => (eig < (1 - eFW)))) {
 			ui.notifications.error("Die Probe ist nicht erlaubt, da sie nicht schaffbar ist!");
 			return;
@@ -631,14 +629,16 @@ export default class DicecDSA {
 
 		let roll = testData.roll ? testData.roll : new Roll("1d20+1d20+1d20").roll();
 
-		let compensation = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - eEig[x]);  // Punkte die man zum Ausgleichen braucht
+		let compensations = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - eEig[x]);  // Punkte die man zum Ausgleichen braucht
 
 		let FP = eFW; // Fertigkeitspunkte die am Ende noch übrig bleiben (hier werden noch welche abgezogen wenn etwas ausgeglichen werden muss)
-		for (let k of compensation) {
+		for (let k of compensations) {
 			if (k > 0) FP -= k
 		}
 
-		// Hinweis: FP enthält jetzt die anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
+		let maxPossibleModifier = (FP < eFW) ? FP : (FP - Math.max.apply(Math, compensations));
+
+		// Hinweis: FP enthält jetzt die Anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
 
 		let failValue = 20
 		if ((testData.source.type == "spell" || testData.source.type == "ritual") && AdvantageRulescDSA.hasVantage(testData.extra.actor, game.i18n.localize('LocalizedIDs.wildMagic')))
@@ -646,9 +646,9 @@ export default class DicecDSA {
 
 		if (testData.source.type == "skill" && AdvantageRulescDSA.hasVantage(testData.extra.actor, `${game.i18n.localize('LocalizedIDs.incompetent')} (${testData.source.name})`)) {
 			let reroll = new Roll("1d20").roll()
-			let indexOfMinValue = compensation.reduce((iMin, x, i, arr) => x < arr[iMin] ? i : iMin, 0)
+			let indexOfMinValue = compensations.reduce((iMin, x, i, arr) => x < arr[iMin] ? i : iMin, 0)
 			let oldValue = roll.results[indexOfMinValue * 2]
-			FP += Math.max(compensation[indexOfMinValue], 0)
+			FP += Math.max(compensations[indexOfMinValue], 0)
 			FP -= Math.max(0, reroll.total - eEig[indexOfMinValue])
 			roll.results[indexOfMinValue * 2] = reroll.total
 			roll.terms[indexOfMinValue * 2].results[0].result = reroll.total
@@ -683,11 +683,11 @@ export default class DicecDSA {
 		return {
 			result: FP,
 			characteristics: [
-				{ char: testData.source.data.characteristic1.value, res: roll.terms[0].results[0].result, suc: compensation[0] <= 0, tar: eEig[0] },
-				{ char: testData.source.data.characteristic2.value, res: roll.terms[2].results[0].result, suc: compensation[1] <= 0, tar: eEig[1] },
-				{ char: testData.source.data.characteristic3.value, res: roll.terms[4].results[0].result, suc: compensation[2] <= 0, tar: eEig[2] }
+				{ char: testData.source.data.characteristic1.value, res: roll.terms[0].results[0].result, suc: compensations[0] <= 0, tar: eEig[0] },
+				{ char: testData.source.data.characteristic2.value, res: roll.terms[2].results[0].result, suc: compensations[1] <= 0, tar: eEig[1] },
+				{ char: testData.source.data.characteristic3.value, res: roll.terms[4].results[0].result, suc: compensations[2] <= 0, tar: eEig[2] }
 			],
-			qualityStep: Math.min(game.settings.get("cDSA", "capQSat"), (FP == 0 ? 1 : (FP > 0 ? Math.ceil(FP / 3) : 0)) + (testData.qualityStep != undefined ? Number(testData.qualityStep) : 0)),
+			// qualityStep: Math.min(game.settings.get("cDSA", "capQSat"), (FP == 0 ? 1 : (FP > 0 ? Math.ceil(FP / 3) : 0)) + (testData.qualityStep != undefined ? Number(testData.qualityStep) : 0)),
 			description: description,
 			preData: testData,
 			successLevel: successLevel,
