@@ -692,6 +692,7 @@ export default class DicecDSA {
 			preData: testData,
 			successLevel: successLevel,
 			modifiers: modifier,
+			maxPossibleModifier: maxPossibleModifier,
 			extra: {}
 		}
 	}
