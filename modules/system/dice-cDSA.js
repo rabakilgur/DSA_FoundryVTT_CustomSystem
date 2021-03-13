@@ -609,33 +609,35 @@ export default class DicecDSA {
 
 		this._appendSituationalModifiers(testData, game.i18n.localize("manual"), testData.testModifier)
 		this._appendSituationalModifiers(testData, game.i18n.localize("Difficulty"), testData.testDifficulty)
-		let modifier = this._situationalModifiers(testData);
-		console.log("==> modifier [Erschwernis]: ", modifier);
 
-		console.log("==> testData.source.data.talentValue.value [TaW]: ", testData.source.data.talentValue.value);
-		console.log("==> testData.advancedModifiers.fps [special TaP Erschwernis]: ", testData.advancedModifiers.fps);
-		console.log("==> this._situationalModifiers(testData, \"FP\") [TaP Erschwernis]: ", this._situationalModifiers(testData, "FP"));
+		let modifier = this._situationalModifiers(testData);  // explizite Erschwernis auf die Probe
+		let FW = testData.source.data.talentValue.value;  // Fertigkeitswert in diesem Talent/Zauber/...
+		let FP_modifier = (testData.advancedModifiers.fps + this._situationalModifiers(testData, "FP"));  // Fertigkeitspunkte-Erschwernis (explizit und implizit)
+		let eFW = FW - FP_modifier;  // Effektiver Fertigkeitswert für diese Probe
 
-
-
-		let fps = testData.source.data.talentValue.value + testData.advancedModifiers.fps + this._situationalModifiers(testData, "FP");  // Effektiver TaW für diese Probe
-
-		console.log("==> fps_before [Effektiver TaW für diese Probe]: ", fps);
-
-		let tar = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value + modifier + testData.advancedModifiers.chars[x - 1])
-
-		console.log("==> tar [Effektive Eigenschaften für diese Probe]: ", tar);
-
-		let res = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - tar[x])
-
-		console.log("==> res [Punkte die man zum ausgleichen braucht]: ", res);
-
-		for (let k of res) {
-			if (k > 0)
-				fps -= k
+		const eFW2low = eFW < 0;
+		if (eFW < 0) {
+			ui.notifications.error("Deine Fertigkeitspunke-Erschwernis ist höher als der Fertigkeitswert!");
+			return;
 		}
 
-		console.log("==> fps_after [TaP]: ", fps);
+		eFW -= modifier;
+		let eEig = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value + testData.advancedModifiers.chars[x - 1]); // Effektive Eigenschaften für diese Probe
+
+		const checkNotDoable = eEig.some(eig => (eig < (1 - eFW)));
+		if (eEig.some(eig => (eig < (1 - eFW)))) {
+			ui.notifications.error("Die Probe ist nicht erlaubt, da sie nich schaffbar ist!");
+			return;
+		}
+
+		let compensation = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - eEig[x]);  // Punkte die man zum Ausgleichen braucht
+
+		let FP = eFW; // Fertigkeitspunkte die am Ende noch übrig bleiben (hier werden noch welche abgezogen wenn etwas ausgeglichen werden muss)
+		for (let k of compensation) {
+			if (k > 0) FP -= k
+		}
+
+		// Hinweis: FP enthält jetzt die anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
 
 		let failValue = 20
 		if ((testData.source.type == "spell" || testData.source.type == "ritual") && AdvantageRulescDSA.hasVantage(testData.extra.actor, game.i18n.localize('LocalizedIDs.wildMagic')))
@@ -643,10 +645,10 @@ export default class DicecDSA {
 
 		if (testData.source.type == "skill" && AdvantageRulescDSA.hasVantage(testData.extra.actor, `${game.i18n.localize('LocalizedIDs.incompetent')} (${testData.source.name})`)) {
 			let reroll = new Roll("1d20").roll()
-			let indexOfMinValue = res.reduce((iMin, x, i, arr) => x < arr[iMin] ? i : iMin, 0)
+			let indexOfMinValue = compensation.reduce((iMin, x, i, arr) => x < arr[iMin] ? i : iMin, 0)
 			let oldValue = roll.results[indexOfMinValue * 2]
-			fps += Math.max(res[indexOfMinValue], 0)
-			fps -= Math.max(0, reroll.total - tar[indexOfMinValue])
+			FP += Math.max(compensation[indexOfMinValue], 0)
+			FP -= Math.max(0, reroll.total - eEig[indexOfMinValue])
 			roll.results[indexOfMinValue * 2] = reroll.total
 			roll.terms[indexOfMinValue * 2].results[0].result = reroll.total
 			this._addRollDiceSoNice(testData, reroll, roll.terms[indexOfMinValue * 2].options.colorset)
@@ -671,20 +673,20 @@ export default class DicecDSA {
 			description.push(game.i18n.localize("CriticalFailure"));
 			successLevel = -2
 		} else {
-			description.push(game.i18n.localize(fps >= 0 ? "Success" : "Failure"));
-			successLevel = fps >= 0 ? 1 : -1
+			description.push(game.i18n.localize(FP >= 0 ? "Success" : "Failure"));
+			successLevel = FP >= 0 ? 1 : -1
 		}
 
 		description = description.join(", ")
 
 		return {
-			result: fps,
+			result: FP,
 			characteristics: [
-				{ char: testData.source.data.characteristic1.value, res: roll.terms[0].results[0].result, suc: res[0] <= 0, tar: tar[0] },
-				{ char: testData.source.data.characteristic2.value, res: roll.terms[2].results[0].result, suc: res[1] <= 0, tar: tar[1] },
-				{ char: testData.source.data.characteristic3.value, res: roll.terms[4].results[0].result, suc: res[2] <= 0, tar: tar[2] }
+				{ char: testData.source.data.characteristic1.value, res: roll.terms[0].results[0].result, suc: compensation[0] <= 0, tar: eEig[0] },
+				{ char: testData.source.data.characteristic2.value, res: roll.terms[2].results[0].result, suc: compensation[1] <= 0, tar: eEig[1] },
+				{ char: testData.source.data.characteristic3.value, res: roll.terms[4].results[0].result, suc: compensation[2] <= 0, tar: eEig[2] }
 			],
-			qualityStep: Math.min(game.settings.get("cDSA", "capQSat"), (fps == 0 ? 1 : (fps > 0 ? Math.ceil(fps / 3) : 0)) + (testData.qualityStep != undefined ? Number(testData.qualityStep) : 0)),
+			qualityStep: Math.min(game.settings.get("cDSA", "capQSat"), (FP == 0 ? 1 : (FP > 0 ? Math.ceil(FP / 3) : 0)) + (testData.qualityStep != undefined ? Number(testData.qualityStep) : 0)),
 			description: description,
 			preData: testData,
 			successLevel: successLevel,
