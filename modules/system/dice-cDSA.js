@@ -610,14 +610,32 @@ export default class DicecDSA {
 		this._appendSituationalModifiers(testData, game.i18n.localize("manual"), testData.testModifier)
 		this._appendSituationalModifiers(testData, game.i18n.localize("Difficulty"), testData.testDifficulty)
 		let modifier = this._situationalModifiers(testData);
+		console.log("==> modifier [Erschwernis]: ", modifier);
 
-		let fps = testData.source.data.talentValue.value + testData.advancedModifiers.fps + this._situationalModifiers(testData, "FP");
+		console.log("==> testData.source.data.talentValue.value [TaW]: ", testData.source.data.talentValue.value);
+		console.log("==> testData.advancedModifiers.fps [special TaP Erschwernis]: ", testData.advancedModifiers.fps);
+		console.log("==> this._situationalModifiers(testData, \"FP\") [TaP Erschwernis]: ", this._situationalModifiers(testData, "FP"));
+
+
+
+		let fps = testData.source.data.talentValue.value + testData.advancedModifiers.fps + this._situationalModifiers(testData, "FP");  // Effektiver TaW für diese Probe
+
+		console.log("==> fps_before [Effektiver TaW für diese Probe]: ", fps);
+
 		let tar = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value + modifier + testData.advancedModifiers.chars[x - 1])
+
+		console.log("==> tar [Effektive Eigenschaften für diese Probe]: ", tar);
+
 		let res = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - tar[x])
+
+		console.log("==> res [Punkte die man zum ausgleichen braucht]: ", res);
+
 		for (let k of res) {
 			if (k > 0)
 				fps -= k
 		}
+
+		console.log("==> fps_after [TaP]: ", fps);
 
 		let failValue = 20
 		if ((testData.source.type == "spell" || testData.source.type == "ritual") && AdvantageRulescDSA.hasVantage(testData.extra.actor, game.i18n.localize('LocalizedIDs.wildMagic')))
