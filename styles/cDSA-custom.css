@@ -88,3 +88,15 @@ input.skill-advances {
 .col-be {
 	flex: 30px !important;
 }
+
+.dice-tooltip .dice-rolls .roll.max {
+	color: #aa0200;
+	filter: sepia(0.5) hue-rotate(-60deg);
+}
+.dice-tooltip .dice-rolls .roll.min {
+	color: #18520b;
+	filter: sepia(0.5) hue-rotate(60deg);
+}
+.dice-roll .dice-tooltip {
+	display: none;
+}
