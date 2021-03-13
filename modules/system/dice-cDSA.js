@@ -635,10 +635,10 @@ export default class DicecDSA {
 		for (let k of compensations) {
 			if (k > 0) FP -= k
 		}
+		// Hinweis: FP enthält jetzt die Anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
 
 		let maxPossibleModifier = (FP < eFW) ? FP : (FP - Math.max.apply(Math, compensations));
-
-		// Hinweis: FP enthält jetzt die Anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
+		console.log("maxPossibleModifier: ", maxPossibleModifier);
 
 		let failValue = 20
 		if ((testData.source.type == "spell" || testData.source.type == "ritual") && AdvantageRulescDSA.hasVantage(testData.extra.actor, game.i18n.localize('LocalizedIDs.wildMagic')))

@@ -29,6 +29,10 @@
 <div class="card-content">
 	<b>{{localize "FP"}}</b>: {{testData.result}}
 </div>
+{{/if}} {{#if testData.maxPossibleModifier}}
+<div class="card-content">
+	<b>Maximale Erschwernis</b>: {{testData.maxPossibleModifier}}
+</div>
 {{/if}} {{#if testData.qualityStep}}
 <div class="card-content">
 	<b>{{localize "qualityStep"}}</b>: {{testData.qualityStep}}
