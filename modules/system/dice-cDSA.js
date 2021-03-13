@@ -637,8 +637,10 @@ export default class DicecDSA {
 		}
 		// Hinweis: FP enthält jetzt die Anzahl an Fertigkeitspunkten die am Ende noch übrig geblieben sind (kann auch negativ sein)
 
-		let maxPossibleModifier = (FP < eFW) ? FP : (FP - Math.max.apply(Math, compensations));
-		console.log("maxPossibleModifier: ", maxPossibleModifier);
+		let maxPossibleAdditionalModifier = (FP < eFW) ? FP : (FP - Math.max.apply(Math, compensations));  // Um wie viele Punkte die Probe noch zusätzlich erschwert gewesen sein könnte
+		let maxPossibleModifier = maxPossibleAdditionalModifier + modifier;  // Um wie viele Punkte die Probe insgesammt erschwert gewesen sein könnte (inklusive der angerechneten Erschwernis)
+
+		if (maxPossibleAdditionalModifier >= 0) FP = Math.max(FP, 1);  // maxPossibleAdditionalModifier sagt aus, ob die Probe geschafft ist (>= 0) oder nicht (< 0). Wenn die Probe geschafft ist, dann bedeutet das aber auch, dass man minimal 0 Punkte (und damit 1 FP*) über hat.
 
 		let failValue = 20
 		if ((testData.source.type == "spell" || testData.source.type == "ritual") && AdvantageRulescDSA.hasVantage(testData.extra.actor, game.i18n.localize('LocalizedIDs.wildMagic')))
