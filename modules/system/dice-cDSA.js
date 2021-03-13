@@ -681,7 +681,7 @@ export default class DicecDSA {
 		description = description.join(", ")
 
 		return {
-			result: FP,
+			result: Math.min(FP, FW, FW - FP_modifier),
 			characteristics: [
 				{ char: testData.source.data.characteristic1.value, res: roll.terms[0].results[0].result, suc: compensations[0] <= 0, tar: eEig[0] },
 				{ char: testData.source.data.characteristic2.value, res: roll.terms[2].results[0].result, suc: compensations[1] <= 0, tar: eEig[1] },
