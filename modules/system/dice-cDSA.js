@@ -603,11 +603,10 @@ export default class DicecDSA {
 	}
 
 	static _rollThreeD20(testData) {
-		let roll = testData.roll ? testData.roll : new Roll("1d20+1d20+1d20").roll();
 		let description = [];
 		let successLevel = 0
 
-		this._appendSituationalModifiers(testData, game.i18n.localize("manual"), testData.testModifier)
+		this._appendSituationalModifiers(testData, "Händische Erschwernis", testData.testModifier)
 		this._appendSituationalModifiers(testData, game.i18n.localize("Difficulty"), testData.testDifficulty)
 
 		let modifier = this._situationalModifiers(testData);  // explizite Erschwernis auf die Probe
@@ -622,13 +621,15 @@ export default class DicecDSA {
 		}
 
 		eFW -= modifier;
-		let eEig = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value + testData.advancedModifiers.chars[x - 1]); // Effektive Eigenschaften für diese Probe
+		let eEig = [1, 2, 3].map(x => testData.extra.actor.data.characteristics[testData.source.data[`characteristic${x}`].value].value - testData.advancedModifiers.chars[x - 1]); // Effektive Eigenschaften für diese Probe
 
 		const checkNotDoable = eEig.some(eig => (eig < (1 - eFW)));
 		if (eEig.some(eig => (eig < (1 - eFW)))) {
-			ui.notifications.error("Die Probe ist nicht erlaubt, da sie nich schaffbar ist!");
+			ui.notifications.error("Die Probe ist nicht erlaubt, da sie nicht schaffbar ist!");
 			return;
 		}
+
+		let roll = testData.roll ? testData.roll : new Roll("1d20+1d20+1d20").roll();
 
 		let compensation = [0, 1, 2].map(x => roll.terms[x * 2].results[0].result - eEig[x]);  // Punkte die man zum Ausgleichen braucht
 
