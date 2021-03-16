@@ -77,3 +77,10 @@ input.skill-advances {
 .window-app.minimized .window-header {
 	border: none !important;
 }
+.window-app.minimized .window-header .header-button {
+	transform: translateY(-5px);
+}
+.window-app.journal-sheet {
+	min-width: 300px !important;
+}
+
