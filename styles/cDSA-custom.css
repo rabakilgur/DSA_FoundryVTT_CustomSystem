@@ -1,25 +1,5 @@
 /* This file is meant to override all styles from modules or the main cDSA.css style file. */
 
-/*
-::-webkit-scrollbar {
-	width: 14px;
-}
-::-webkit-scrollbar-track {
-	background: #111;
-}
-::-webkit-scrollbar-thumb {
-	background: #782e22;
-	border: 1px solid #111;
-}
-.sidebar-tab ::-webkit-scrollbar-thumb {
-	background: #782e22;
-	border: 1px solid #111;
-}
-.sidebar-tab ::-webkit-scrollbar {
-	width: 8px;
-}
-*/
-
 ::-webkit-scrollbar,
 .sidebar-tab ::-webkit-scrollbar {
 	width: 12px;
@@ -31,6 +11,8 @@
 	background-position: 50% 0%;
 	background-size: 50%;
 	background-color: transparent !important;
+	box-shadow: none;
+	border-radius: 0;
 }
 ::-webkit-scrollbar-thumb,
 .sidebar-tab ::-webkit-scrollbar-thumb {
