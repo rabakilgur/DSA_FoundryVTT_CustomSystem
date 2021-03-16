@@ -11,8 +11,8 @@
 	background-position: 50% 0%;
 	background-size: 50%;
 	background-color: transparent !important;
-	box-shadow: none;
-	border-radius: 0;
+	box-shadow: none !important;
+	border-radius: 0 !important;
 }
 ::-webkit-scrollbar-thumb,
 .sidebar-tab ::-webkit-scrollbar-thumb {
@@ -73,4 +73,7 @@ input.skill-advances {
 
 .dice-roll .dice-tooltip {
 	display: none;
+}
+.window-app.minimized .window-header {
+	border: none !important;
 }
