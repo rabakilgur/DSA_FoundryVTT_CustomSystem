@@ -2,7 +2,7 @@
 	"name": "cDSA_beta",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln [BETA]",
 	"description": "THIS IS THE BETA SYSTEM!   A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
-	"version": "0.0.93",
+	"version": "0.0.95",
 	"templateVersion": 62,
 	"author": "rabakilgur",
 	"scripts": [
@@ -74,7 +74,7 @@
 	"secondaryTokenAttribute": "status.astralenergy.value",
 	"minimumCoreVersion": "0.7.7",
 	"compatibleCoreVersion": "0.7.9",
-	"url": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem",
-	"manifest": "https://raw.githubusercontent.com/rabakilgur/DSA_FoundryVTT_CustomSystem/master/system.json",
-	"download": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem/archive/master.zip"
+	"url": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem/tree/beta",
+	"manifest": "https://raw.githubusercontent.com/rabakilgur/DSA_FoundryVTT_CustomSystem/beta/system-beta.json",
+	"download": "https://github.com/rabakilgur/DSA_FoundryVTT_CustomSystem/archive/beta.zip"
 }
