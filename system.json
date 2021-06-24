@@ -2,7 +2,7 @@
 	"name": "cDSA_beta",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln [BETA]",
 	"description": "THIS IS THE BETA SYSTEM!   A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
-	"version": "0.0.104",
+	"version": "0.0.105",
 	"templateVersion": 62,
 	"author": "rabakilgur",
 	"scripts": [
@@ -18,7 +18,7 @@
 	"packs": [{
 			"name": "skills",
 			"label": "Talente",
-			"system": "cDSA",
+			"system": "cDSA_beta",
 			"path": "packs/skills.db",
 			"entity": "Item",
 			"tags": [
@@ -29,7 +29,7 @@
 		{
 			"name": "combatskills",
 			"label": "Kampftalente",
-			"system": "cDSA",
+			"system": "cDSA_beta",
 			"path": "packs/combatskills.db",
 			"entity": "Item",
 			"tags": [
@@ -40,7 +40,7 @@
 		{
 			"name": "money",
 			"label": "Geld",
-			"system": "cDSA",
+			"system": "cDSA_beta",
 			"path": "packs/money.db",
 			"entity": "Item",
 			"tags": [
@@ -50,7 +50,7 @@
 		{
 			"name": "species",
 			"label": "Spezies",
-			"system": "cDSA",
+			"system": "cDSA_beta",
 			"path": "packs/species.db",
 			"entity": "Item",
 			"tags": [
