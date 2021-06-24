@@ -2,7 +2,7 @@
 	"name": "cDSA_beta",
 	"title": "Das Schwarze Auge Version 4.1 - Mit Hausregeln [BETA]",
 	"description": "THIS IS THE BETA SYSTEM!   A fork of the official \"Das Schwarze Auge\" system for Foundry VTT. Includes all relevant mechanisms to play in the wonderous world of Aventurien and Das Schwarze Auge/The Dark Eye.",
-	"version": "0.0.112",
+	"version": "0.0.113",
 	"templateVersion": 62,
 	"author": "rabakilgur",
 	"scripts": [
