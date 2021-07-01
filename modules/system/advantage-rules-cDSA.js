@@ -62,14 +62,14 @@ export default class AdvantageRulescDSA extends ItemRulescDSA {
 			let template
 			let callback
 			if (cDSA.vantagesNeedingAdaption[item.name].items == "text") {
-				template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-string-dialog.html', { original: item })
+				template = await renderTemplate('systems/cDSA_beta/templates/dialog/requires-adoption-string-dialog.html', { original: item })
 				callback = function(dlg) {
 					let adoption = { name: dlg.find('[name="entryselection"]').val() }
 					AdvantageRulescDSA._vantageReturnFunction(actor, item, typeClass, adoption)
 				}
 			} else {
 				let items = actor.items.filter(x => cDSA.vantagesNeedingAdaption[item.name].items.includes(x.type))
-				template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-dialog.html', { items: items, original: item })
+				template = await renderTemplate('systems/cDSA_beta/templates/dialog/requires-adoption-dialog.html', { items: items, original: item })
 				callback = function(dlg) {
 					let adoption = items.find(x => x.name == dlg.find('[name="entryselection"]').val())
 					AdvantageRulescDSA._vantageReturnFunction(actor, item, typeClass, adoption)

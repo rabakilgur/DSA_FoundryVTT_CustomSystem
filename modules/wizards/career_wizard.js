@@ -19,7 +19,7 @@ export default class CareerWizard extends WizardcDSA {
 	static get defaultOptions() {
 		const options = super.defaultOptions;
 		options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("career")}` })
-		options.template = 'systems/cDSA/templates/wizard/add-career-wizard.html'
+		options.template = 'systems/cDSA_beta/templates/wizard/add-career-wizard.html'
 		return options;
 	}
 

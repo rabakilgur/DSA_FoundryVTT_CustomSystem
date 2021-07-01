@@ -42,7 +42,7 @@ export default class SkillItemcDSA extends ItemcDSA {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/skill-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/skill-dialog.html",
 			data: data,
 
 			callback: (html) => {
@@ -58,7 +58,7 @@ export default class SkillItemcDSA extends ItemcDSA {
 			}
 		};
 
-		let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/skill-card.html", title)
+		let cardOptions = actor._setupCardOptions("systems/cDSA_beta/templates/chat/roll/skill-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,

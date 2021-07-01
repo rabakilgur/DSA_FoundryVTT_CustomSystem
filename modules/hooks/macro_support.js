@@ -4,7 +4,7 @@ export default function() {
 		if (data.mod == "dodge") {
 			let item = {
 				name: game.i18n.localize(data.mod),
-				img: "systems/cDSA/icons/categories/Dodge.webp"
+				img: "systems/cDSA_beta/icons/categories/Dodge.webp"
 			}
 			let command
 			if (game.user.isGM || data.actorId == undefined) {
@@ -17,7 +17,7 @@ export default function() {
 		} else if (data.mod == "attackWeaponless" || data.mod == "parryWeaponless") {
 			let item = {
 				name: game.i18n.localize(data.mod),
-				img: "systems/cDSA/icons/categories/attack_weaponless.webp"
+				img: "systems/cDSA_beta/icons/categories/attack_weaponless.webp"
 			}
 			let command
 			if (game.user.isGM || data.actorId == undefined) {

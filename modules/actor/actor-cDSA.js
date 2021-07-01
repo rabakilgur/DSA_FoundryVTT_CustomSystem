@@ -762,7 +762,7 @@ export default class ActorcDSA extends Actor {
 					}
 					infoMsg = `<h3 class="center"><b>${game.i18n.localize("CHATFATE.faitepointUsed")}</b></h3>
 						${game.i18n.format("CHATFATE." + type, { character: '<b>' + this.name + '</b>' })}<br>`;
-					renderTemplate('systems/cDSA/templates/dialog/isTalentedReroll-dialog.html', { testData: newTestData, postData: data.postData }).then(html => {
+					renderTemplate('systems/cDSA_beta/templates/dialog/isTalentedReroll-dialog.html', { testData: newTestData, postData: data.postData }).then(html => {
 						new cDSADialog({
 							title: game.i18n.localize("CHATFATE.selectDice"),
 							content: html,
@@ -816,7 +816,7 @@ export default class ActorcDSA extends Actor {
 					if (!data.defenderMessage && data.startMessagesList) {
 						cardOptions.startMessagesList = data.startMessagesList;
 					}
-					renderTemplate('systems/cDSA/templates/dialog/fateReroll-dialog.html', { testData: newTestData, postData: data.postData }).then(html => {
+					renderTemplate('systems/cDSA_beta/templates/dialog/fateReroll-dialog.html', { testData: newTestData, postData: data.postData }).then(html => {
 
 						new cDSADialog({
 							title: game.i18n.localize("CHATFATE.selectDice"),
@@ -897,7 +897,7 @@ export default class ActorcDSA extends Actor {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/regeneration-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/regeneration-dialog.html",
 			data: {
 				rollMode: options.rollMode,
 				regenerationInterruptOptions: cDSA.regenerationInterruptOptions,
@@ -919,7 +919,7 @@ export default class ActorcDSA extends Actor {
 			}
 		};
 
-		let cardOptions = this._setupCardOptions("systems/cDSA/templates/chat/roll/regeneration-card.html", title)
+		let cardOptions = this._setupCardOptions("systems/cDSA_beta/templates/chat/roll/regeneration-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,
@@ -946,7 +946,7 @@ export default class ActorcDSA extends Actor {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/status-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/status-dialog.html",
 			data: {
 				rollMode: options.rollMode
 			},
@@ -958,7 +958,7 @@ export default class ActorcDSA extends Actor {
 			}
 		};
 
-		let cardOptions = this._setupCardOptions("systems/cDSA/templates/chat/roll/status-card.html", title)
+		let cardOptions = this._setupCardOptions("systems/cDSA_beta/templates/chat/roll/status-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,
@@ -983,7 +983,7 @@ export default class ActorcDSA extends Actor {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/characteristic-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/characteristic-dialog.html",
 			data: {
 				rollMode: options.rollMode,
 				difficultyLabels: (cDSA.attributeDifficultyLabels)
@@ -997,7 +997,7 @@ export default class ActorcDSA extends Actor {
 			}
 		};
 
-		let cardOptions = this._setupCardOptions("systems/cDSA/templates/chat/roll/characteristic-card.html", title)
+		let cardOptions = this._setupCardOptions("systems/cDSA_beta/templates/chat/roll/characteristic-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,

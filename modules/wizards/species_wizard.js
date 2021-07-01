@@ -12,7 +12,7 @@ export default class SpeciesWizard extends WizardcDSA {
 	static get defaultOptions() {
 		const options = super.defaultOptions;
 		options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("species")}` })
-		options.template = 'systems/cDSA/templates/wizard/add-species-wizard.html'
+		options.template = 'systems/cDSA_beta/templates/wizard/add-species-wizard.html'
 		return options;
 	}
 

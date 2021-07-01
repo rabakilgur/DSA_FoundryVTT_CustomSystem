@@ -23,7 +23,7 @@ export default class CombatTables {
 		let result = CombatTables[`get${table}Botch`](weaponless == "true")
 		let title = `${game.i18n.localize("TABLENAMES." + table)}`
 		let options = {}
-		renderTemplate(`systems/cDSA/templates/tables/tableCard.html`, { result: result, title: title }).then(html => {
+		renderTemplate(`systems/cDSA_beta/templates/tables/tableCard.html`, { result: result, title: title }).then(html => {
 			let chatOptions = {
 				user: game.user._id,
 				content: html,

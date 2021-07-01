@@ -756,7 +756,7 @@ export default class ActorSheetcDSA extends ActorSheet {
 		let itemId = this._getItemId(ev);
 		let item = this.actor.data.items.find(x => x._id == itemId)
 		let message = game.i18n.format("DIALOG.DeleteItemDetail", { item: item.name })
-		renderTemplate('systems/cDSA/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
+		renderTemplate('systems/cDSA_beta/templates/dialog/delete-item-dialog.html', { message: message }).then(html => {
 			new Dialog({
 				title: game.i18n.localize("Delete Confirmation"),
 				content: html,

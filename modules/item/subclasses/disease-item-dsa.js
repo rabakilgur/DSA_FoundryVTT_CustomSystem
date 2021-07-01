@@ -52,7 +52,7 @@ export default class DiseaseItemcDSA extends ItemcDSA {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/poison-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/poison-dialog.html",
 			data: data,
 			callback: (html) => {
 				cardOptions.rollMode = html.find('[name="rollMode"]').val();
@@ -70,7 +70,7 @@ export default class DiseaseItemcDSA extends ItemcDSA {
 			}
 		};
 
-		let cardOptions = item._setupCardOptions(`systems/cDSA/templates/chat/roll/${item.type}-card.html`, title)
+		let cardOptions = item._setupCardOptions(`systems/cDSA_beta/templates/chat/roll/${item.type}-card.html`, title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,

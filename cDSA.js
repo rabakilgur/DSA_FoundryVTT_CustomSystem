@@ -48,7 +48,7 @@ Hooks.once("init", async function() {
 
 	CONFIG.Actor.entityClass = ActorcDSA;
 	CONFIG.Item.entityClass = ItemcDSA;
-	CONFIG.ChatMessage.template = "systems/cDSA/templates/chat/chat-message.html"
+	CONFIG.ChatMessage.template = "systems/cDSA_beta/templates/chat/chat-message.html"
 	CONFIG.ChatMessage.entityClass = ChatMessagecDSARoll
 });
 Hooks.once("setup", async function() {

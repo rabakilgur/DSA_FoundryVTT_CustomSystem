@@ -3,41 +3,41 @@ import DicecDSA from "../system/dice-cDSA.js"
 
 export default class ItemcDSA extends Item {
 	static defaultImages = {
-		"advantage": "systems/cDSA/icons/categories/Vorteil.webp",
-		"disadvantage": "systems/cDSA/icons/categories/Nachteil.webp",
-		"armor": "systems/cDSA/icons/categories/Armor.webp",
-		"meleeweapon": "systems/cDSA/icons/categories/Meleeweapon.webp",
-		"rangeweapon": "systems/cDSA/icons/categories/Rangeweapon.webp",
-		"equipment": "systems/cDSA/icons/categories/Equipment.webp",
-		"consumable": "systems/cDSA/icons/categories/Equipment.webp",
-		"liturgy": "systems/cDSA/icons/categories/Liturgy.webp",
-		"spell": "systems/cDSA/icons/categories/Spell.webp",
-		"ammunition": "systems/cDSA/icons/categories/Munition.webp",
-		"career": "systems/cDSA/icons/categories/Career.webp",
-		"magictrick": "systems/cDSA/icons/categories/Spelltrick.webp",
-		"blessing": "systems/cDSA/icons/categories/Blessing.webp",
-		"combatskill": "systems/cDSA/icons/categories/Combat_Skill.webp",
-		"skill": "systems/cDSA/icons/categories/Skill.webp",
-		"Geweihte": "systems/cDSA/icons/categories/Geweihte.webp",
-		"Weltliche": "systems/cDSA/icons/categories/Weltliche.webp",
-		"Zauberer": "systems/cDSA/icons/categories/Zauberer.webp",
-		"ritual": "systems/cDSA/icons/categories/ritual.webp",
-		"ceremony": "systems/cDSA/icons/categories/ceremony.webp",
-		"abilityclerical": "systems/cDSA/icons/categories/ability_clerical.webp",
-		"abilityCombat": "systems/cDSA/icons/categories/ability_combat.webp",
-		"abilityfatePoints": "systems/cDSA/icons/categories/ability_fate_points.webp",
-		"abilitygeneral": "systems/cDSA/icons/categories/ability_general.webp",
-		"specialability": "systems/cDSA/icons/categories/ability_general.webp",
-		"abilitymagical": "systems/cDSA/icons/categories/ability_magical.webp",
-		"abilitylanguage": "systems/cDSA/icons/categories/Ability_Language.webp",
-		"abilitystaff": "systems/cDSA/icons/categories/ability_staff.webp",
-		"abilityanimal": "systems/cDSA/icons/categories/ability_animal.webp",
-		"trait": "systems/cDSA/icons/categories/trait.webp",
-		"Tiere": "systems/cDSA/icons/categories/Tiere.webp",
-		"aggregatedTest": "systems/cDSA/icons/categories/aggregated_test.webp",
-		"poison": "systems/cDSA/icons/categories/poison.webp",
-		"disease": "systems/cDSA/icons/categories/disease.webp",
-		"spellextension": "systems/cDSA/icons/categories/Spellextension.webp",
+		"advantage": "systems/cDSA_beta/icons/categories/Vorteil.webp",
+		"disadvantage": "systems/cDSA_beta/icons/categories/Nachteil.webp",
+		"armor": "systems/cDSA_beta/icons/categories/Armor.webp",
+		"meleeweapon": "systems/cDSA_beta/icons/categories/Meleeweapon.webp",
+		"rangeweapon": "systems/cDSA_beta/icons/categories/Rangeweapon.webp",
+		"equipment": "systems/cDSA_beta/icons/categories/Equipment.webp",
+		"consumable": "systems/cDSA_beta/icons/categories/Equipment.webp",
+		"liturgy": "systems/cDSA_beta/icons/categories/Liturgy.webp",
+		"spell": "systems/cDSA_beta/icons/categories/Spell.webp",
+		"ammunition": "systems/cDSA_beta/icons/categories/Munition.webp",
+		"career": "systems/cDSA_beta/icons/categories/Career.webp",
+		"magictrick": "systems/cDSA_beta/icons/categories/Spelltrick.webp",
+		"blessing": "systems/cDSA_beta/icons/categories/Blessing.webp",
+		"combatskill": "systems/cDSA_beta/icons/categories/Combat_Skill.webp",
+		"skill": "systems/cDSA_beta/icons/categories/Skill.webp",
+		"Geweihte": "systems/cDSA_beta/icons/categories/Geweihte.webp",
+		"Weltliche": "systems/cDSA_beta/icons/categories/Weltliche.webp",
+		"Zauberer": "systems/cDSA_beta/icons/categories/Zauberer.webp",
+		"ritual": "systems/cDSA_beta/icons/categories/ritual.webp",
+		"ceremony": "systems/cDSA_beta/icons/categories/ceremony.webp",
+		"abilityclerical": "systems/cDSA_beta/icons/categories/ability_clerical.webp",
+		"abilityCombat": "systems/cDSA_beta/icons/categories/ability_combat.webp",
+		"abilityfatePoints": "systems/cDSA_beta/icons/categories/ability_fate_points.webp",
+		"abilitygeneral": "systems/cDSA_beta/icons/categories/ability_general.webp",
+		"specialability": "systems/cDSA_beta/icons/categories/ability_general.webp",
+		"abilitymagical": "systems/cDSA_beta/icons/categories/ability_magical.webp",
+		"abilitylanguage": "systems/cDSA_beta/icons/categories/Ability_Language.webp",
+		"abilitystaff": "systems/cDSA_beta/icons/categories/ability_staff.webp",
+		"abilityanimal": "systems/cDSA_beta/icons/categories/ability_animal.webp",
+		"trait": "systems/cDSA_beta/icons/categories/trait.webp",
+		"Tiere": "systems/cDSA_beta/icons/categories/Tiere.webp",
+		"aggregatedTest": "systems/cDSA_beta/icons/categories/aggregated_test.webp",
+		"poison": "systems/cDSA_beta/icons/categories/poison.webp",
+		"disease": "systems/cDSA_beta/icons/categories/disease.webp",
+		"spellextension": "systems/cDSA_beta/icons/categories/Spellextension.webp",
 		"species": "icons/environment/people/group.webp"
 	}
 
@@ -46,7 +46,7 @@ export default class ItemcDSA extends Item {
 			if (data.type in this.defaultImages) {
 				data.img = this.defaultImages[data.type]
 			} else {
-				data.img = "systems/cDSA/icons/blank.webp";
+				data.img = "systems/cDSA_beta/icons/blank.webp";
 			}
 		}
 	}
@@ -208,7 +208,7 @@ export default class ItemcDSA extends Item {
 		if (chatData.img.includes("/blank.webp"))
 			chatData.img = null;
 
-		renderTemplate('systems/cDSA/templates/chat/post-item.html', chatData).then(html => {
+		renderTemplate('systems/cDSA_beta/templates/chat/post-item.html', chatData).then(html => {
 			let chatOptions = cDSA_Utility.chatDataSetup(html)
 
 			chatOptions["flags.transfer"] = JSON.stringify({

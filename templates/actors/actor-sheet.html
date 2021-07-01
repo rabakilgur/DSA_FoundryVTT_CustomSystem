@@ -34,7 +34,7 @@
 					{{/each}}
 				</div>
 
-				{{> systems/cDSA/templates/actors/parts/healthbar.html}}
+				{{> systems/cDSA_beta/templates/actors/parts/healthbar.html}}
 				<!-- ToDo: Astralenergie-Leiste anzeigen WENN der Charackter Magier ist -->
 
 				<!--<div class="row-section">
@@ -67,31 +67,31 @@
 
 		<section class="content">
 			<div class="tab skills save-scroll" data-tab="skills">
-				{{> systems/cDSA/templates/actors/actor-talents.html}} {{> systems/cDSA/templates/actors/character/actor-aggregatedtests.html}}
+				{{> systems/cDSA_beta/templates/actors/actor-talents.html}} {{> systems/cDSA_beta/templates/actors/character/actor-aggregatedtests.html}}
 			</div>
 			<div class="tab combat save-scroll" data-tab="combat">
-				{{> systems/cDSA/templates/actors/actor-combat.html}}
+				{{> systems/cDSA_beta/templates/actors/actor-combat.html}}
 			</div>
 			<div class="tab main save-scroll" data-tab="main">
-				{{> systems/cDSA/templates/actors/actor-main.html}}
+				{{> systems/cDSA_beta/templates/actors/actor-main.html}}
 			</div>
 			{{#if actor.magic.hasSpells}}
 			<div class="tab magic save-scroll" data-tab="magic">
-				{{> systems/cDSA/templates/actors/character/actor-magic.html}}
+				{{> systems/cDSA_beta/templates/actors/character/actor-magic.html}}
 			</div>
 			{{/if}} {{#if actor.magic.hasPrayers}}
 			<div class="tab religion save-scroll" data-tab="religion">
-				{{> systems/cDSA/templates/actors/character/actor-religion.html}}
+				{{> systems/cDSA_beta/templates/actors/character/actor-religion.html}}
 			</div>
 			{{/if}}
 			<div class="tab inventory save-scroll" data-tab="inventory">
-				{{> systems/cDSA/templates/actors/actor-equipment.html}}
+				{{> systems/cDSA_beta/templates/actors/actor-equipment.html}}
 			</div>
 			<div class="tab status save-scroll" data-tab="status">
-				{{> systems/cDSA/templates/actors/parts/status_effects.html}}
+				{{> systems/cDSA_beta/templates/actors/parts/status_effects.html}}
 			</div>
 			<div class="tab save-scroll" data-tab="notes">
-				{{> systems/cDSA/templates/actors/actor-notes.html}}
+				{{> systems/cDSA_beta/templates/actors/actor-notes.html}}
 			</div>
 		</section>
 	</section>

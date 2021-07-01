@@ -13,7 +13,7 @@ export default function() {
 			})
 
 		if (!createData.img)
-			createData.img = "systems/cDSA/tokens/unknown.webp"
+			createData.img = "systems/cDSA_beta/tokens/unknown.webp"
 
 		if (createData.type == "character") {
 			createData.token.vision = true;

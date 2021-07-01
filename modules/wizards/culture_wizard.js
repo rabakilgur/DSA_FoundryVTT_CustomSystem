@@ -12,7 +12,7 @@ export default class CultureWizard extends WizardcDSA {
 	static get defaultOptions() {
 		const options = super.defaultOptions;
 		options.title = game.i18n.format("WIZARD.addItem", { item: `${game.i18n.localize("culture")}` })
-		options.template = 'systems/cDSA/templates/wizard/add-culture-wizard.html'
+		options.template = 'systems/cDSA_beta/templates/wizard/add-culture-wizard.html'
 		return options;
 	}
 

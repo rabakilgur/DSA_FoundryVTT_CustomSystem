@@ -37,7 +37,7 @@ import cDSA_Utility from "./utility-cDSA.js"
 }*/
 
 async function migrateDSA(currentVersion, migrationVersion) {
-	await fetch("systems/cDSA/lazy/updatenotes.json").then(async r => r.json()).then(async json => {
+	await fetch("systems/cDSA_beta/lazy/updatenotes.json").then(async r => r.json()).then(async json => {
 		for (let i = currentVersion; i < migrationVersion; i++) {
 			let msg = `<h1>Changes</h1>${json["notes"][i]}.<br>For details or proposals check out our wiki page at <a href="https://github.com/Plushtoast/cDSA-foundryVTT" target="_blank">Github</a>. Have fun.`
 			ChatMessage.create(cDSA_Utility.chatDataSetup(msg, "roll"))

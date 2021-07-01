@@ -5,7 +5,7 @@
 		</h1>
 	</header>
 
-	{{> systems/cDSA/templates/items/item-stat.html}}
+	{{> systems/cDSA_beta/templates/items/item-stat.html}}
 
 
 	<nav class="sheet-tabs tabs" data-tab-container="primary">
@@ -16,7 +16,7 @@
 
 	<section class="content">
 
-		{{> systems/cDSA/templates/items/item-description.html}} {{#if isOwned}}
+		{{> systems/cDSA_beta/templates/items/item-description.html}} {{#if isOwned}}
 		<div class="tab extensions" data-tab="extensions">
 			{{#if extensions}} {{#each extensions as |item i|}}
 			<div class="groupbox item inventory" data-item-id="{{item._id}}">

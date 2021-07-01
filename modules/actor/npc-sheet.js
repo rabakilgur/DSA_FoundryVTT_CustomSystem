@@ -12,8 +12,8 @@ export default class ActorSheetcDSANPC extends ActorSheetcDSACharacter {
 	}
 
 	get template() {
-		if (!game.user.isGM && this.actor.limited) return "systems/cDSA/templates/actors/npc-limited.html";
-		return "systems/cDSA/templates/actors/npc-sheet.html";
+		if (!game.user.isGM && this.actor.limited) return "systems/cDSA_beta/templates/actors/npc-limited.html";
+		return "systems/cDSA_beta/templates/actors/npc-sheet.html";
 
 	}
 

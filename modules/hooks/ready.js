@@ -43,8 +43,8 @@ export default function() {
 
 
 		if (game.modules.get("vtta-tokenizer") && game.modules.get("vtta-tokenizer").active && !game.settings.get("cDSA", "tokenizerSetup") && game.user.isGM) {
-			game.settings.set("vtta-tokenizer", "default-frame-pc", "systems/cDSA/icons/backgrounds/token_green.webp")
-			game.settings.set("vtta-tokenizer", "default-frame-npc", "systems/cDSA/icons/backgrounds/token_black.webp")
+			game.settings.set("vtta-tokenizer", "default-frame-pc", "systems/cDSA_beta/icons/backgrounds/token_green.webp")
+			game.settings.set("vtta-tokenizer", "default-frame-npc", "systems/cDSA_beta/icons/backgrounds/token_black.webp")
 			game.settings.set("cDSA", "tokenizerSetup", true)
 		}
 		if (game.modules.get("dice-so-nice") && game.modules.get("dice-so-nice").active && !game.settings.get("cDSA", "diceSetup") && game.user.isGM) {

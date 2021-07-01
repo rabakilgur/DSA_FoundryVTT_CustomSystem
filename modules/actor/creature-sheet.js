@@ -15,8 +15,8 @@ export default class ActorSheetcDSACreature extends ActorSheetcDSA {
 	}
 
 	get template() {
-		if (!game.user.isGM && this.actor.limited) return "systems/cDSA/templates/actors/creature-limited.html";
-		return "systems/cDSA/templates/actors/creature-sheet.html";
+		if (!game.user.isGM && this.actor.limited) return "systems/cDSA_beta/templates/actors/creature-limited.html";
+		return "systems/cDSA_beta/templates/actors/creature-sheet.html";
 	}
 
 	activateListeners(html) {

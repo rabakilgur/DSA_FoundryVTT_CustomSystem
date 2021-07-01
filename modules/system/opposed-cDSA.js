@@ -334,7 +334,7 @@ export default class OpposedcDSA {
 	static renderOpposedResult(formattedOpposeResult, options = {}) {
 		if (options.target) {
 			formattedOpposeResult.hideData = true;
-			renderTemplate("systems/cDSA/templates/chat/roll/opposed-result.html", formattedOpposeResult).then(html => {
+			renderTemplate("systems/cDSA_beta/templates/chat/roll/opposed-result.html", formattedOpposeResult).then(html => {
 				let chatOptions = {
 					user: game.user._id,
 					content: html,
@@ -347,7 +347,7 @@ export default class OpposedcDSA {
 			})
 		} else {
 			formattedOpposeResult.hideData = true;
-			renderTemplate("systems/cDSA/templates/chat/roll/opposed-result.html", formattedOpposeResult).then(html => {
+			renderTemplate("systems/cDSA_beta/templates/chat/roll/opposed-result.html", formattedOpposeResult).then(html => {
 				let chatOptions = {
 					user: game.user._id,
 					content: html,

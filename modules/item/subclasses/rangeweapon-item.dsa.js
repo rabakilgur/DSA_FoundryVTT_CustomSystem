@@ -104,7 +104,7 @@ export default class RangeweaponItemcDSA extends ItemcDSA {
 
 		let dialogOptions = {
 			title: title,
-			template: "/systems/cDSA/templates/dialog/combatskill-enhanced-dialog.html",
+			template: "/systems/cDSA_beta/templates/dialog/combatskill-enhanced-dialog.html",
 			data: data,
 			callback: (html) => {
 				cardOptions.rollMode = html.find('[name="rollMode"]').val();
@@ -142,7 +142,7 @@ export default class RangeweaponItemcDSA extends ItemcDSA {
 			}
 		};
 
-		let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/combatskill-card.html", title)
+		let cardOptions = actor._setupCardOptions("systems/cDSA_beta/templates/chat/roll/combatskill-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,

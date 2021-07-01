@@ -42,7 +42,7 @@ class SearchDocument {
 	get img() {
 		switch (this.itemType) {
 			case 'JournalEntry':
-				return "systems/cDSA/icons/categories/DSA-Auge.webp"
+				return "systems/cDSA_beta/icons/categories/DSA-Auge.webp"
 			default:
 				return this.document.img
 		}
@@ -199,7 +199,7 @@ export default class cDSAItemLibrary extends Application {
 		options.width = 800
 		options.resizable = true
 		options.title = game.i18n.localize("ItemLibrary")
-		options.template = "systems/cDSA/templates/system/itemlibrary.html"
+		options.template = "systems/cDSA_beta/templates/system/itemlibrary.html"
 		options.tabs = [{ navSelector: ".tabs", contentSelector: ".content", initial: "equipment" }]
 		return options
 	}
@@ -247,7 +247,7 @@ export default class cDSAItemLibrary extends Application {
 		}
 		filteredItems = await this.filterStuff(category, index)
 		let resultField = html.find('.searchResult .item-list')
-		renderTemplate('systems/cDSA/templates/system/libraryItem.html', { items: filteredItems }).then(innerhtml => {
+		renderTemplate('systems/cDSA_beta/templates/system/libraryItem.html', { items: filteredItems }).then(innerhtml => {
 
 			resultField.empty().append(innerhtml)
 			resultField.find(".browser-item").each((i, li) => {

@@ -103,14 +103,14 @@ export default class SpecialabilityRulescDSA extends ItemRulescDSA {
 			let template
 			let callback
 			if (rule.items == "text") {
-				template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-string-dialog.html', { original: item })
+				template = await renderTemplate('systems/cDSA_beta/templates/dialog/requires-adoption-string-dialog.html', { original: item })
 				callback = function(dlg) {
 					let adoption = { name: dlg.find('[name="entryselection"]').val() }
 					SpecialabilityRulescDSA._specialabilityReturnFunction(actor, item, typeClass, adoption)
 				}
 			} else {
 				let items = actor.items.filter(x => rule.items.includes(x.type))
-				template = await renderTemplate('systems/cDSA/templates/dialog/requires-adoption-dialog.html', { items: items, original: item, area: rule.area })
+				template = await renderTemplate('systems/cDSA_beta/templates/dialog/requires-adoption-dialog.html', { items: items, original: item, area: rule.area })
 				callback = function(dlg) {
 					let adoption = items.find(x => x.name == dlg.find('[name="entryselection"]').val())
 					adoption.customEntry = dlg.find('[name="custom"]').val()

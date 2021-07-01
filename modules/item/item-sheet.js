@@ -51,7 +51,7 @@ export default class ItemSheetcDSA extends ItemSheet {
 
 	get template() {
 		let type = this.item.type;
-		return `systems/cDSA/templates/items/item-${type}-sheet.html`;
+		return `systems/cDSA_beta/templates/items/item-${type}-sheet.html`;
 	}
 
 	_getItemId(ev) {

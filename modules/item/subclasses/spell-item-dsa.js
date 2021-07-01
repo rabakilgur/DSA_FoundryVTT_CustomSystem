@@ -127,7 +127,7 @@ export default class SpellItemcDSA extends ItemcDSA {
 
 		let dialogOptions = {
 			title: title,
-			template: `/systems/cDSA/templates/dialog/${sheet}-enhanced-dialog.html`,
+			template: `/systems/cDSA_beta/templates/dialog/${sheet}-enhanced-dialog.html`,
 			data: data,
 			callback: (html) => {
 				cardOptions.rollMode = html.find('[name="rollMode"]').val();
@@ -136,7 +136,7 @@ export default class SpellItemcDSA extends ItemcDSA {
 			}
 		};
 
-		let cardOptions = actor._setupCardOptions("systems/cDSA/templates/chat/roll/spell-card.html", title)
+		let cardOptions = actor._setupCardOptions("systems/cDSA_beta/templates/chat/roll/spell-card.html", title)
 
 		return DicecDSA.setupDialog({
 			dialogOptions: dialogOptions,
